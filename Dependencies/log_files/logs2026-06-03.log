@@ -934,3 +934,583 @@ INFO:2026-06-03 12:42:55,705:Thread-8 (process_request_thread):127.0.0.1 - - [03
 INFO:2026-06-03 12:43:56,131:Thread-10 (process_request_thread):Dhan.py System Started
 INFO:2026-06-03 12:43:56,132:Thread-10 (process_request_thread):System Started
 INFO:2026-06-03 12:44:01,416:Thread-10 (process_request_thread):127.0.0.1 - - [03/Jun/2026 12:44:01] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:03:46,180:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:03:46,180:Thread-2 (process_request_thread):System Started
+INFO:2026-06-03 13:03:48,994:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:03:48] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:03:49,801:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:03:49,803:Thread-3 (process_request_thread):System Started
+INFO:2026-06-03 13:03:55,374:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:03:55] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:04:03,324:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:04:03,326:Thread-4 (process_request_thread):System Started
+INFO:2026-06-03 13:04:08,209:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:04:08] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:10:52,506:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:10:52,507:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:10:58,168:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:10:58,192:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:10:58] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:11:27,381:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:11:27,383:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-03 13:11:33,171:Thread-4 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:11:33,201:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:11:33] "GET /api/data?symbol=SENSEX HTTP/1.1" 200 -
+INFO:2026-06-03 13:11:43,000:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:11:43,001:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:11:48,689:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:11:48,713:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:11:48] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:12:49,110:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:12:49,110:Thread-7 (process_request_thread):System Started
+ERROR:2026-06-03 13:12:53,061:Thread-7 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:12:53,078:Thread-7 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:12:53] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:15:18,633:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:15:49,523:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:15:49,524:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:15:55,185:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:15:55,219:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:15:55] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:16:43,221:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:16:48,726:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:16:48,726:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:16:54,011:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:16:54,040:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:16:54] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:17:55,122:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:17:55,122:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:17:58,425:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:17:58,451:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:17:58] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:20:35,975:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:20:42,418:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:20:42,419:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:20:48,199:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:20:48,228:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:20:48] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:21:34,847:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:21:34,847:MainThread:System Started
+INFO:2026-06-03 13:21:36,763:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:21:36,763:MainThread:System Started
+ERROR:2026-06-03 13:21:39,721:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+ERROR:2026-06-03 13:21:40,229:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:25:53,845:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:25:53,846:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:26:00,674:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:26:00,715:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:26:00] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:27:01,062:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:27:01,063:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:27:07,103:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:27:07,136:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:27:07] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:28:08,120:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:28:08,120:Thread-7 (process_request_thread):System Started
+ERROR:2026-06-03 13:28:11,725:Thread-7 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:28:11,743:Thread-7 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:28:11] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:29:12,128:Thread-9 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:29:12,128:Thread-9 (process_request_thread):System Started
+ERROR:2026-06-03 13:29:15,740:Thread-9 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:29:15,784:Thread-9 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:29:15] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:29:43,707:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:29:51,982:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:29:51,983:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:29:55,709:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:29:56,238:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:29:56] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:30:27,333:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:30:57,108:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:30:57,108:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 13:31:00,385:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:31:00,905:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:31:00] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:31:34,063:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:32:01,569:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:32:01,570:Thread-2 (process_request_thread):System Started
+INFO:2026-06-03 13:32:03,396:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:32:03] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-03 13:32:03,870:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:32:03,871:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-03 13:32:07,342:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:32:07,479:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:32:07] "[35m[1mGET /api/data?symbol=NIFTY HTTP/1.1[0m" 500 -
+INFO:2026-06-03 13:32:07,944:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:32:07] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:32:53,196:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:32:53,197:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:32:54,210:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:32:54,210:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:32:54,221:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:32:54] "[35m[1mGET /api/data?symbol=NIFTY HTTP/1.1[0m" 500 -
+INFO:2026-06-03 13:32:57,559:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:32:57] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-03 13:32:57,865:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:32:57,866:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:32:58,847:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:32:58,847:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:32:58,852:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:32:58] "[35m[1mGET /api/data?symbol=NIFTY HTTP/1.1[0m" 500 -
+INFO:2026-06-03 13:33:14,051:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:33:22,421:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:33:22,422:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:33:23,679:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:33:23,679:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:33:23,689:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:33:23] "[35m[1mGET /api/data?symbol=NIFTY HTTP/1.1[0m" 500 -
+INFO:2026-06-03 13:33:26,754:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:33:26] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-03 13:33:27,066:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:33:27,066:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:33:27,943:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:33:27,943:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:33:27,949:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:33:27] "[35m[1mGET /api/data?symbol=NIFTY HTTP/1.1[0m" 500 -
+INFO:2026-06-03 13:33:50,100:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:33:50,100:MainThread:System Started
+ERROR:2026-06-03 13:33:50,410:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:33:50,410:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:33:50,410:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:33:50,410:MainThread:System Started
+ERROR:2026-06-03 13:33:50,732:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:33:50,732:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:33:50,735:MainThread:Exception at calling ltp as 'Tradehull' object has no attribute 'instrument_df'
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 374, in get_ltp_data
+    instrument_df = self.instrument_df.copy()
+                    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Tradehull' object has no attribute 'instrument_df'
+ERROR:2026-06-03 13:33:50,735:MainThread:Exception at calling ltp as 'Tradehull' object has no attribute 'instrument_df'
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 374, in get_ltp_data
+    instrument_df = self.instrument_df.copy()
+                    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Tradehull' object has no attribute 'instrument_df'
+ERROR:2026-06-03 13:33:50,748:MainThread:Exception at calling ltp as 'Tradehull' object has no attribute 'instrument_df'
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 374, in get_ltp_data
+    instrument_df = self.instrument_df.copy()
+                    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Tradehull' object has no attribute 'instrument_df'
+ERROR:2026-06-03 13:33:50,756:MainThread:Exception at calling ltp as 'Tradehull' object has no attribute 'instrument_df'
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 374, in get_ltp_data
+    instrument_df = self.instrument_df.copy()
+                    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Tradehull' object has no attribute 'instrument_df'
+INFO:2026-06-03 13:34:17,207:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:34:17,207:MainThread:System Started
+ERROR:2026-06-03 13:34:17,528:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:34:17,528:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:34:17,546:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:34:17,546:MainThread:System Started
+ERROR:2026-06-03 13:34:17,861:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:34:17,861:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:34:31,861:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:34:31,863:MainThread:System Started
+ERROR:2026-06-03 13:34:32,172:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:34:32,172:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:34:32,172:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:34:32,172:MainThread:System Started
+ERROR:2026-06-03 13:34:32,545:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:34:32,545:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:34:55,949:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:34:55,949:MainThread:System Started
+ERROR:2026-06-03 13:34:56,285:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:34:56,285:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:34:56,289:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:34:56,289:MainThread:System Started
+ERROR:2026-06-03 13:34:56,590:MainThread:Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-03 13:34:56,590:MainThread:Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-03 13:35:14,274:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:35:14,274:MainThread:System Started
+INFO:2026-06-03 13:35:19,752:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:35:19,752:MainThread:System Started
+INFO:2026-06-03 13:35:34,410:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:35:34,410:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:35:40,209:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:35:40,803:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:35:40] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:37:54,120:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:38:01,074:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:38:01,075:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:38:07,046:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:38:07,077:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:38:07] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:38:23,763:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:38:28,559:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:38:28,559:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:38:31,873:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:38:31,887:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:38:31] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:39:03,138:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:39:05,354:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:39:05,355:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:39:10,149:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:39:10,171:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:39:10] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:40:11,111:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:40:11,111:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:40:14,315:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:40:14,333:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:40:14] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:40:38,281:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:40:42,131:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:40:42,132:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:40:45,889:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:40:45,910:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:40:45] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:41:47,116:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:41:47,116:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:41:53,317:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:41:53,359:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:41:53] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:42:05,035:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:42:19,503:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:42:19,504:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:42:25,648:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:42:25,700:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:42:25] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:43:26,116:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:43:26,117:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:43:29,322:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:43:29,335:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:43:29] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:44:09,328:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:44:15,568:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:44:15,568:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:44:18,798:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:44:19,325:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:44:19] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:45:20,103:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:45:20,104:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:45:26,650:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:45:27,237:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:45:27] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:45:50,828:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:46:28,117:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:46:28,117:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 13:46:34,407:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:46:34,995:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:46:34] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:47:06,932:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\test.py', reloading
+INFO:2026-06-03 13:47:11,650:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:47:11,650:MainThread:System Started
+INFO:2026-06-03 13:47:13,599:MainThread:Dhan.py System Started
+INFO:2026-06-03 13:47:13,599:MainThread:System Started
+INFO:2026-06-03 13:49:25,902:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:49:25,904:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:49:31,563:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:49:31,592:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:49:31] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:50:11,589:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:50:16,483:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:50:16,484:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:50:22,238:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:50:22,276:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:50:22] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:51:23,114:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:51:23,114:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:51:29,124:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:51:29,159:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:51:29] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:52:17,746:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:52:24,400:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:52:24,401:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:52:31,171:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:52:31,200:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:52:31] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:53:32,108:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:53:32,108:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:53:35,435:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:53:35,457:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:53:35] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:53:43,146:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:53:49,696:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:53:49,697:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:53:53,465:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:53:53,493:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:53:53] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:54:32,172:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:54:43,550:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:54:43,551:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 13:54:49,384:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:54:49,412:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:54:49] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:55:49,749:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:55:49,749:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:55:53,067:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:55:53,099:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:55:53] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:56:15,473:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 13:56:54,124:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:56:54,124:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 13:57:00,511:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:57:01,146:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:57:01] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:58:14,483:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:58:14,484:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-03 13:58:20,442:Thread-4 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:58:21,171:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:58:21] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:59:04,251:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 13:59:04,252:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 13:59:09,028:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 13:59:09,566:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 13:59:09] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 13:59:26,704:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:00:09,917:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:00:09,917:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 14:00:13,789:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:00:14,346:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:00:14] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:01:09,507:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:01:09,507:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 14:01:14,970:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:01:15,619:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:01:15] "GET /api/data?symbol=SENSEX HTTP/1.1" 200 -
+INFO:2026-06-03 14:01:39,140:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:01:48,529:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:01:48,531:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 14:01:53,934:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:01:53,965:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:01:53] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:02:29,675:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:02:29,676:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 14:02:36,070:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:02:36,097:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:02:36] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:02:50,892:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:02:56,868:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:02:56,868:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 14:03:02,165:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:03:02,196:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:03:02] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:03:08,111:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:03:11,604:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:03:11,605:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 14:03:15,189:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:03:15,717:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:03:15] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:03:33,646:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:03:33,647:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 14:03:39,470:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:03:40,139:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:03:40] "GET /api/data?symbol=SENSEX HTTP/1.1" 200 -
+INFO:2026-06-03 14:03:44,201:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:03:44,201:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-03 14:03:50,011:Thread-4 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:03:50,650:Thread-4 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:03:50] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:04:51,121:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:04:51,121:Thread-6 (process_request_thread):System Started
+ERROR:2026-06-03 14:04:57,816:Thread-6 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:04:58,465:Thread-6 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:04:58] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:05:59,115:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:05:59,116:Thread-8 (process_request_thread):System Started
+ERROR:2026-06-03 14:06:04,733:Thread-8 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:06:05,379:Thread-8 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:06:05] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:08:06,109:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:08:06,110:Thread-10 (process_request_thread):System Started
+ERROR:2026-06-03 14:08:11,452:Thread-10 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:08:12,088:Thread-10 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:08:12] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:12:39,344:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:12:53,114:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:12:53,114:Thread-2 (process_request_thread):System Started
+ERROR:2026-06-03 14:12:56,597:Thread-2 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:12:57,133:Thread-2 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:12:57] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:14:09,045:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:16:46,192:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:16:46,194:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 14:16:52,230:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:16:52,903:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:16:52] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:17:53,267:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:17:53,267:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 14:17:59,020:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:17:59,727:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:17:59] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:19:00,103:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:19:00,103:Thread-7 (process_request_thread):System Started
+ERROR:2026-06-03 14:19:03,443:Thread-7 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:19:03,983:Thread-7 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:19:03] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:19:30,827:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-03 14:19:38,420:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:19:38,422:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-03 14:19:44,155:Thread-3 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:19:44,796:Thread-3 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:19:44] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -
+INFO:2026-06-03 14:21:30,125:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-03 14:21:30,126:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-03 14:21:33,320:Thread-5 (process_request_thread):Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-06-03 14:21:33,890:Thread-5 (process_request_thread):127.0.0.1 - - [03/Jun/2026 14:21:33] "GET /api/data?symbol=NIFTY HTTP/1.1" 200 -

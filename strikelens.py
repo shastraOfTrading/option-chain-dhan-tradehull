@@ -78,7 +78,70 @@ def compute_trend(chain, atm):
         )
 
     return {"label": trend, "explanation": explanation}
+def compute_atm_positioning(chain, atm):
 
+    strikes = sorted(
+        [r["strike"] for r in chain]
+    )
+
+    atm_index = strikes.index(atm)
+    selected_strikes = strikes[
+        max(0, atm_index - 1):
+        min(len(strikes), atm_index + 2)
+    ]
+
+    atm_zone = [
+        r for r in chain
+        if r["strike"] in selected_strikes
+    ]
+
+    pe_score = 0
+    ce_score = 0
+
+    for r in atm_zone:                                                                          
+
+        pe_score += (
+            max(r["pe_doi"],0) * 0.7 +
+            r["pe_vol"] * 0.3
+        )
+
+        ce_score += (
+            max(r["ce_doi"],0) * 0.7 +
+            r["ce_vol"] * 0.3
+        )               
+
+    if pe_score > ce_score * 1.15:
+
+        label = "Bullish"
+
+        reason = (
+            "ATM and ATM-1 show stronger Put activity. "
+            "Put writers are defending current levels."
+        )
+
+    elif ce_score > pe_score * 1.15:
+
+        label = "Bearish"
+
+        reason = (
+             "ATM and ATM-1 show stronger Call activity. "
+            "Call writers are capping upside."
+        )
+
+    else:
+
+        label = "Neutral"
+
+        reason = (
+            "PE and CE activity around ATM is balanced."
+        )
+
+    return {
+        "label": label,
+        "reason": reason,
+        "pe_score": round(pe_score),
+        "ce_score": round(ce_score)
+    }
 
 def build_reason(label, strike, oi, doi, vol):
     """Human-readable reasoning for support / resistance selection."""
@@ -119,7 +182,7 @@ def data():
         num_strikes=10
     )
 
-    print("RESULT =", result)
+    #print("RESULT =", result)
 
     if result is None:
         return jsonify({
@@ -232,7 +295,32 @@ def data():
 
     # ── Trend (computed server-side and returned to frontend) ─────────────────
     trend = compute_trend(rows, sf(atm))
-    
+
+    spot = sf(atm)
+
+    try:
+
+        datax = tsl.get_ltp_data(names=['NIFTY', 'SENSEX'], debug="NO")
+        print(datax)
+        ltp_data = tsl.get_ltp_data(
+            names=["NIFTY", "SENSEX"],
+            debug="NO"
+        )
+        print("LTP DATA =", ltp_data)
+
+        if symbol in ltp_data:
+            spot = float(
+                ltp_data[symbol]
+            )
+
+    except Exception as e:
+
+        print("SPOT ERROR:", e)
+
+    atm_positioning = compute_atm_positioning(
+        rows,
+        sf(atm)
+    )
     # ── Support / resistance reasoning ───────────────────────────────────────
     sup_reason = build_reason(
         "support",
@@ -250,8 +338,10 @@ def data():
     )
 
     return jsonify({
+        "spot": spot,
         "atm": sf(atm),
         "trend": trend,                        # NEW — used by Trend card
+        "atm_positioning": atm_positioning,
         "support": {
             "strike": sf(support["Strike Price"]),
             "oi":     sf(support["PE OI"]),

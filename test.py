@@ -9,18 +9,12 @@ tsl = Tradehull(CLIENT_ID, ACCESS_TOKEN)
 from Dhan_Tradehull import Tradehull
 
 tsl = Tradehull(CLIENT_ID, ACCESS_TOKEN)
-print(tsl.get_ltp_data(names=["SENSEX"]))
-print("NIFTY")
-print(tsl.get_ltp_data(names=["NIFTY"]))
+data = tsl.get_ltp_data(names=['NIFTY', 'SENSEX'], debug="NO")
+print(data)
 
-print("BANKNIFTY")
-print(tsl.get_ltp_data(names=["BANKNIFTY"]))
-
-print("SENSEX")
-print(tsl.get_ltp_data(names=["SENSEX"]))
 print(
     tsl.get_expiry_list(
-        Underlying="SENSEX",
+        Underlying="NIFTY",
         exchange="INDEX"
     )
 )
