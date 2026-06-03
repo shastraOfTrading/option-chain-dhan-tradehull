@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nifty Option Cockpit</title>
+<style>
+:root{
+  --bg:#0d0f14;--bg2:#141720;--bg3:#1c2030;--bg4:#232840;
+  --border:#2a3050;--border2:#3a4570;
+  --text:#e8eaf2;--text2:#9aa0be;--text3:#5a6080;
+  --green:#22c55e;--green-dim:#166534;--green-bg:#0d2318;
+  --red:#ef4444;--red-dim:#991b1b;--red-bg:#200d0d;
+  --amber:#f59e0b;--amber-bg:#1c1505;
+  --blue:#60a5fa;--blue-bg:#0a1628;
+  --radius:10px;--radius-sm:6px;
+  font-size:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono','Fira Mono',monospace;min-height:100vh;}
+a{color:inherit;}
+
+/* ── Layout ───────────────────────── */
+.wrap{max-width:900px;margin:0 auto;padding:14px 14px 40px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+
+/* ── Card ─────────────────────────── */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;}
+.card-sm{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;}
+
+/* ── Labels ───────────────────────── */
+.lbl{font-size:10px;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:4px;}
+.val{font-size:22px;font-weight:700;color:var(--text);line-height:1.1;}
+.val-sm{font-size:15px;font-weight:600;color:var(--text);}
+.sub{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
+.section-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin:16px 0 8px;border-left:2px solid var(--border2);padding-left:8px;}
+
+/* ── Bias Banner ──────────────────── */
+#bias-banner{border-radius:var(--radius);padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;transition:background .4s;}
+.bias-ltp{font-size:28px;font-weight:800;letter-spacing:-1px;}
+.bias-right{text-align:right;}
+.bias-label{font-size:22px;font-weight:800;}
+.bias-conf{font-size:12px;color:var(--text2);margin-top:2px;}
+.bias-action-pill{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.06em;}
+.banner-bull{background:#0a200f;border:1px solid #166534;}
+.banner-bear{background:#200a0a;border:1px solid #991b1b;}
+.banner-neutral{background:#1a1505;border:1px solid #854d0e;}
+
+/* ── Tooltip ──────────────────────── */
+.tip-wrap{position:relative;display:inline-flex;align-items:center;gap:5px;}
+.tip-icon{width:15px;height:15px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);color:var(--text3);font-size:9px;display:inline-flex;align-items:center;justify-content:center;cursor:help;flex-shrink:0;vertical-align:middle;}
+.tip-box{display:none;position:absolute;z-index:99;top:calc(100% + 6px);left:0;min-width:200px;max-width:240px;background:#1c2230;border:1px solid var(--border2);border-radius:var(--radius-sm);padding:9px 11px;font-size:11px;color:var(--text2);line-height:1.55;pointer-events:none;}
+.tip-wrap:hover .tip-box{display:block;}
+
+/* ── Score bars ───────────────────── */
+.score-track{height:6px;background:var(--bg4);border-radius:3px;margin-top:8px;overflow:hidden;}
+.score-fill-bull{height:6px;border-radius:3px;background:var(--green);transition:width .6s;}
+.score-fill-bear{height:6px;border-radius:3px;background:var(--red);transition:width .6s;}
+.score-num{font-size:36px;font-weight:800;line-height:1;}
+.score-num-bull{color:var(--green);}
+.score-num-bear{color:var(--red);}
+
+/* ── Heatmap ──────────────────────── */
+.hm-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.hm-strike{font-size:12px;font-weight:600;min-width:52px;text-align:right;color:var(--text);}
+.hm-bar-wrap{flex:1;height:18px;position:relative;}
+.hm-bar{height:18px;border-radius:3px;transition:width .4s;}
+.hm-bar-res{background:rgba(239,68,68,.55);}
+.hm-bar-sup{background:rgba(34,197,94,.55);}
+.hm-oi-val{font-size:10px;color:var(--text3);min-width:36px;}
+.hm-sep{display:flex;align-items:center;gap:8px;margin:6px 0;}
+.hm-sep-line{flex:1;height:1px;background:var(--border2);}
+.hm-sep-lbl{font-size:12px;font-weight:700;padding:2px 10px;background:var(--bg4);border-radius:4px;border:1px solid var(--border2);}
+
+/* ── Greeks table ─────────────────── */
+.g-table{width:100%;border-collapse:collapse;}
+.g-table th{font-size:10px;color:var(--text3);font-weight:400;text-transform:uppercase;letter-spacing:.06em;padding:5px 8px;border-bottom:1px solid var(--border);}
+.g-table td{padding:7px 8px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text);}
+.g-table td.meaning{font-size:11px;color:var(--text2);}
+.g-table tr:last-child td{border-bottom:none;}
+
+/* ── Strike rec ───────────────────── */
+.strike-card-call{background:var(--green-bg);border:1px solid var(--green-dim);border-radius:var(--radius-sm);padding:12px 14px;}
+.strike-card-put{background:var(--red-bg);border:1px solid var(--red-dim);border-radius:var(--radius-sm);padding:12px 14px;}
+.strike-type{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.strike-type-call{color:var(--green);}
+.strike-type-put{color:var(--red);}
+.strike-num{font-size:22px;font-weight:800;margin:4px 0 2px;}
+.strike-meta{font-size:11px;color:var(--text2);}
+
+/* ── Probability zone ─────────────── */
+.prob-track{flex:1;height:30px;background:var(--bg4);border-radius:15px;position:relative;overflow:hidden;border:1px solid var(--border);}
+.prob-fill{position:absolute;top:4px;bottom:4px;left:15%;right:15%;background:rgba(34,197,94,.2);border-radius:10px;border:1px solid rgba(34,197,94,.3);}
+.prob-pin{position:absolute;top:0;bottom:0;width:2px;background:#fff;border-radius:1px;}
+.prob-wrap{display:flex;align-items:center;gap:10px;margin:10px 0 6px;}
+.prob-edge{font-size:15px;font-weight:700;min-width:52px;}
+
+/* ── Setup ────────────────────────── */
+.setup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;}
+.setup-item .si-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;}
+.setup-item .si-val{font-size:17px;font-weight:700;margin-top:3px;}
+.si-val-entry{color:var(--blue);}
+.si-val-sl{color:var(--red);}
+.si-val-t1{color:var(--green);}
+.si-val-t2{color:#4ade80;}
+
+/* ── Chain table ──────────────────── */
+.chain-scroll{overflow-x:auto;}
+.chain-table{width:100%;border-collapse:collapse;font-size:11px;min-width:620px;}
+.chain-table th{font-size:9px;color:var(--text3);font-weight:400;text-transform:uppercase;letter-spacing:.04em;padding:5px 6px;border-bottom:1px solid var(--border);text-align:right;}
+.chain-table th.ctr{text-align:center;background:var(--bg4);}
+.chain-table td{padding:5px 6px;border-bottom:1px solid var(--border);text-align:right;color:var(--text2);}
+.chain-table td.ctr{text-align:center;font-weight:700;background:var(--bg4);color:var(--text);}
+.chain-table tr.atm td{background:#1a1e10;}
+.chain-table tr.atm td.ctr{background:#2a3010;color:var(--green);}
+.chain-table tr:hover td{background:var(--bg3);}
+.green{color:var(--green);}
+.red{color:var(--red);}
+.dim{color:var(--text3);}
+
+/* ── Inline signals ───────────────── */
+.signal-row{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;font-size:12px;color:var(--text2);}
+.signal-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+
+/* ── MTF ──────────────────────────── */
+.mtf-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);}
+.mtf-row:last-child{border-bottom:none;}
+.tf-pill{font-size:11px;font-weight:700;padding:2px 10px;border-radius:4px;}
+.tf-bull{background:var(--green-bg);color:var(--green);border:1px solid var(--green-dim);}
+.tf-bear{background:var(--red-bg);color:var(--red);border:1px solid var(--red-dim);}
+.tf-neu{background:var(--bg4);color:var(--text2);border:1px solid var(--border);}
+
+/* ── Final card ───────────────────── */
+#final-card{border-radius:var(--radius);padding:18px 20px;border:1px solid var(--border2);}
+.final-bias{font-size:32px;font-weight:900;letter-spacing:-1px;}
+.conf-track{height:6px;background:var(--bg4);border-radius:3px;margin-top:6px;overflow:hidden;width:160px;}
+.conf-fill{height:6px;border-radius:3px;background:var(--green);transition:width .6s;}
+
+/* ── Refresh ──────────────────────── */
+.refresh-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.refresh-btn{padding:5px 14px;border-radius:6px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-size:11px;cursor:pointer;font-family:inherit;}
+.refresh-btn:hover{background:var(--bg4);color:var(--text);}
+.last-updated{font-size:10px;color:var(--text3);}
+#loading-overlay{position:fixed;inset:0;background:rgba(13,15,20,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:14px;}
+.spinner{width:32px;height:32px;border:3px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+#error-box{background:var(--red-bg);border:1px solid var(--red-dim);border-radius:var(--radius);padding:14px 16px;color:var(--red);font-size:12px;margin-bottom:14px;display:none;}
+
+/* ── Buyer badge ──────────────────── */
+.buyer-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.08em;background:#0f1a2e;color:#60a5fa;border:1px solid #1e3a6e;margin-left:8px;}
+</style>
+</head>
+<body>
+
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <div style="font-size:13px;color:#9aa0be;">Fetching live option chain…</div>
+</div>
+
+<div class="wrap">
+
+  <!-- Error -->
+  <div id="error-box"></div>
+
+  <!-- Refresh bar -->
+  <div class="refresh-bar">
+    <div style="font-size:13px;font-weight:700;color:#9aa0be;">NIFTY OPTION COCKPIT <span class="buyer-badge">BUYER MODE</span></div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="last-updated" id="last-updated">—</span>
+      <button class="refresh-btn" onclick="loadData()">⟳ Refresh</button>
+    </div>
+  </div>
+
+  <!-- S1: Bias Banner -->
+  <div id="bias-banner" class="banner-neutral">
+    <div>
+      <div style="font-size:11px;color:#9aa0be;margin-bottom:3px;">NIFTY LTP</div>
+      <div class="bias-ltp" id="b-ltp">—</div>
+      <div style="font-size:11px;color:#9aa0be;margin-top:3px;">ATM: <span id="b-atm">—</span></div>
+    </div>
+    <div class="bias-right">
+      <div class="bias-label" id="b-bias">—</div>
+      <div class="bias-conf" id="b-conf">Confidence —</div>
+      <div><span class="bias-action-pill" id="b-action">—</span></div>
+    </div>
+  </div>
+
+  <!-- S2: OI Heatmap -->
+  <div class="section-title">
+    <span class="tip-wrap">OI Heatmap — Support &amp; Resistance
+      <span class="tip-icon">i</span>
+      <span class="tip-box">Bars show Open Interest at each strike. Red = sellers writing calls (resistance above). Green = sellers writing puts (support below). The bigger the bar, the stronger the level.</span>
+    </span>
+  </div>
+  <div class="card" id="heatmap-container">
+    <div id="heatmap-rows-res"></div>
+    <div class="hm-sep"><div class="hm-sep-line"></div><div class="hm-sep-lbl" id="hm-ltp-lbl">LTP —</div><div class="hm-sep-line"></div></div>
+    <div id="heatmap-rows-sup"></div>
+    <div style="display:flex;gap:20px;margin-top:10px;font-size:11px;color:var(--text3);">
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(239,68,68,.55);display:inline-block;"></span>Resistance (CE OI)</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(34,197,94,.55);display:inline-block;"></span>Support (PE OI)</span>
+    </div>
+  </div>
+
+  <!-- S3: Option Analytics -->
+  <div class="section-title">Quick signals</div>
+  <div class="grid3" id="analytics-grid">
+    <div class="card-sm">
+      <div class="lbl tip-wrap">PCR <span class="tip-icon">i</span><span class="tip-box">Put/Call Ratio. &gt;1 = more puts than calls = Bullish tilt. &gt;1.5 = overcrowded. &lt;0.7 = bearish.</span></div>
+      <div class="val" id="v-pcr">—</div>
+      <div class="sub" id="v-pcr-interp">—</div>
+    </div>
+    <div class="card-sm">
+      <div class="lbl tip-wrap">Volume PCR <span class="tip-icon">i</span><span class="tip-box">Intraday put vs call volume ratio. &gt;1 = more put activity = bullish speculation or hedging in favour of bulls.</span></div>
+      <div class="val" id="v-vpcr">—</div>
+      <div class="sub" id="v-vpcr-interp">—</div>
+    </div>
+    <div class="card-sm">
+      <div class="lbl tip-wrap">Max Pain <span class="tip-icon">i</span><span class="tip-box">Strike where maximum option buyers lose on expiry. Price gravitates here closer to expiry. Avoid buying options near max pain on expiry day.</span></div>
+      <div class="val" id="v-maxpain">—</div>
+      <div class="sub">Expiry magnet</div>
+    </div>
+    <div class="card-sm">
+      <div class="lbl tip-wrap">Strongest Support <span class="tip-icon">i</span><span class="tip-box">Strike with highest Put OI. Big put writers defend this level — price often bounces here.</span></div>
+      <div class="val green" id="v-support">—</div>
+      <div class="sub">Max PE OI</div>
+    </div>
+    <div class="card-sm">
+      <div class="lbl tip-wrap">Strongest Resistance <span class="tip-icon">i</span><span class="tip-box">Strike with highest Call OI. Big call writers cap the market here — price often stalls or reverses.</span></div>
+      <div class="val red" id="v-resistance">—</div>
+      <div class="sub">Max CE OI</div>
+    </div>
+    <div class="card-sm">
+      <div class="lbl tip-wrap">ATM IV <span class="tip-icon">i</span><span class="tip-box">Implied Volatility at ATM. &gt;20 = expensive options, prefer selling. &lt;12 = cheap options, good for buying. As a buyer you want low IV.</span></div>
+      <div class="val" id="v-iv">—</div>
+      <div class="sub" id="v-iv-interp">—</div>
+    </div>
+  </div>
+
+  <!-- S4: Institutional + Scores -->
+  <div class="grid2" style="margin-top:10px;">
+    <div>
+      <div class="section-title">Institutional signals</div>
+      <div class="card" style="height:100%;">
+        <div id="inst-bull-signals"></div>
+        <div style="height:8px;"></div>
+        <div id="inst-bear-signals"></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-title">Directional score</div>
+      <div class="grid2">
+        <div class="card-sm">
+          <div class="lbl">Bull score <span class="tip-wrap"><span class="tip-icon">i</span><span class="tip-box">Weighted from PCR, Vol PCR, put writing, OI change. As a buyer, high bull score → buy calls.</span></span></div>
+          <div class="score-num score-num-bull" id="v-bull">—</div>
+          <div class="score-track"><div class="score-fill-bull" id="bull-bar" style="width:0%"></div></div>
+        </div>
+        <div class="card-sm">
+          <div class="lbl">Bear score</div>
+          <div class="score-num score-num-bear" id="v-bear">—</div>
+          <div class="score-track"><div class="score-fill-bear" id="bear-bar" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:8px;padding:8px 12px;background:var(--bg4);border-radius:var(--radius-sm);border:1px solid var(--border2);font-size:12px;color:var(--text2);">
+        Edge: <strong id="v-edge" style="color:var(--text);"></strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: Greeks -->
+  <div class="section-title">ATM greeks <span style="font-size:10px;color:var(--text3);">— <span id="greeks-atm-label">ATM —</span></span></div>
+  <div class="card">
+    <table class="g-table">
+      <thead><tr>
+        <th style="text-align:left;">Greek</th>
+        <th>CE value</th><th>PE value</th>
+        <th style="text-align:left;" class="meaning">What it means for you as a buyer</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="tip-wrap">Delta <span class="tip-icon">i</span><span class="tip-box">CE Delta should be near 0.5 ATM. Higher = deeper ITM, more expensive. Lower = cheaper but slower. Aim for 0.35–0.50 for best risk/reward.</span></span></td>
+          <td id="g-ce-delta">—</td><td id="g-pe-delta">—</td>
+          <td class="meaning">Option moves this % of every point NIFTY moves</td>
+        </tr>
+        <tr>
+          <td><span class="tip-wrap">Gamma <span class="tip-icon">i</span><span class="tip-box">High Gamma near expiry means delta accelerates fast — great for buyers expecting big moves today. Dangerous for sellers.</span></span></td>
+          <td id="g-ce-gamma">—</td><td id="g-pe-gamma">—</td>
+          <td class="meaning">How fast delta changes — higher = more explosive</td>
+        </tr>
+        <tr>
+          <td><span class="tip-wrap">Theta <span class="tip-icon">i</span><span class="tip-box">Daily premium decay. As a buyer you LOSE this much every day. Negative theta is your enemy — enter only with strong conviction.</span></span></td>
+          <td id="g-ce-theta" class="red">—</td><td id="g-pe-theta" class="red">—</td>
+          <td class="meaning" style="color:#ef4444;">₹ you lose per day just by holding</td>
+        </tr>
+        <tr>
+          <td><span class="tip-wrap">Vega <span class="tip-icon">i</span><span class="tip-box">As a buyer high Vega helps you — if IV rises, your option gains value even without NIFTY moving. Buy when IV is low.</span></span></td>
+          <td id="g-ce-vega" class="green">—</td><td id="g-pe-vega" class="green">—</td>
+          <td class="meaning" style="color:#22c55e;">Gain per 1% rise in IV — good for buyers</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="greeks-ai" style="margin-top:10px;padding:9px 12px;background:var(--amber-bg);border-left:2px solid var(--amber);border-radius:4px;font-size:11px;color:#fbbf24;line-height:1.6;"></div>
+  </div>
+
+  <!-- S6: Strike Recommendation -->
+  <div class="section-title">Recommended strikes for buyers</div>
+  <div class="grid2">
+    <div class="strike-card-call">
+      <div class="strike-type strike-type-call">
+        <span class="tip-wrap">Call buying <span class="tip-icon" style="border-color:#166534;color:#4ade80;">i</span><span class="tip-box">Strike with CE Delta above 0.30 — gives enough directional kick without excessive premium. Best for intraday bullish trades.</span></span>
+      </div>
+      <div class="strike-num" id="s-call-strike">—</div>
+      <div class="strike-meta" id="s-call-meta">Delta — · IV — · LTP ₹—</div>
+      <div class="sub" id="s-call-reason" style="margin-top:6px;font-size:11px;"></div>
+    </div>
+    <div class="strike-card-put">
+      <div class="strike-type strike-type-put">
+        <span class="tip-wrap">Put buying <span class="tip-icon" style="border-color:#991b1b;color:#f87171;">i</span><span class="tip-box">Strike with PE Delta below -0.30 — use only when bearish reversal is confirmed. Don't buy puts in a bull market.</span></span>
+      </div>
+      <div class="strike-num" id="s-put-strike">—</div>
+      <div class="strike-meta" id="s-put-meta">Delta — · IV — · LTP ₹—</div>
+      <div class="sub" id="s-put-reason" style="margin-top:6px;font-size:11px;"></div>
+    </div>
+  </div>
+
+  <!-- S7: Probability Zone -->
+  <div class="section-title">
+    <span class="tip-wrap">Expected range today (68% probability)
+      <span class="tip-icon">i</span>
+      <span class="tip-box">Calculated from ATM IV × √(DTE/252). There's a 68% chance NIFTY stays inside this range today. As a buyer — your target should be near the edge of this range.</span>
+    </span>
+  </div>
+  <div class="card">
+    <div class="prob-wrap">
+      <div class="prob-edge green" id="p-low">—</div>
+      <div class="prob-track">
+        <div class="prob-fill"></div>
+        <div class="prob-pin" id="p-pin" style="left:50%"></div>
+      </div>
+      <div class="prob-edge red" id="p-high">—</div>
+    </div>
+    <div style="display:flex;gap:20px;font-size:11px;color:var(--text3);">
+      <span>ATM IV: <strong id="p-iv" style="color:var(--text);font-weight:600;">—</strong></span>
+      <span>DTE: <strong id="p-dte" style="color:var(--text);font-weight:600;">—</strong></span>
+      <span>Range width: <strong id="p-width" style="color:var(--text);font-weight:600;">—</strong> pts</span>
+    </div>
+  </div>
+
+  <!-- S8: Trade Setup -->
+  <div class="section-title">Trade setup</div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+      <span id="setup-badge" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;">—</span>
+      <span style="font-size:12px;color:var(--text2);">R:R <strong id="setup-rr" style="color:var(--text);">—</strong></span>
+    </div>
+    <div class="setup-grid">
+      <div class="setup-item">
+        <div class="si-lbl">
+          <span class="tip-wrap">Entry above <span class="tip-icon">i</span><span class="tip-box">Enter the trade only if NIFTY sustains above this level for 2+ candles. Don't chase — wait for confirmation.</span></span>
+        </div>
+        <div class="si-val si-val-entry" id="setup-entry">—</div>
+      </div>
+      <div class="setup-item">
+        <div class="si-lbl">
+          <span class="tip-wrap">Stop loss <span class="tip-icon">i</span><span class="tip-box">Exit immediately if NIFTY closes below this on a 5-min candle. Don't widen SL — respect it.</span></span>
+        </div>
+        <div class="si-val si-val-sl" id="setup-sl">—</div>
+      </div>
+      <div class="setup-item">
+        <div class="si-lbl">Target 1</div>
+        <div class="si-val si-val-t1" id="setup-t1">—</div>
+      </div>
+      <div class="setup-item">
+        <div class="si-lbl">Target 2</div>
+        <div class="si-val si-val-t2" id="setup-t2">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S9: MTF placeholder (static — replace with real data source) -->
+  <div class="section-title">
+    <span class="tip-wrap">Multi-timeframe trend
+      <span class="tip-icon">i</span>
+      <span class="tip-box">When all 3 intraday timeframes agree with bias, trade with full size. If daily is opposite, trade light and take T1 quickly.</span>
+    </span>
+  </div>
+  <div class="card">
+    <div class="mtf-row"><span style="color:var(--text2);font-size:12px;">3 min</span><span class="tf-pill" id="mtf-3m">—</span></div>
+    <div class="mtf-row"><span style="color:var(--text2);font-size:12px;">15 min</span><span class="tf-pill" id="mtf-15m">—</span></div>
+    <div class="mtf-row"><span style="color:var(--text2);font-size:12px;">1 hour</span><span class="tf-pill" id="mtf-1h">—</span></div>
+    <div class="mtf-row" style="border-bottom:none;"><span style="color:var(--text2);font-size:12px;">Daily</span><span class="tf-pill" id="mtf-d">—</span></div>
+    <div id="mtf-note" style="margin-top:10px;font-size:11px;padding:8px 10px;border-radius:4px;border-left:2px solid var(--amber);background:var(--amber-bg);color:#fbbf24;display:none;"></div>
+  </div>
+
+  <!-- S10: Final Decision -->
+  <div class="section-title">Final decision</div>
+  <div id="final-card" class="banner-neutral">
+    <div style="font-size:10px;letter-spacing:.12em;color:var(--text3);margin-bottom:10px;">TRADING DECISION ENGINE</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div class="final-bias" id="f-bias">—</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:4px;">Confidence</div>
+        <div class="conf-track"><div class="conf-fill" id="f-conf-bar" style="width:0%"></div></div>
+        <div style="font-size:12px;color:var(--text2);margin-top:3px;" id="f-conf-val">—</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:14px;font-weight:700;padding:8px 16px;border-radius:8px;display:inline-block;" id="f-action-btn">—</div>
+        <div style="font-size:11px;color:var(--text2);margin-top:6px;">Risk: <span id="f-risk" style="font-weight:600;"></span></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);">
+      Best strike: <strong id="f-strike" style="color:var(--text);font-weight:600;"></strong> &nbsp;|&nbsp;
+      Entry: <strong id="f-entry" style="color:#60a5fa;font-weight:600;"></strong> &nbsp;|&nbsp;
+      SL: <strong id="f-sl" style="color:#ef4444;font-weight:600;"></strong> &nbsp;|&nbsp;
+      Avoid: <span id="f-avoid" style="color:var(--text3);"></span>
+    </div>
+  </div>
+
+  <!-- S11: Raw chain -->
+  <div style="margin-top:16px;">
+    <button class="refresh-btn" style="width:100%;padding:8px;" onclick="toggleChain()">Show raw option chain ↓</button>
+  </div>
+  <div id="chain-section" style="display:none;margin-top:10px;">
+    <div class="section-title">Option chain snapshot</div>
+    <div class="card chain-scroll">
+      <table class="chain-table">
+        <thead><tr>
+          <th>CE OI</th><th>CE ΔOI</th><th>CE Vol</th><th>CE IV</th><th>CE Δ</th><th>CE θ</th><th>CE LTP</th>
+          <th class="ctr">Strike</th>
+          <th>PE LTP</th><th>PE θ</th><th>PE Δ</th><th>PE IV</th><th>PE Vol</th><th>PE ΔOI</th><th>PE OI</th>
+        </tr></thead>
+        <tbody id="chain-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<script>
+const API = "/api/data";
+let currentData = null;
+
+function fmt(n, dec=0){ return (n||0).toLocaleString('en-IN', {maximumFractionDigits:dec, minimumFractionDigits:dec}); }
+function fmtK(n){ return n>=100000?`${(n/100000).toFixed(1)}L`:n>=1000?`${(n/1000).toFixed(1)}K`:`${n}`; }
+
+function interpPCR(v){
+  if(v>1.4) return {t:"Very bullish — heavy put writing",c:"green"};
+  if(v>1.1) return {t:"Moderately bullish",c:"green"};
+  if(v>=0.9) return {t:"Neutral positioning",c:""};
+  if(v>=0.7) return {t:"Moderately bearish",c:"red"};
+  return {t:"Very bearish — heavy call writing",c:"red"};
+}
+function interpIV(v){
+  if(v<12) return {t:"Cheap — good for buying",c:"green"};
+  if(v<18) return {t:"Fair — decent for buying",c:""};
+  if(v<24) return {t:"Elevated — buy only on conviction",c:"amber"};
+  return {t:"Expensive — avoid option buying",c:"red"};
+}
+
+function render(d){
+  currentData = d;
+  const isBull = d.bias === "BULLISH";
+  const isBear = d.bias === "BEARISH";
+  const isNeu  = d.bias === "NEUTRAL";
+
+  // Banner
+  const banner = document.getElementById("bias-banner");
+  banner.className = isBull?"banner-bull":isBear?"banner-bear":"banner-neutral";
+  document.getElementById("b-ltp").textContent = fmt(d.ltp||d.atm);
+  document.getElementById("b-atm").textContent = fmt(d.atm);
+  const biasEl = document.getElementById("b-bias");
+  biasEl.textContent = d.bias;
+  biasEl.style.color = isBull?"#4ade80":isBear?"#f87171":"#fbbf24";
+  document.getElementById("b-conf").textContent = `Confidence ${d.confidence}%`;
+  const pill = document.getElementById("b-action");
+  pill.textContent = d.action;
+  pill.style.background = isBull?"#0d2318":isBear?"#200d0d":"#1a1505";
+  pill.style.color = isBull?"#4ade80":isBear?"#f87171":"#fbbf24";
+  pill.style.border = `1px solid ${isBull?"#166534":isBear?"#991b1b":"#854d0e"}`;
+
+  // Heatmap
+  const rRes = document.getElementById("heatmap-rows-res");
+  const rSup = document.getElementById("heatmap-rows-sup");
+  rRes.innerHTML = rSup.innerHTML = "";
+  const aboveATM = d.heatmap.filter(r=>r.side==="res").sort((a,b)=>b.strike-a.strike);
+  const belowATM = d.heatmap.filter(r=>r.side==="sup").sort((a,b)=>b.strike-a.strike);
+  aboveATM.forEach(r=>{
+    rRes.innerHTML += `<div class="hm-row">
+      <div class="hm-strike">${fmt(r.strike)}</div>
+      <div class="hm-bar-wrap"><div class="hm-bar hm-bar-res" style="width:${r.ce_pct}%"></div></div>
+      <div class="hm-oi-val">${fmtK(r.ce_oi)}</div>
+    </div>`;
+  });
+  document.getElementById("hm-ltp-lbl").textContent = `LTP ${fmt(d.ltp||d.atm)}`;
+  belowATM.forEach(r=>{
+    rSup.innerHTML += `<div class="hm-row">
+      <div class="hm-strike">${fmt(r.strike)}</div>
+      <div class="hm-bar-wrap"><div class="hm-bar hm-bar-sup" style="width:${r.pe_pct}%"></div></div>
+      <div class="hm-oi-val">${fmtK(r.pe_oi)}</div>
+    </div>`;
+  });
+
+  // Analytics
+  const pcrI = interpPCR(d.pcr);
+  document.getElementById("v-pcr").textContent = d.pcr;
+  document.getElementById("v-pcr").style.color = pcrI.c==="green"?"var(--green)":pcrI.c==="red"?"var(--red)":"var(--text)";
+  document.getElementById("v-pcr-interp").textContent = pcrI.t;
+
+  const vpcrI = interpPCR(d.vpcr);
+  document.getElementById("v-vpcr").textContent = d.vpcr;
+  document.getElementById("v-vpcr").style.color = vpcrI.c==="green"?"var(--green)":vpcrI.c==="red"?"var(--red)":"var(--text)";
+  document.getElementById("v-vpcr-interp").textContent = vpcrI.t;
+
+  document.getElementById("v-maxpain").textContent = fmt(d.max_pain);
+  document.getElementById("v-support").textContent = fmt(d.support);
+  document.getElementById("v-resistance").textContent = fmt(d.resistance);
+
+  const ivI = interpIV(d.atm_iv);
+  document.getElementById("v-iv").textContent = d.atm_iv + "%";
+  document.getElementById("v-iv").style.color = ivI.c==="green"?"var(--green)":ivI.c==="red"?"var(--red)":ivI.c==="amber"?"var(--amber)":"var(--text)";
+  document.getElementById("v-iv-interp").textContent = ivI.t;
+
+  // Institutional signals
+  const ib = document.getElementById("inst-bull-signals");
+  const ibs = document.getElementById("inst-bear-signals");
+  ib.innerHTML = "<div style='font-size:10px;color:#4ade80;font-weight:700;letter-spacing:.08em;margin-bottom:5px;'>BULLISH</div>";
+  ibs.innerHTML = "<div style='font-size:10px;color:#f87171;font-weight:700;letter-spacing:.08em;margin-bottom:5px;'>BEARISH</div>";
+  (d.bull_signals||[]).forEach(s=>{ ib.innerHTML+=`<div class="signal-row"><span class="signal-dot" style="background:var(--green);"></span>${s}</div>`; });
+  if(!(d.bull_signals||[]).length) ib.innerHTML+='<div class="signal-row dim">No strong bullish signals</div>';
+  (d.bear_signals||[]).forEach(s=>{ ibs.innerHTML+=`<div class="signal-row"><span class="signal-dot" style="background:var(--red);"></span>${s}</div>`; });
+  if(!(d.bear_signals||[]).length) ibs.innerHTML+='<div class="signal-row dim">No strong bearish signals</div>';
+
+  // Scores
+  document.getElementById("v-bull").textContent = d.bull_score;
+  document.getElementById("v-bear").textContent = d.bear_score;
+  document.getElementById("bull-bar").style.width = d.bull_score + "%";
+  document.getElementById("bear-bar").style.width = d.bear_score + "%";
+  const edge = d.bull_score > d.bear_score
+    ? `Strong long bias (Bull ${d.bull_score} vs Bear ${d.bear_score})`
+    : d.bear_score > d.bull_score
+    ? `Strong short bias (Bear ${d.bear_score} vs Bull ${d.bull_score})`
+    : "No clear edge — stay flat";
+  document.getElementById("v-edge").textContent = edge;
+
+  // Greeks
+  document.getElementById("greeks-atm-label").textContent = `ATM ${fmt(d.atm)}`;
+  const g = d.greeks||{};
+  document.getElementById("g-ce-delta").textContent = g.ce_delta||"—";
+  document.getElementById("g-pe-delta").textContent = g.pe_delta||"—";
+  document.getElementById("g-ce-gamma").textContent = g.ce_gamma||"—";
+  document.getElementById("g-pe-gamma").textContent = g.pe_gamma||"—";
+  document.getElementById("g-ce-theta").textContent = g.ce_theta||"—";
+  document.getElementById("g-pe-theta").textContent = g.pe_theta||"—";
+  document.getElementById("g-ce-vega").textContent = g.ce_vega||"—";
+  document.getElementById("g-pe-vega").textContent = g.pe_vega||"—";
+  let ai = "";
+  const theta = Math.abs(g.ce_theta||0);
+  if(theta>10) ai += `Theta ₹${theta}/day is high — expect only if big move is imminent. `;
+  else if(theta>5) ai += `Theta ₹${theta}/day is moderate — keep trade duration short. `;
+  if(d.atm_iv<12) ai += `IV at ${d.atm_iv}% is low — options are cheap, good time to buy. `;
+  else if(d.atm_iv>20) ai += `IV at ${d.atm_iv}% is elevated — premium is expensive, be selective. `;
+  if((g.ce_gamma||0)>0.08) ai += "High Gamma — delta will accelerate fast, explosive move potential.";
+  document.getElementById("greeks-ai").textContent = ai || "Greeks are balanced. Normal conditions for option buying.";
+
+  // Strike rec
+  if(d.suggested_call){
+    const c = d.suggested_call;
+    document.getElementById("s-call-strike").textContent = fmt(c.strike) + " CE";
+    document.getElementById("s-call-meta").textContent = `Delta ${c.delta} · IV ${c.iv}% · LTP ₹${c.ltp}`;
+    document.getElementById("s-call-reason").textContent = isBull
+      ? "Best delta exposure for bullish trade. Not too deep ITM — limits max loss if wrong."
+      : "Available strike — use only if bullish bias is confirmed.";
+  }
+  if(d.suggested_put){
+    const p = d.suggested_put;
+    document.getElementById("s-put-strike").textContent = fmt(p.strike) + " PE";
+    document.getElementById("s-put-meta").textContent = `Delta ${p.delta} · IV ${p.iv}% · LTP ₹${p.ltp}`;
+    document.getElementById("s-put-reason").textContent = isBear
+      ? "Best delta for bearish trade. Use only after bearish reversal confirmation below support."
+      : "Hedge only — don't buy puts in current bullish environment.";
+  }
+
+  // Probability zone
+  document.getElementById("p-low").textContent = fmt(d.prob_low);
+  document.getElementById("p-high").textContent = fmt(d.prob_high);
+  document.getElementById("p-iv").textContent = d.atm_iv + "%";
+  document.getElementById("p-dte").textContent = d.dte + "d";
+  document.getElementById("p-width").textContent = fmt(d.prob_high - d.prob_low);
+  const rng = d.prob_high - d.prob_low;
+  const ltp2 = d.ltp||d.atm;
+  const pinPct = rng>0 ? ((ltp2 - d.prob_low) / rng * 100).toFixed(1) : 50;
+  document.getElementById("p-pin").style.left = pinPct + "%";
+
+  // Trade setup
+  const sb = document.getElementById("setup-badge");
+  sb.textContent = `Setup · ${d.setup_bias}`;
+  sb.style.background = isBull?"#0d2318":isBear?"#200d0d":"#1a1505";
+  sb.style.color = isBull?"#4ade80":isBear?"#f87171":"#fbbf24";
+  sb.style.border = `1px solid ${isBull?"#166534":isBear?"#991b1b":"#854d0e"}`;
+  document.getElementById("setup-rr").textContent = d.risk_reward;
+  document.getElementById("setup-entry").textContent = d.entry_ref ? ">" + fmt(d.entry_ref) : "—";
+  document.getElementById("setup-sl").textContent = fmt(d.sl_ref)||"—";
+  document.getElementById("setup-t1").textContent = fmt(d.t1_ref)||"—";
+  document.getElementById("setup-t2").textContent = fmt(d.t2_ref)||"—";
+
+  // MTF — derive from bias
+  function tfPill(el, trend, detail){
+    const e = document.getElementById(el);
+    e.textContent = trend;
+    e.className = "tf-pill "+(trend==="Bullish"?"tf-bull":trend==="Bearish"?"tf-bear":"tf-neu");
+  }
+  tfPill("mtf-3m",  isBull?"Bullish":isBear?"Bearish":"Neutral");
+  tfPill("mtf-15m", isBull?"Bullish":isBear?"Bearish":"Neutral");
+  tfPill("mtf-1h",  isBull?"Bullish":isBear?"Bearish":"Neutral");
+  tfPill("mtf-d",   "Neutral");  // daily needs separate data — placeholder
+  const note = document.getElementById("mtf-note");
+  note.style.display = "block";
+  note.textContent = isNeu
+    ? "No clear intraday trend. Sit out or wait for a breakout with volume."
+    : `Intraday ${d.bias.toLowerCase()} from OI signals. Daily neutral. Trade normal size, respect SL.`;
+
+  // Final card
+  const fc = document.getElementById("final-card");
+  fc.className = isBull?"banner-bull":isBear?"banner-bear":"banner-neutral";
+  const fb = document.getElementById("f-bias");
+  fb.textContent = d.bias;
+  fb.style.color = isBull?"#4ade80":isBear?"#f87171":"#fbbf24";
+  document.getElementById("f-conf-bar").style.width = d.confidence + "%";
+  document.getElementById("f-conf-bar").style.background = isBull?"var(--green)":isBear?"var(--red)":"var(--amber)";
+  document.getElementById("f-conf-val").textContent = d.confidence + "%";
+  const fa = document.getElementById("f-action-btn");
+  fa.textContent = d.action;
+  fa.style.background = isBull?"#0d2318":isBear?"#200d0d":"#1a1505";
+  fa.style.color = isBull?"#4ade80":isBear?"#f87171":"#fbbf24";
+  fa.style.border = `1px solid ${isBull?"#166534":isBear?"#991b1b":"#854d0e"}`;
+  document.getElementById("f-risk").textContent = d.risk;
+  const bestStrike = isBull && d.suggested_call ? fmt(d.suggested_call.strike)+" CE"
+    : isBear && d.suggested_put ? fmt(d.suggested_put.strike)+" PE" : "—";
+  document.getElementById("f-strike").textContent = bestStrike;
+  document.getElementById("f-entry").textContent = d.entry_ref ? ">"+fmt(d.entry_ref) : "—";
+  document.getElementById("f-sl").textContent = fmt(d.sl_ref)||"—";
+  document.getElementById("f-avoid").textContent = d.avoid;
+
+  // Chain
+  const tbody = document.getElementById("chain-tbody");
+  tbody.innerHTML = "";
+  (d.chain||[]).forEach(r=>{
+    tbody.innerHTML += `<tr class="${r.isATM?"atm":""}">
+      <td class="green">${fmtK(r.ce_oi)}</td>
+      <td class="${r.ce_doi>0?"green":"red"}">${fmtK(r.ce_doi)}</td>
+      <td>${fmtK(r.ce_vol)}</td>
+      <td>${r.ce_iv}%</td>
+      <td>${r.ce_delta}</td>
+      <td class="red">${r.ce_theta}</td>
+      <td style="color:#60a5fa;font-weight:600;">${r.ce_ltp}</td>
+      <td class="ctr">${fmt(r.strike)}${r.isATM?" ★":""}</td>
+      <td style="color:#f87171;font-weight:600;">${r.pe_ltp}</td>
+      <td class="red">${r.pe_theta}</td>
+      <td>${r.pe_delta}</td>
+      <td>${r.pe_iv}%</td>
+      <td>${fmtK(r.pe_vol)}</td>
+      <td class="${r.pe_doi>0?"green":"red"}">${fmtK(r.pe_doi)}</td>
+      <td class="green">${fmtK(r.pe_oi)}</td>
+    </tr>`;
+  });
+
+  document.getElementById("last-updated").textContent = "Updated " + new Date().toLocaleTimeString('en-IN');
+}
+
+async function loadData(){
+  const overlay = document.getElementById("loading-overlay");
+  const errBox  = document.getElementById("error-box");
+  overlay.style.display = "flex";
+  errBox.style.display  = "none";
+  try{
+    const resp = await fetch(API);
+    const json = await resp.json();
+    if(json.ok){ render(json.data); }
+    else{
+      errBox.style.display = "block";
+      errBox.textContent = "Error: " + json.error;
+    }
+  } catch(e){
+    errBox.style.display = "block";
+    errBox.textContent = "Cannot reach backend. Make sure nifty_dashboard_backend.py is running on port 8080.";
+  }
+  overlay.style.display = "none";
+}
+
+function toggleChain(){
+  const s = document.getElementById("chain-section");
+  const btn = event.target;
+  if(s.style.display==="none"){ s.style.display="block"; btn.textContent="Hide raw option chain ↑"; }
+  else{ s.style.display="none"; btn.textContent="Show raw option chain ↓"; }
+}
+
+loadData();
+</script>
+</body>
+</html>

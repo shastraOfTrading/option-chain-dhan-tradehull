@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>StrikeLens</title>
+<style>
+body{font-family:Arial;background:#f8fafc;margin:20px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:8px;border:1px solid #ddd;text-align:center}
+.atm{outline:3px solid #f59e0b}
+.support{outline:3px solid #16a34a}
+.resistance{outline:3px solid #dc2626}
+.call_writing{background:#fee2e2}
+.put_writing{background:#dcfce7}
+.call_unwind{background:#ffedd5}
+.put_unwind{background:#dbeafe}
+</style>
+</head>
+<body>
+<h2>StrikeLens</h2>
+<div class="grid">
+<div class="card" id="support"></div>
+<div class="card" id="resistance"></div>
+</div>
+<br>
+<table>
+<thead><tr><th>CE OI</th><th>CE ΔOI</th><th>CE Vol</th><th>Strike</th><th>PE Vol</th><th>PE ΔOI</th><th>PE OI</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+<script>
+fetch('/api/data').then(r=>r.json()).then(d=>{
+document.getElementById('support').innerHTML=`<h3>Support ${d.support.strike}</h3>OI ${d.support.oi}<br>ΔOI ${d.support.doi}<br>Vol ${d.support.vol}<br>${d.support.reason}`;
+document.getElementById('resistance').innerHTML=`<h3>Resistance ${d.resistance.strike}</h3>OI ${d.resistance.oi}<br>ΔOI ${d.resistance.doi}<br>Vol ${d.resistance.vol}<br>${d.resistance.reason}`;
+let h='';
+d.chain.forEach(r=>{
+let cls='';
+
+if(r.atm) cls='atm';
+else if(r.support) cls='support';
+else if(r.resistance) cls='resistance';
+h+=`<tr class="${cls}">
+<td class="${r.ce_signal}">${r.ce_oi}</td>
+<td>${r.ce_doi}</td>
+<td>${r.ce_vol}</td>
+<td>${r.strike}</td>
+<td>${r.pe_vol}</td>
+<td>${r.pe_doi}</td>
+<td class="${r.pe_signal}">${r.pe_oi}</td>
+</tr>`;
+});
+document.getElementById('rows').innerHTML=h;
+});
+</script>
+</body>
+</html>

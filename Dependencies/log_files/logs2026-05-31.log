@@ -1,0 +1,356 @@
+INFO:2026-05-31 16:23:20,028:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:23:20,028:MainThread:System Started
+INFO:2026-05-31 16:23:49,030:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:23:49,030:MainThread:System Started
+ERROR:2026-05-31 16:23:52,161:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:24:47,232:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:24:47,232:MainThread:System Started
+ERROR:2026-05-31 16:24:50,337:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:27:16,607:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:27:16,607:MainThread:System Started
+INFO:2026-05-31 16:27:32,912:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:27:32,912:MainThread:System Started
+ERROR:2026-05-31 16:27:35,974:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:28:39,205:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:28:39,205:MainThread:System Started
+ERROR:2026-05-31 16:28:42,255:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:33:33,835:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:33:33,835:MainThread:System Started
+ERROR:2026-05-31 16:33:36,950:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:35:56,782:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:35:56,782:MainThread:System Started
+INFO:2026-05-31 16:36:20,688:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:36:20,688:MainThread:System Started
+INFO:2026-05-31 16:36:40,510:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:36:40,510:MainThread:System Started
+ERROR:2026-05-31 16:36:43,585:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:37:47,978:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:37:47,978:MainThread:System Started
+INFO:2026-05-31 16:39:11,853:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:39:11,853:MainThread:System Started
+ERROR:2026-05-31 16:39:14,924:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:39:24,929:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:39:24,929:MainThread:System Started
+INFO:2026-05-31 16:39:36,805:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:39:36,805:MainThread:System Started
+ERROR:2026-05-31 16:39:39,910:MainThread:Exception at calling ltp as {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+Traceback (most recent call last):
+  File "C:\Trading\dhanhq\tradehull\1. Option Chain\venv\Lib\site-packages\Dhan_Tradehull\Dhan_Tradehull.py", line 447, in get_ltp_data
+    raise Exception(data)
+Exception: {'status': 'failure', 'remarks': {'error_code': None, 'error_type': None, 'error_message': None}, 'data': ''}
+INFO:2026-05-31 16:41:02,633:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:41:02,633:MainThread:System Started
+INFO:2026-05-31 16:59:05,666:MainThread:Dhan.py System Started
+INFO:2026-05-31 16:59:05,666:MainThread:System Started
+INFO:2026-05-31 17:03:22,807:MainThread:Dhan.py System Started
+INFO:2026-05-31 17:03:22,807:MainThread:System Started
+INFO:2026-05-31 17:04:07,508:MainThread:Dhan.py System Started
+INFO:2026-05-31 17:04:07,508:MainThread:System Started
+INFO:2026-05-31 17:22:00,004:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 17:22:00,005:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 17:22:00,193:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 17:22:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:2026-05-31 17:22:05,511:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 17:22:05] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 17:22:11,781:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 17:22:11,781:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 17:22:16,730:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 17:22:16] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 17:24:08,120:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 17:24:08,120:Thread-7 (process_request_thread):System Started
+INFO:2026-05-31 17:24:13,030:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 17:24:13] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 17:39:06,119:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 17:39:06,120:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 17:39:11,469:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 17:39:11] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 17:39:28,868:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 17:39:28,868:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 17:39:33,609:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 17:39:33] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 18:29:04,011:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 18:29:04,011:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 18:29:09,292:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 18:29:09] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 18:29:21,320:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 18:29:21,321:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 18:29:25,925:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 18:29:25] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 18:32:53,590:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 18:32:53,590:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 18:32:58,842:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 18:32:58] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 18:51:08,672:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 18:51:08,673:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 18:51:14,045:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 18:51:14] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:10:23,682:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:10:23,683:Thread-8 (process_request_thread):System Started
+INFO:2026-05-31 19:10:23,687:Thread-9 (process_request_thread):127.0.0.1 - - [31/May/2026 19:10:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:2026-05-31 19:10:29,062:Thread-10 (process_request_thread):127.0.0.1 - - [31/May/2026 19:10:29] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 19:10:29,134:Thread-11 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:10:29,134:Thread-11 (process_request_thread):System Started
+INFO:2026-05-31 19:10:29,159:Thread-8 (process_request_thread):127.0.0.1 - - [31/May/2026 19:10:29] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:10:34,302:Thread-11 (process_request_thread):127.0.0.1 - - [31/May/2026 19:10:34] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:28:30,679:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 19:29:38,256:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:29:38,258:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 19:29:43,863:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 19:29:43] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 19:35:10,807:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 19:35:10] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 19:35:10,878:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:35:10,878:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 19:35:14,828:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 19:35:14] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 19:41:51,749:Thread-6 (process_request_thread):127.0.0.1 - - [31/May/2026 19:41:51] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 19:41:51,943:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:41:51,943:Thread-7 (process_request_thread):System Started
+INFO:2026-05-31 19:41:58,221:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 19:41:58] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 19:42:56,341:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 19:43:25,216:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:43:25,217:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 19:43:31,131:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 19:43:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:44:25,191:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:44:25,191:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 19:44:31,440:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 19:44:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:44:31,458:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:44:31,460:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 19:44:34,802:Thread-6 (process_request_thread):127.0.0.1 - - [31/May/2026 19:44:34] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 19:44:34,940:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:44:34,941:Thread-7 (process_request_thread):System Started
+INFO:2026-05-31 19:44:38,390:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 19:44:38] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:44:41,433:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 19:44:41] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:44:53,036:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:44:53,036:Thread-8 (process_request_thread):System Started
+INFO:2026-05-31 19:44:58,976:Thread-8 (process_request_thread):127.0.0.1 - - [31/May/2026 19:44:58] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:53:28,961:Thread-9 (process_request_thread):127.0.0.1 - - [31/May/2026 19:53:28] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 19:53:29,068:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:53:29,068:Thread-10 (process_request_thread):System Started
+INFO:2026-05-31 19:53:35,980:Thread-10 (process_request_thread):127.0.0.1 - - [31/May/2026 19:53:35] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:53:38,026:Thread-11 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:53:38,026:Thread-11 (process_request_thread):System Started
+INFO:2026-05-31 19:53:44,221:Thread-11 (process_request_thread):127.0.0.1 - - [31/May/2026 19:53:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:54:14,245:Thread-12 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:54:14,245:Thread-12 (process_request_thread):System Started
+INFO:2026-05-31 19:54:20,662:Thread-12 (process_request_thread):127.0.0.1 - - [31/May/2026 19:54:20] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:54:50,689:Thread-13 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:54:50,689:Thread-13 (process_request_thread):System Started
+INFO:2026-05-31 19:54:56,979:Thread-13 (process_request_thread):127.0.0.1 - - [31/May/2026 19:54:56] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:55:27,009:Thread-14 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:55:27,009:Thread-14 (process_request_thread):System Started
+INFO:2026-05-31 19:55:33,093:Thread-14 (process_request_thread):127.0.0.1 - - [31/May/2026 19:55:33] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:56:03,115:Thread-15 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:56:03,115:Thread-15 (process_request_thread):System Started
+INFO:2026-05-31 19:56:09,386:Thread-15 (process_request_thread):127.0.0.1 - - [31/May/2026 19:56:09] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:56:39,969:Thread-16 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:56:39,969:Thread-16 (process_request_thread):System Started
+INFO:2026-05-31 19:56:45,650:Thread-16 (process_request_thread):127.0.0.1 - - [31/May/2026 19:56:45] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:59:14,669:Thread-17 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:59:14,669:Thread-17 (process_request_thread):System Started
+INFO:2026-05-31 19:59:20,187:Thread-17 (process_request_thread):127.0.0.1 - - [31/May/2026 19:59:20] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 19:59:50,198:Thread-18 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 19:59:50,198:Thread-18 (process_request_thread):System Started
+INFO:2026-05-31 19:59:55,713:Thread-18 (process_request_thread):127.0.0.1 - - [31/May/2026 19:59:55] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:00:25,731:Thread-19 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:00:25,734:Thread-19 (process_request_thread):System Started
+INFO:2026-05-31 20:00:30,901:Thread-19 (process_request_thread):127.0.0.1 - - [31/May/2026 20:00:30] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:01:00,963:Thread-20 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:01:00,964:Thread-20 (process_request_thread):System Started
+INFO:2026-05-31 20:01:03,864:Thread-20 (process_request_thread):127.0.0.1 - - [31/May/2026 20:01:03] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:01:33,973:Thread-21 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:01:33,973:Thread-21 (process_request_thread):System Started
+INFO:2026-05-31 20:01:39,787:Thread-21 (process_request_thread):127.0.0.1 - - [31/May/2026 20:01:39] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:02:09,968:Thread-22 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:02:09,968:Thread-22 (process_request_thread):System Started
+INFO:2026-05-31 20:02:15,299:Thread-22 (process_request_thread):127.0.0.1 - - [31/May/2026 20:02:15] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:02:45,966:Thread-23 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:02:45,966:Thread-23 (process_request_thread):System Started
+INFO:2026-05-31 20:02:51,900:Thread-23 (process_request_thread):127.0.0.1 - - [31/May/2026 20:02:51] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:04:01,926:Thread-24 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:04:01,926:Thread-24 (process_request_thread):System Started
+INFO:2026-05-31 20:04:07,301:Thread-24 (process_request_thread):127.0.0.1 - - [31/May/2026 20:04:07] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:04:37,958:Thread-25 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:04:37,958:Thread-25 (process_request_thread):System Started
+INFO:2026-05-31 20:04:43,270:Thread-25 (process_request_thread):127.0.0.1 - - [31/May/2026 20:04:43] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:05:50,041:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 20:05:56,301:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:05:56,301:Thread-2 (process_request_thread):System Started
+INFO:2026-05-31 20:05:57,831:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 20:05:57] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 20:05:57,947:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:05:57,947:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 20:06:02,816:Thread-2 (process_request_thread):127.0.0.1 - - [31/May/2026 20:06:02] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:06:04,201:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 20:06:04] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:06:06,407:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:06:06,407:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 20:06:19,311:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:06:19,312:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 20:06:24,540:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 20:06:24] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:06:54,567:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:06:54,567:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 20:06:59,891:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 20:06:59] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:07:29,917:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:07:29,917:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 20:07:35,858:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 20:07:35] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:08:05,964:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:08:05,964:Thread-6 (process_request_thread):System Started
+INFO:2026-05-31 20:08:07,663:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 20:08:07] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 20:08:07,840:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:08:07,840:Thread-8 (process_request_thread):System Started
+INFO:2026-05-31 20:08:12,827:Thread-6 (process_request_thread):127.0.0.1 - - [31/May/2026 20:08:12] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:08:14,027:Thread-8 (process_request_thread):127.0.0.1 - - [31/May/2026 20:08:14] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:08:18,251:Thread-9 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:08:18,251:Thread-9 (process_request_thread):System Started
+INFO:2026-05-31 20:08:23,270:Thread-9 (process_request_thread):127.0.0.1 - - [31/May/2026 20:08:23] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:13:23,974:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:13:23,974:Thread-10 (process_request_thread):System Started
+INFO:2026-05-31 20:13:29,100:Thread-10 (process_request_thread):127.0.0.1 - - [31/May/2026 20:13:29] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:18:47,973:Thread-11 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:18:47,974:Thread-11 (process_request_thread):System Started
+INFO:2026-05-31 20:18:53,722:Thread-11 (process_request_thread):127.0.0.1 - - [31/May/2026 20:18:53] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:36:49,575:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:36:49,576:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 20:36:49,775:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 20:36:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:2026-05-31 20:36:52,615:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 20:36:52] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:37:32,827:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 20:37:32] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 20:37:33,058:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:37:33,058:Thread-6 (process_request_thread):System Started
+INFO:2026-05-31 20:37:33,191:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 20:37:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:2026-05-31 20:37:38,420:Thread-6 (process_request_thread):127.0.0.1 - - [31/May/2026 20:37:38] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:43:38,976:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:43:38,976:Thread-8 (process_request_thread):System Started
+INFO:2026-05-31 20:43:44,160:Thread-8 (process_request_thread):127.0.0.1 - - [31/May/2026 20:43:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:46:46,644:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 20:49:25,631:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:49:25,632:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 20:49:30,673:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 20:49:30] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:52:29,298:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 20:53:20,404:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:53:20,405:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 20:53:24,956:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 20:53:24] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:53:28,158:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:53:28,158:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 20:53:32,422:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 20:53:32] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:53:42,263:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:53:42,264:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 20:53:45,439:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 20:53:45] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:54:01,608:Thread-6 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:01] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 20:54:01,678:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:54:01,679:Thread-7 (process_request_thread):System Started
+INFO:2026-05-31 20:54:05,947:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:05] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:54:22,363:Thread-8 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:22] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 20:54:22,423:Thread-9 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:54:22,423:Thread-9 (process_request_thread):System Started
+INFO:2026-05-31 20:54:26,811:Thread-9 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:26] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:54:31,856:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:54:31,856:Thread-10 (process_request_thread):System Started
+INFO:2026-05-31 20:54:36,229:Thread-11 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:36] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+INFO:2026-05-31 20:54:36,425:Thread-10 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:36] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-05-31 20:54:48,348:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 20:54:51,021:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 20:54:51,022:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 20:54:55,137:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 20:54:55] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 20:55:42,620:MainThread:Dhan.py System Started
+INFO:2026-05-31 20:55:42,620:MainThread:System Started
+INFO:2026-05-31 20:56:32,123:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\optionChain.py', reloading
+INFO:2026-05-31 20:56:35,502:MainThread:Dhan.py System Started
+INFO:2026-05-31 20:56:35,502:MainThread:System Started
+INFO:2026-05-31 21:01:12,220:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:01:12,220:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 21:01:16,931:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 21:01:16] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:02:42,358:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 21:02:42] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:02:42,424:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:02:42,424:Thread-5 (process_request_thread):System Started
+INFO:2026-05-31 21:02:47,197:Thread-5 (process_request_thread):127.0.0.1 - - [31/May/2026 21:02:47] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:06:17,757:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:06:17,758:Thread-6 (process_request_thread):System Started
+INFO:2026-05-31 21:06:22,332:Thread-6 (process_request_thread):127.0.0.1 - - [31/May/2026 21:06:22] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:15:05,967:Thread-7 (process_request_thread):127.0.0.1 - - [31/May/2026 21:15:05] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:15:06,062:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:15:06,063:Thread-8 (process_request_thread):System Started
+INFO:2026-05-31 21:15:10,629:Thread-8 (process_request_thread):127.0.0.1 - - [31/May/2026 21:15:10] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:15:44,272:Thread-9 (process_request_thread):127.0.0.1 - - [31/May/2026 21:15:44] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 21:15:44,349:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:15:44,349:Thread-10 (process_request_thread):System Started
+INFO:2026-05-31 21:15:48,983:Thread-10 (process_request_thread):127.0.0.1 - - [31/May/2026 21:15:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:21:52,081:Thread-11 (process_request_thread):127.0.0.1 - - [31/May/2026 21:21:52] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:21:52,147:Thread-12 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:21:52,147:Thread-12 (process_request_thread):System Started
+INFO:2026-05-31 21:21:56,652:Thread-12 (process_request_thread):127.0.0.1 - - [31/May/2026 21:21:56] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:22:33,061:Thread-13 (process_request_thread):127.0.0.1 - - [31/May/2026 21:22:33] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 21:22:33,123:Thread-14 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:22:33,124:Thread-14 (process_request_thread):System Started
+INFO:2026-05-31 21:22:36,528:Thread-14 (process_request_thread):127.0.0.1 - - [31/May/2026 21:22:36] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:28:38,974:Thread-15 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:28:38,974:Thread-15 (process_request_thread):System Started
+INFO:2026-05-31 21:28:43,391:Thread-15 (process_request_thread):127.0.0.1 - - [31/May/2026 21:28:43] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:29:53,789:Thread-16 (process_request_thread):127.0.0.1 - - [31/May/2026 21:29:53] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+INFO:2026-05-31 21:34:17,435:Thread-17 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:34:17,435:Thread-17 (process_request_thread):System Started
+INFO:2026-05-31 21:34:20,711:Thread-18 (process_request_thread):127.0.0.1 - - [31/May/2026 21:34:20] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 21:34:20,794:Thread-19 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:34:20,794:Thread-19 (process_request_thread):System Started
+INFO:2026-05-31 21:34:22,721:Thread-17 (process_request_thread):127.0.0.1 - - [31/May/2026 21:34:22] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:34:25,959:Thread-19 (process_request_thread):127.0.0.1 - - [31/May/2026 21:34:25] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:34:45,093:Thread-20 (process_request_thread):127.0.0.1 - - [31/May/2026 21:34:45] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+INFO:2026-05-31 21:36:22,646:Thread-21 (process_request_thread):127.0.0.1 - - [31/May/2026 21:36:22] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-05-31 21:36:22,713:Thread-22 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:36:22,714:Thread-22 (process_request_thread):System Started
+INFO:2026-05-31 21:36:27,123:Thread-22 (process_request_thread):127.0.0.1 - - [31/May/2026 21:36:27] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:37:53,923:Thread-23 (process_request_thread):127.0.0.1 - - [31/May/2026 21:37:53] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:37:53,999:Thread-24 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:37:53,999:Thread-24 (process_request_thread):System Started
+INFO:2026-05-31 21:37:58,512:Thread-24 (process_request_thread):127.0.0.1 - - [31/May/2026 21:37:58] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:38:30,530:Thread-25 (process_request_thread):127.0.0.1 - - [31/May/2026 21:38:30] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:38:30,603:Thread-26 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:38:30,603:Thread-26 (process_request_thread):System Started
+INFO:2026-05-31 21:38:34,868:Thread-26 (process_request_thread):127.0.0.1 - - [31/May/2026 21:38:34] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:38:44,005:Thread-27 (process_request_thread):127.0.0.1 - - [31/May/2026 21:38:44] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:38:44,080:Thread-28 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:38:44,080:Thread-28 (process_request_thread):System Started
+INFO:2026-05-31 21:38:48,422:Thread-28 (process_request_thread):127.0.0.1 - - [31/May/2026 21:38:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:39:43,493:Thread-29 (process_request_thread):127.0.0.1 - - [31/May/2026 21:39:43] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:39:43,566:Thread-30 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:39:43,566:Thread-30 (process_request_thread):System Started
+INFO:2026-05-31 21:39:48,245:Thread-30 (process_request_thread):127.0.0.1 - - [31/May/2026 21:39:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:40:42,412:Thread-31 (process_request_thread):127.0.0.1 - - [31/May/2026 21:40:42] "GET / HTTP/1.1" 200 -
+INFO:2026-05-31 21:40:42,494:Thread-32 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:40:42,496:Thread-32 (process_request_thread):System Started
+INFO:2026-05-31 21:40:46,914:Thread-32 (process_request_thread):127.0.0.1 - - [31/May/2026 21:40:46] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:43:19,985:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 21:43:22,320:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:43:22,320:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 21:43:26,922:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 21:43:26] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:49:13,972:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:49:13,972:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 21:49:18,949:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 21:49:18] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 21:55:03,049:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 21:55:07,719:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 21:55:07,720:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 21:55:12,105:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 21:55:12] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 22:01:57,194:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 22:02:25,732:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 22:02:25,733:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 22:02:30,177:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 22:02:30] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 22:08:37,148:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-05-31 22:08:40,427:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 22:08:40,427:Thread-3 (process_request_thread):System Started
+INFO:2026-05-31 22:08:45,227:Thread-3 (process_request_thread):127.0.0.1 - - [31/May/2026 22:08:45] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-05-31 22:13:45,250:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-05-31 22:13:45,250:Thread-4 (process_request_thread):System Started
+INFO:2026-05-31 22:13:50,185:Thread-4 (process_request_thread):127.0.0.1 - - [31/May/2026 22:13:50] "GET /api/data HTTP/1.1" 200 -

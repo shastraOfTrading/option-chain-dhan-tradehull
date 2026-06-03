@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NIFTY Option Cockpit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f1f4f9;--s:#fff;--s2:#f7f9fc;--s3:#eef1f8;
+  --b1:#e2e7f2;--b2:#c8d0e6;
+  --t1:#0d1526;--t2:#3a4a6e;--t3:#7a8aaa;
+  --grn:#0a6640;--grn2:#dcfce7;--grn3:#bbf7d0;--grn4:#16a34a;
+  --red:#991b1b;--red2:#fef2f2;--red3:#fecaca;--red4:#dc2626;
+  --amb:#78350f;--amb2:#fffbeb;--amb3:#fde68a;--amb4:#d97706;
+  --blu:#1e3a8a;--blu2:#eff6ff;--blu3:#bfdbfe;--blu4:#2563eb;
+  --pur:#5b21b6;--pur2:#f5f3ff;--pur3:#ddd6fe;
+  --r6:6px;--r8:8px;--r10:10px;--r12:12px;
+}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);font-size:13px;line-height:1.5;overflow:hidden;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.g{color:var(--grn4);font-weight:700;}
+.r{color:var(--red4);font-weight:700;}
+.a{color:var(--amb4);font-weight:700;}
+.b{color:var(--blu4);font-weight:700;}
+
+/* HEADER */
+.hdr{background:var(--t1);height:52px;display:flex;align-items:center;padding:0 18px;gap:16px;flex-shrink:0;}
+.hdr-ltp{font-size:24px;font-weight:800;color:#fff;font-family:'JetBrains Mono',monospace;letter-spacing:-1px;}
+.hdr-atm{background:#1e2a42;border:1px solid #2e3f5e;border-radius:var(--r6);padding:4px 10px;text-align:center;}
+.hdr-atm-n{font-size:14px;font-weight:700;color:#fbbf24;font-family:'JetBrains Mono',monospace;}
+.hdr-atm-l{font-size:9px;color:#6a7a9a;letter-spacing:.1em;text-transform:uppercase;}
+.hdr-sep{width:1px;height:30px;background:#2a3550;flex-shrink:0;}
+.hdr-sup{display:flex;align-items:center;gap:6px;background:#052e16;border:1px solid #14532d;border-radius:20px;padding:4px 12px;}
+.hdr-sup span{font-size:12px;font-weight:700;color:#4ade80;font-family:'JetBrains Mono',monospace;}
+.hdr-sup small{font-size:10px;color:#16a34a;}
+.hdr-res{display:flex;align-items:center;gap:6px;background:#450a0a;border:1px solid #7f1d1d;border-radius:20px;padding:4px 12px;}
+.hdr-res span{font-size:12px;font-weight:700;color:#fca5a5;font-family:'JetBrains Mono',monospace;}
+.hdr-res small{font-size:10px;color:#f87171;}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.hdr-ts{font-size:10px;color:#4a5a7a;font-family:'JetBrains Mono',monospace;}
+.hdr-err{font-size:10px;color:#f87171;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hdr-btn{background:#1e2a42;border:1px solid #2e3f5e;color:#9ba8c0;padding:4px 12px;border-radius:var(--r6);font-size:11px;cursor:pointer;font-family:inherit;}
+.hdr-btn:hover{background:#2e3f5e;color:#fff;}
+
+/* BODY */
+.body{display:flex;height:calc(100vh - 52px - 56px);overflow:hidden;}
+
+/* LEFT */
+.left{width:310px;flex-shrink:0;background:var(--s);border-right:1px solid var(--b1);overflow-y:auto;display:flex;flex-direction:column;}
+.left::-webkit-scrollbar{width:3px;}
+.left::-webkit-scrollbar-thumb{background:var(--b2);}
+
+/* RIGHT */
+.right{flex:1;overflow-y:auto;padding:14px 16px;min-width:0;}
+.right::-webkit-scrollbar{width:4px;}
+.right::-webkit-scrollbar-thumb{background:var(--b2);}
+
+/* BOTTOM */
+.btm{height:56px;background:var(--t1);border-top:2px solid #1e2a42;display:flex;align-items:center;padding:0 18px;gap:16px;flex-shrink:0;}
+.btm-dir{font-size:16px;font-weight:800;font-family:'JetBrains Mono',monospace;min-width:80px;}
+.btm-v{flex:1;font-size:11px;color:#8a9ab8;line-height:1.5;}
+.btm-v b{color:#e2e8f0;}
+.btm-right{flex-shrink:0;border-left:1px solid #1e2a42;padding-left:16px;text-align:right;}
+.btm-rl{font-size:9px;color:#4a5a7a;letter-spacing:.1em;text-transform:uppercase;}
+.btm-rv{font-size:16px;font-weight:800;color:#4ade80;font-family:'JetBrains Mono',monospace;}
+.btm-ra{font-size:10px;color:#3a4a6a;margin-top:1px;}
+
+/* ACCORDION */
+.acc{border-bottom:1px solid var(--b1);}
+.acc-h{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;cursor:pointer;gap:8px;user-select:none;}
+.acc-h:hover{background:var(--s2);}
+.acc-ht{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--t1);}
+.acc-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.acc-hr{display:flex;align-items:center;gap:6px;}
+.acc-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.05em;}
+.ab-g{background:var(--grn2);color:var(--grn);border:1px solid var(--grn3);}
+.ab-r{background:var(--red2);color:var(--red);border:1px solid var(--red3);}
+.ab-a{background:var(--amb2);color:var(--amb);border:1px solid var(--amb3);}
+.ab-p{background:var(--pur2);color:var(--pur);border:1px solid var(--pur3);}
+.acc-arr{font-size:9px;color:var(--t3);transition:transform .2s;}
+.acc-arr.op{transform:rotate(180deg);}
+.acc-b{display:none;padding:0 14px 13px;}
+.acc-b.op{display:block;}
+
+/* CHIPS */
+.chips{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap;}
+.chip{background:var(--s3);border:1px solid var(--b1);border-radius:var(--r6);padding:5px 8px;display:flex;flex-direction:column;align-items:center;min-width:72px;}
+.chip-v{font-size:15px;font-weight:800;font-family:'JetBrains Mono',monospace;line-height:1.1;}
+.chip-l{font-size:9px;color:var(--t3);letter-spacing:.04em;text-transform:uppercase;margin-top:2px;}
+.stars{font-size:13px;margin-bottom:5px;}
+.s-on{color:#f59e0b;}
+.s-off{color:var(--b1);}
+
+/* EXPLAIN BOX */
+.exb{border-radius:0 var(--r6) var(--r6) 0;padding:8px 10px;font-size:11px;line-height:1.7;color:var(--t2);}
+.exb b{color:var(--t1);font-weight:600;}
+.exb-g{background:var(--grn2);border-left:3px solid var(--grn4);}
+.exb-r{background:var(--red2);border-left:3px solid var(--red4);}
+.exb-b{background:var(--blu2);border-left:3px solid var(--blu4);}
+
+/* TOOLTIP */
+.tip{position:relative;display:inline-flex;align-items:center;gap:3px;}
+.tip-i{width:14px;height:14px;border-radius:50%;background:var(--s3);border:1px solid var(--b2);color:var(--t3);font-size:9px;display:inline-flex;align-items:center;justify-content:center;cursor:help;font-style:normal;flex-shrink:0;line-height:1;}
+.tip:hover .tip-p{display:block;}
+.tip-p{display:none;position:absolute;z-index:999;bottom:calc(100% + 6px);left:0;min-width:220px;max-width:260px;background:#0d1526;border:1px solid #2e3f5e;border-radius:var(--r8);padding:10px 12px;font-size:11px;color:#c8d5ee;line-height:1.65;pointer-events:none;}
+.tip-p strong{color:#fff;display:block;font-size:12px;margin-bottom:5px;}
+.tip-p .eg{margin-top:7px;background:#161e30;border-radius:var(--r6);padding:6px 8px;font-size:10px;color:#6a7a9a;line-height:1.5;font-family:'JetBrains Mono',monospace;}
+.tip-p .hi{color:#4ade80;font-weight:700;}
+.tip-p .ri{color:#fca5a5;font-weight:700;}
+
+/* TABS */
+.tabs{display:flex;background:var(--s);border-bottom:2px solid var(--b1);margin-bottom:14px;border-radius:var(--r10) var(--r10) 0 0;overflow:hidden;}
+.tab-btn{padding:10px 14px;font-size:12px;font-weight:600;color:var(--t3);cursor:pointer;border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:inherit;transition:all .15s;}
+.tab-btn:hover{color:var(--t1);background:var(--s2);}
+.tab-btn.on{color:var(--blu4);border-bottom-color:var(--blu4);}
+.tab-pane{display:none;}
+.tab-pane.on{display:block;}
+
+/* LEVELS */
+.lv-card{background:var(--s);border:1px solid var(--b1);border-radius:var(--r12);padding:16px;margin-bottom:14px;}
+.lv-title{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+.lv-track-wrap{position:relative;padding:18px 0 22px;}
+.lv-track{height:32px;background:var(--s3);border-radius:var(--r6);border:1px solid var(--b1);position:relative;overflow:visible;}
+.lv-zone-fill{position:absolute;top:0;bottom:0;border-radius:var(--r6);opacity:.15;}
+.lv-mark{position:absolute;top:0;bottom:0;width:3px;border-radius:2px;}
+.lv-lbl{position:absolute;font-size:10px;font-weight:700;white-space:nowrap;font-family:'JetBrains Mono',monospace;}
+.lv-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;border:2px solid var(--s);}
+.lv-legend{display:flex;gap:16px;font-size:11px;color:var(--t2);margin-top:6px;}
+.lv-leg-dot{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle;}
+.lv-context{font-size:11px;color:var(--t2);background:var(--s3);border-radius:var(--r6);padding:8px 10px;margin-top:8px;line-height:1.7;}
+.lv-context b{color:var(--t1);}
+
+/* SR CARDS */
+.sr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.sr-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.05em;margin-bottom:8px;}
+.src-g{background:var(--grn2);color:var(--grn);border:1px solid var(--grn3);}
+.src-r{background:var(--red2);color:var(--red);border:1px solid var(--red3);}
+.sr-nums{display:flex;gap:8px;margin-bottom:10px;}
+.sr-num{flex:1;background:var(--s3);border-radius:var(--r6);padding:6px 8px;text-align:center;}
+.sr-nv{font-size:14px;font-weight:800;font-family:'JetBrains Mono',monospace;}
+.sr-nl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;margin-top:1px;}
+.sr-explain{font-size:11px;color:var(--t2);line-height:1.7;background:var(--s3);border-radius:var(--r6);padding:8px 10px;}
+.sr-explain b{color:var(--t1);font-weight:600;}
+
+/* GREEK CARDS */
+.gsk-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.gsk{background:var(--s);border:1px solid var(--b1);border-radius:var(--r10);padding:14px;}
+.gsk-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;}
+.gsk-name{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px;color:var(--t3);}
+.gsk-strike{font-size:22px;font-weight:900;font-family:'JetBrains Mono',monospace;letter-spacing:-.5px;}
+.gsk-q{font-size:9px;font-weight:700;padding:3px 8px;border-radius:var(--r6);letter-spacing:.05em;}
+.q-good{background:#dcfce7;color:#15803d;border:1px solid #86efac;}
+.q-fair{background:#fef9c3;color:#92400e;border:1px solid #fde047;}
+.q-poor{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;}
+.gsk-pills{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;}
+.gp{border-radius:4px;padding:3px 8px;font-size:11px;font-weight:600;font-family:'JetBrains Mono',monospace;}
+.gp-d{background:var(--blu2);color:var(--blu);}
+.gp-t{background:var(--red2);color:var(--red);}
+.gp-iv-lo{background:var(--grn2);color:var(--grn);}
+.gp-iv-hi{background:#fff7ed;color:#c2410c;}
+.gp-v{background:var(--pur2);color:var(--pur);}
+.gp-ltp{background:var(--s3);color:var(--t1);border:1px solid var(--b2);}
+
+/* POSITIONING */
+.pos-bar-bg{height:10px;background:var(--b1);border-radius:5px;overflow:hidden;margin:6px 0 3px;}
+.pos-fill{height:10px;border-radius:5px;}
+.pos-fill-g{background:linear-gradient(90deg,#16a34a,#4ade80);}
+.pos-fill-r{background:linear-gradient(90deg,#dc2626,#f87171);}
+.pos-fill-a{background:linear-gradient(90deg,#d97706,#fbbf24);}
+
+/* TOP3 */
+.t3r{display:flex;align-items:center;justify-content:space-between;background:var(--s3);border-radius:var(--r6);padding:5px 8px;margin-bottom:3px;}
+.t3-rank{font-size:10px;color:var(--t3);min-width:14px;}
+.t3-s{font-size:12px;font-weight:700;font-family:'JetBrains Mono',monospace;}
+.t3-d{font-size:11px;font-weight:700;font-family:'JetBrains Mono',monospace;}
+
+/* REC */
+.rec-card{border-radius:var(--r8);padding:10px 12px;margin-bottom:6px;}
+.rec-ce{background:var(--grn2);border:1px solid var(--grn3);}
+.rec-pe{background:var(--red2);border:1px solid var(--red3);}
+.rec-type{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px;}
+.rec-ce .rec-type{color:var(--grn);}
+.rec-pe .rec-type{color:var(--red);}
+.rec-sn{font-size:18px;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--t1);margin-bottom:5px;}
+.rec-why{font-size:11px;color:var(--t2);line-height:1.6;margin-top:6px;}
+
+/* CALC */
+.calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.calc-sel,.calc-inp{background:var(--s3);border:1px solid var(--b2);color:var(--t1);border-radius:var(--r6);padding:7px 9px;font-size:12px;font-family:inherit;flex:1;}
+.calc-sel:focus,.calc-inp:focus{outline:none;border-color:var(--blu3);}
+.calc-form-row{display:flex;gap:6px;margin-bottom:8px;}
+.calc-inp-full{width:100%;background:var(--s3);border:1px solid var(--b2);color:var(--t1);border-radius:var(--r6);padding:7px 9px;font-size:13px;font-family:'JetBrains Mono',monospace;margin-bottom:8px;}
+.calc-inp-full:focus{outline:none;border-color:var(--blu3);}
+.calc-right{background:var(--s3);border-radius:var(--r8);padding:12px;display:flex;flex-direction:column;justify-content:center;}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--b1);}
+.calc-result-row:last-child{border:none;padding-top:8px;margin-top:3px;}
+.crl{font-size:11px;color:var(--t3);}
+.crv{font-size:14px;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--t1);}
+.crv-g{color:var(--grn4);}
+.crv-r{color:var(--red4);}
+
+/* LOADING */
+#loading{position:fixed;inset:0;background:rgba(13,21,38,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:14px;}
+.spinner{width:28px;height:28px;border:2px solid #2e3f5e;border-top-color:#4ade80;border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <div style="font-size:12px;color:#8a9ab8;">Live option chain fetch ho raha hai…</div>
+</div>
+
+<div style="display:flex;flex-direction:column;height:100vh;">
+
+<!-- HEADER -->
+<div class="hdr">
+  <span style="font-size:9px;color:#4a5a7a;letter-spacing:.12em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">NIFTY</span>
+  <span class="hdr-ltp" id="h-ltp">—</span>
+  <div class="hdr-atm"><div class="hdr-atm-l">ATM</div><div class="hdr-atm-n" id="h-atm">—</div></div>
+  <div class="hdr-sep"></div>
+  <div class="hdr-sup"><span>▲</span><span id="h-sup">—</span><small id="h-sup-pt"></small></div>
+  <div class="hdr-res"><span>▼</span><span id="h-res">—</span><small id="h-res-pt"></small></div>
+  <div class="hdr-right">
+    <span class="hdr-err" id="h-err"></span>
+    <span class="hdr-ts" id="h-ts">—</span>
+    <button class="hdr-btn" onclick="loadData()">⟳ Refresh</button>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+<!-- LEFT SIDEBAR -->
+<div class="left">
+
+  <div class="acc">
+    <div class="acc-h" onclick="tog(this)">
+      <div class="acc-ht"><span class="acc-dot" style="background:#4ade80;"></span>Support Zone</div>
+      <div class="acc-hr"><span class="acc-badge ab-g" id="sup-badge">—</span><span class="acc-arr op">▼</span></div>
+    </div>
+    <div class="acc-b op">
+      <div style="font-size:26px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--grn4);margin-bottom:2px;" id="sup-s">—</div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:8px;" id="sup-dist"></div>
+      <div class="chips">
+        <div class="chip"><div class="chip-v g" id="sup-oi">—</div><div class="chip-l"><span class="tip">PE OI<i class="tip-i">i</i><div class="tip-p"><strong>PE OI = Deewar ka size</strong>Jitne zyada put contracts, utni badi deewar. 12L+ = serious defense.<div class="eg"><span class="hi">High OI = strong wall = safe floor</span></div></div></span></div></div>
+        <div class="chip"><div class="chip-v" id="sup-doi" style="color:var(--grn4);">—</div><div class="chip-l"><span class="tip">Aaj ΔOI<i class="tip-i">i</i><div class="tip-p"><strong>Aaj naye defenders aaye?</strong>+ = aaj fresh put writers ne positions add ki. Wall grow ho rahi hai.<div class="eg"><span class="hi">+ = wall strong ho rahi hai ✓</span><br><span class="ri">- = log nikal rahe hain ✗</span></div></div></span></div></div>
+        <div class="chip"><div class="chip-v a" id="sup-vol">—</div><div class="chip-l"><span class="tip">Volume<i class="tip-i">i</i><div class="tip-p"><strong>Genuine activity?</strong>High ΔOI + High Volume = pakki fresh position. Dono high = genuine strong support.<div class="eg"><span class="hi">Dono high = real conviction</span></div></div></span></div></div>
+      </div>
+      <div class="stars" id="sup-stars"></div>
+      <div class="exb exb-g" id="sup-exb">—</div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-h" onclick="tog(this)">
+      <div class="acc-ht"><span class="acc-dot" style="background:#f87171;"></span>Resistance Zone</div>
+      <div class="acc-hr"><span class="acc-badge ab-r" id="res-badge">—</span><span class="acc-arr op">▼</span></div>
+    </div>
+    <div class="acc-b op">
+      <div style="font-size:26px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--red4);margin-bottom:2px;" id="res-s">—</div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:8px;" id="res-dist"></div>
+      <div class="chips">
+        <div class="chip"><div class="chip-v r" id="res-oi">—</div><div class="chip-l"><span class="tip">CE OI<i class="tip-i">i</i><div class="tip-p"><strong>CE OI = Chhat ka weight</strong>Jitne zyada call contracts, utna bhaari ceiling. Yeh writers chahte hain NIFTY yahan se upar na jaye.<div class="eg"><span class="ri">High OI = heavy ceiling = breakout mushkil</span><br><span class="hi">↓ OI = chhat utha rahi hai = buy signal!</span></div></div></span></div></div>
+        <div class="chip"><div class="chip-v" id="res-doi" style="color:var(--red4);">—</div><div class="chip-l"><span class="tip">Aaj ΔOI<i class="tip-i">i</i><div class="tip-p"><strong>Ceiling aaj bhaari hua?</strong>+ = call writers aaj aur positions add kar rahe hain = breakout mushkil.<div class="eg"><span class="hi">Negative = ceiling lift = breakout ka signal!</span></div></div></span></div></div>
+        <div class="chip"><div class="chip-v a" id="res-vol">—</div><div class="chip-l">Volume</div></div>
+      </div>
+      <div class="stars" id="res-stars"></div>
+      <div class="exb exb-r" id="res-exb">—</div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-h" onclick="tog(this)">
+      <div class="acc-ht"><span class="acc-dot" style="background:#fbbf24;"></span>Market Positioning</div>
+      <div class="acc-hr"><span class="acc-badge ab-g" id="pos-badge">—</span><span class="acc-arr">▼</span></div>
+    </div>
+    <div class="acc-b">
+      <div style="background:var(--s);border:1px solid var(--b1);border-radius:var(--r10);padding:12px 14px;">
+        <div style="font-size:18px;font-weight:800;margin-bottom:4px;" id="pos-dir">—</div>
+        <div class="pos-bar-bg"><div class="pos-fill pos-fill-g" id="pos-bar" style="width:50%"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:8px;"><span id="pos-pe-l" class="g mono">—</span><span id="pos-ce-l" class="r mono">—</span></div>
+        <div class="exb exb-g" id="pos-exb">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-h" onclick="tog(this)">
+      <div class="acc-ht"><span class="acc-dot" style="background:#818cf8;"></span>Top Writing Activity</div>
+      <div class="acc-hr"><span class="acc-badge ab-p">RANKED</span><span class="acc-arr">▼</span></div>
+    </div>
+    <div class="acc-b">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div><div style="font-size:9px;font-weight:700;color:var(--grn4);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px;">PUT writers ▲</div><div id="t3pe"></div></div>
+        <div><div style="font-size:9px;font-weight:700;color:var(--red4);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px;">CALL writers ▼</div><div id="t3ce"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-h" onclick="tog(this)">
+      <div class="acc-ht"><span class="acc-dot" style="background:#10b981;"></span>Best Strike to Buy</div>
+      <div class="acc-hr"><span class="acc-badge ab-g">SELECTED</span><span class="acc-arr">▼</span></div>
+    </div>
+    <div class="acc-b"><div id="rec-ce-box"></div><div id="rec-pe-box" style="margin-top:6px;"></div></div>
+  </div>
+
+</div>
+
+<!-- RIGHT MAIN -->
+<div class="right">
+  <div class="tabs">
+    <button class="tab-btn on" onclick="stab('overview',this)">📍 Support &amp; Resistance</button>
+    <button class="tab-btn" onclick="stab('greeks',this)">⚡ Greeks → Strike Decision</button>
+    <button class="tab-btn" onclick="stab('calc',this)">🎯 LTP Calculator</button>
+  </div>
+
+  <!-- TAB: Overview -->
+  <div id="tab-overview" class="tab-pane on">
+    <div class="lv-card">
+      <div class="lv-title"><span class="tip">Price map — NIFTY kahan hai, walls kahan hain<i class="tip-i">i</i><div class="tip-p"><strong>Yeh visual kya batata hai?</strong>Green bar = put writers ki deewar (support). Red bar = call writers ki chhat (resistance). Black dot = NIFTY abhi yahan hai.<div class="eg">Dot support ke paas = safe zone for call buyers.<br>Dot resistance ke paas = risky, ceiling close hai.</div></div></span></div>
+      <div class="lv-track-wrap">
+        <div class="lv-track" id="lv-t">
+          <div class="lv-zone-fill" id="lv-zone" style="background:#16a34a;"></div>
+          <div class="lv-mark" id="lv-sup-m" style="background:#16a34a;"><div class="lv-lbl" style="bottom:-20px;color:#16a34a;" id="lv-sl">—</div></div>
+          <div class="lv-mark" id="lv-res-m" style="background:#dc2626;"><div class="lv-lbl" style="top:-20px;color:#dc2626;" id="lv-rl">—</div></div>
+          <div class="lv-mark" id="lv-ltp-m" style="background:#0d1526;width:2px;"><div class="lv-dot" style="background:#0d1526;"></div><div class="lv-lbl" style="top:-20px;left:5px;color:#0d1526;" id="lv-ll">—</div></div>
+        </div>
+      </div>
+      <div class="lv-legend">
+        <span><span class="lv-leg-dot" style="background:#16a34a;"></span>Support (PE writers ki deewar)</span>
+        <span><span class="lv-leg-dot" style="background:#0d1526;border-radius:50%;"></span>NIFTY LTP</span>
+        <span><span class="lv-leg-dot" style="background:#dc2626;"></span>Resistance (CE writers ki chhat)</span>
+      </div>
+      <div class="lv-context" id="lv-ctx">—</div>
+    </div>
+    <div class="sr-grid">
+      <div style="background:var(--s);border:1px solid var(--grn3);border-radius:var(--r12);padding:16px;border-top:3px solid var(--grn4);">
+        <span class="sr-badge src-g">STRONGEST SUPPORT</span>
+        <div style="font-size:30px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--grn4);letter-spacing:-1px;margin-bottom:2px;" id="srd-s">—</div>
+        <div style="font-size:11px;color:var(--t3);margin-bottom:10px;" id="srd-dist"></div>
+        <div class="sr-nums">
+          <div class="sr-num"><div class="sr-nv g" id="srd-oi">—</div><div class="sr-nl"><span class="tip">PE OI<i class="tip-i">i</i><div class="tip-p"><strong>Deewar kitni moti?</strong>Total put contracts = total log jo defend kar rahe hain yeh level. High OI = strong bounce expect karo.<div class="eg"><span class="hi">High OI = strong floor ✓</span></div></div></span></div></div>
+          <div class="sr-num"><div class="sr-nv" id="srd-doi" style="color:var(--grn4);">—</div><div class="sr-nl"><span class="tip">Aaj ΔOI<i class="tip-i">i</i><div class="tip-p"><strong>Aaj naye defenders aaye?</strong>Positive = aaj bhi fresh put writers ne yahan enter kiya. Floor aaj bhi mazboot hai.<div class="eg"><span class="hi">Positive = conviction strong hai ✓</span></div></div></span></div></div>
+          <div class="sr-num"><div class="sr-nv a" id="srd-vol">—</div><div class="sr-nl"><span class="tip">Volume<i class="tip-i">i</i><div class="tip-p"><strong>Activity genuine?</strong>Volume ≥ ΔOI = clean signal. Real positions ban rahi hain.</div></span></div></div>
+        </div>
+        <div class="sr-explain" id="srd-exb">—</div>
+      </div>
+      <div style="background:var(--s);border:1px solid var(--red3);border-radius:var(--r12);padding:16px;border-top:3px solid var(--red4);">
+        <span class="sr-badge src-r">STRONGEST RESISTANCE</span>
+        <div style="font-size:30px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--red4);letter-spacing:-1px;margin-bottom:2px;" id="rrd-s">—</div>
+        <div style="font-size:11px;color:var(--t3);margin-bottom:10px;" id="rrd-dist"></div>
+        <div class="sr-nums">
+          <div class="sr-num"><div class="sr-nv r" id="rrd-oi">—</div><div class="sr-nl"><span class="tip">CE OI<i class="tip-i">i</i><div class="tip-p"><strong>Chhat kitni bhaari?</strong>Call writers ka goal: NIFTY yahan ke upar na jaye. Jitna bada number, utna mushkil toodna.<div class="eg"><span class="ri">High OI = T1 yahan rakhna smart hai</span></div></div></span></div></div>
+          <div class="sr-num"><div class="sr-nv" id="rrd-doi" style="color:var(--red4);">—</div><div class="sr-nl"><span class="tip">Aaj ΔOI<i class="tip-i">i</i><div class="tip-p"><strong>Ceiling aaj aur moti?</strong>+ = fresh call writers aa gaye = resistance stronger.<div class="eg"><span class="ri">+ = aaj breakout trade avoid karo</span><br><span class="hi">Negative = ceiling lift = breakout ka moka!</span></div></div></span></div></div>
+          <div class="sr-num"><div class="sr-nv a" id="rrd-vol">—</div><div class="sr-nl">Volume</div></div>
+        </div>
+        <div class="sr-explain" id="rrd-exb">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: Greeks -->
+  <div id="tab-greeks" class="tab-pane">
+    <div style="background:var(--blu2);border:1px solid var(--blu3);border-radius:var(--r8);padding:10px 14px;margin-bottom:12px;font-size:12px;color:var(--blu);line-height:1.6;">
+      <b style="color:var(--blu4);">Har strike card directly batata hai: lo ya nahi, aur kyun. Green border = recommended strike.</b>
+    </div>
+    <div class="gsk-wrap" id="gsk-wrap"></div>
+    <div style="background:var(--s);border:1px solid var(--b1);border-radius:var(--r10);padding:14px 16px;">
+      <div style="font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;">ATM strike ka combined verdict</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.9;" id="greek-verdict">—</div>
+    </div>
+  </div>
+
+  <!-- TAB: LTP Calc -->
+  <div id="tab-calc" class="tab-pane">
+    <div style="background:var(--s);border:1px solid var(--b1);border-radius:var(--r12);padding:16px;margin-bottom:12px;">
+      <div style="font-size:13px;font-weight:700;margin-bottom:4px;"><span class="tip">Option price kahan hoga agar NIFTY wahan pahunche?<i class="tip-i">i</i><div class="tip-p"><strong>Formula:</strong> Expected LTP = Current LTP + (NIFTY move × Delta)<div class="eg">Delta 0.41, NIFTY +50 pts:<br>₹145 + (50 × 0.41) = <span class="hi">₹165.5</span></div></div></span></div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:14px;">Strike choose karo, target NIFTY price likho — instantly option ka expected LTP aur P&L dekhte hain.</div>
+      <div class="calc-layout">
+        <div>
+          <div class="calc-form-row"><select id="calc-type" class="calc-sel" onchange="calcRun()"><option value="ce">Call CE</option><option value="pe">Put PE</option></select><select id="calc-strike" class="calc-sel" onchange="calcRun()"></select></div>
+          <input type="number" id="calc-target" class="calc-inp-full" placeholder="Target NIFTY price likho (e.g. 23650)" oninput="calcRun()"/>
+          <div style="font-size:11px;color:var(--t3);line-height:1.6;" id="calc-ctx">Strike choose karo phir target enter karo.</div>
+        </div>
+        <div class="calc-right">
+          <div style="font-size:12px;color:var(--t3);text-align:center;padding:10px;" id="calc-ph"><b style="color:var(--t2);display:block;margin-bottom:4px;">Strike aur target enter karo</b>Result yahan aayega.</div>
+          <div id="calc-rows" style="display:none;">
+            <div class="calc-result-row"><span class="crl">Selected strike</span><span class="crv" id="cr-strike">—</span></div>
+            <div class="calc-result-row"><span class="crl">Current LTP</span><span class="crv" id="cr-ltp">—</span></div>
+            <div class="calc-result-row"><span class="crl">Delta (speed)</span><span class="crv b" id="cr-d">—</span></div>
+            <div class="calc-result-row"><span class="crl">NIFTY move</span><span class="crv" id="cr-move">—</span></div>
+            <div class="calc-result-row"><span class="crl">Expected LTP</span><span class="crv" id="cr-exp">—</span></div>
+            <div class="calc-result-row" style="border-top:2px solid var(--b1);margin-top:4px;"><span class="crl" style="font-weight:700;color:var(--t1);">Potential P&amp;L</span><span class="crv" id="cr-pnl">—</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="calc-explain" style="display:none;margin-top:12px;" class="exb exb-b"></div>
+    </div>
+    <div style="background:var(--s);border:1px solid var(--b1);border-radius:var(--r10);padding:14px 16px;">
+      <div style="font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;">Sabhi strikes — quick reference (live numbers)</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:11px;">
+          <thead><tr style="border-bottom:2px solid var(--b1);">
+            <th style="padding:6px 8px;text-align:left;color:var(--t3);font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">Strike</th>
+            <th style="padding:6px 8px;text-align:right;color:#2563eb;font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">CE LTP</th>
+            <th style="padding:6px 8px;text-align:right;color:#2563eb;font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">CE Δ</th>
+            <th style="padding:6px 8px;text-align:right;color:#dc2626;font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">PE LTP</th>
+            <th style="padding:6px 8px;text-align:right;color:#dc2626;font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">PE Δ</th>
+            <th style="padding:6px 8px;text-align:right;color:#d97706;font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">θ/day</th>
+            <th style="padding:6px 8px;text-align:right;color:#7c3aed;font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">IV%</th>
+            <th style="padding:6px 8px;text-align:left;color:var(--t3);font-weight:600;font-size:9px;letter-spacing:.07em;text-transform:uppercase;">Buyer verdict</th>
+          </tr></thead>
+          <tbody id="srt-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- BOTTOM BAR -->
+<div class="btm">
+  <div class="btm-dir g mono" id="btm-dir">—</div>
+  <div class="btm-v" id="btm-v">Loading…</div>
+  <div class="btm-right">
+    <div class="btm-rl">Best Call Strike</div>
+    <div class="btm-rv" id="btm-s">—</div>
+    <div class="btm-ra">Far OTM aur expiry pe avoid karo</div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const fN=n=>Math.round(n||0).toLocaleString('en-IN');
+const fL=n=>{const v=Math.abs(n)/1e5;return(n>=0?"+":"-")+v.toFixed(1)+"L";};
+const fLa=n=>(Math.abs(n)/1e5).toFixed(1)+"L";
+const mkS=n=>{let s="";for(let i=1;i<=5;i++)s+=`<span class="${i<=n?'s-on':'s-off'}">★</span>`;return s;};
+
+function render(d){
+  window._D=d;
+  document.getElementById("h-ltp").textContent=fN(d.ltp);
+  document.getElementById("h-atm").textContent=fN(d.atm);
+  document.getElementById("h-sup").textContent=fN(d.support);
+  document.getElementById("h-sup-pt").textContent=`−${Math.abs(d.dist_sup||0)} pts`;
+  document.getElementById("h-res").textContent=fN(d.resistance);
+  document.getElementById("h-res-pt").textContent=`+${Math.abs(d.dist_res||0)} pts`;
+  document.getElementById("h-ts").textContent=new Date().toLocaleTimeString('en-IN');
+
+  const sr=d.sup_row,rr=d.res_row;
+  document.getElementById("sup-s").textContent=fN(sr.strike);
+  document.getElementById("sup-dist").textContent=`LTP se ${Math.abs(Math.round(d.ltp-sr.strike))} pts neeche`;
+  document.getElementById("sup-oi").textContent=fLa(sr.pe_oi)+"L";
+  const sd=document.getElementById("sup-doi");sd.textContent=fL(sr.pe_doi);sd.style.color=sr.pe_doi>=0?"var(--grn4)":"var(--red4)";
+  document.getElementById("sup-vol").textContent=fLa(sr.pe_vol)+"L";
+  document.getElementById("sup-stars").innerHTML=mkS(sr.stars);
+  document.getElementById("sup-exb").innerHTML=sr.explain||"—";
+  const sb=document.getElementById("sup-badge");sb.textContent=sr.pe_doi>0?"STRONG":"WEAKENING";sb.className="acc-badge "+(sr.pe_doi>0?"ab-g":"ab-r");
+
+  document.getElementById("res-s").textContent=fN(rr.strike);
+  document.getElementById("res-dist").textContent=`LTP se ${Math.abs(Math.round(rr.strike-d.ltp))} pts upar`;
+  document.getElementById("res-oi").textContent=fLa(rr.ce_oi)+"L";
+  const rd=document.getElementById("res-doi");rd.textContent=fL(rr.ce_doi);rd.style.color=rr.ce_doi>=0?"var(--red4)":"var(--grn4)";
+  document.getElementById("res-vol").textContent=fLa(rr.ce_vol)+"L";
+  document.getElementById("res-stars").innerHTML=mkS(rr.stars);
+  document.getElementById("res-exb").innerHTML=rr.explain||"—";
+  const rb=document.getElementById("res-badge");rb.textContent=rr.ce_doi>0?"HEAVY":"WEAKENING";rb.className="acc-badge "+(rr.ce_doi>0?"ab-r":"ab-g");
+
+  const dir=d.mkt_direction;
+  const dirEl=document.getElementById("pos-dir");dirEl.textContent=dir;dirEl.style.color=dir==="Bullish"?"var(--grn4)":dir==="Bearish"?"var(--red4)":"var(--amb4)";
+  const pb=document.getElementById("pos-badge");pb.textContent=dir.toUpperCase();pb.className="acc-badge "+(dir==="Bullish"?"ab-g":dir==="Bearish"?"ab-r":"ab-a");
+  const tot=d.total_pe_doi+d.total_ce_doi;const pp=tot>0?Math.round(d.total_pe_doi/tot*100):50;
+  const pbar=document.getElementById("pos-bar");pbar.style.width=pp+"%";pbar.className="pos-fill "+(dir==="Bullish"?"pos-fill-g":dir==="Bearish"?"pos-fill-r":"pos-fill-a");
+  document.getElementById("pos-pe-l").textContent=`PE ${fL(d.total_pe_doi)}`;
+  document.getElementById("pos-ce-l").textContent=`CE ${fL(d.total_ce_doi)}`;
+  document.getElementById("pos-exb").innerHTML=d.mkt_reason||"—";
+
+  const p3=document.getElementById("t3pe"),c3=document.getElementById("t3ce");
+  p3.innerHTML=c3.innerHTML="";
+  (d.top3_pe||[]).forEach((r,i)=>{p3.innerHTML+=`<div class="t3r"><span class="t3-rank">${i+1}</span><span class="t3-s">${fN(r.strike)}</span><span class="t3-d g">${fL(r.pe_doi)}</span></div>`;});
+  (d.top3_ce||[]).forEach((r,i)=>{c3.innerHTML+=`<div class="t3r"><span class="t3-rank">${i+1}</span><span class="t3-s">${fN(r.strike)}</span><span class="t3-d r">${fL(r.ce_doi)}</span></div>`;});
+
+  function buildRec(c,isCE){
+    const ltp=isCE?c.ce_ltp:c.pe_ltp,delta=isCE?c.ce_d:c.pe_d,th=isCE?c.ce_th:c.pe_th,iv=isCE?c.ce_iv:c.pe_iv,vg=isCE?(c.ce_vg||0):(c.pe_vg||0);
+    const qcls=c.quality==="GOOD"?"q-good":c.quality==="FAIR"?"q-fair":"q-poor";
+    const ivCls=iv<16?"gp-iv-lo":"gp-iv-hi";
+    const items=[...((c.goods||[]).map(x=>`<span class="g">✓</span> ${x}`)),...((c.issues||[]).map(x=>`<span class="r">✗</span> ${x}`))].join("<br>");
+    return `<div class="rec-card ${isCE?"rec-ce":"rec-pe"}">
+      <div class="rec-type">${isCE?"Recommended Call Buy ↗":"Put Buy — sirf bearish mein ↘"}</div>
+      <div class="rec-sn">${fN(isCE?c.strike:c.strike)} ${isCE?"CE":"PE"}</div>
+      <div class="gsk-pills"><span class="gp gp-d">Δ ${delta}</span><span class="gp gp-t">θ ${th}/day</span><span class="gp ${ivCls}">IV ${iv}%</span><span class="gp gp-v">V ${vg}</span><span class="gp gp-ltp">₹${ltp}</span></div>
+      <span class="${qcls}" style="display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:.06em;margin-bottom:6px;">Buyer quality: ${c.quality}</span>
+      <div style="font-size:10px;color:var(--t2);margin:3px 0 7px;line-height:1.65;">${items}</div>
+      <div class="rec-why">${c.reason}</div>
+    </div>`;
+  }
+  if(d.rec_ce)document.getElementById("rec-ce-box").innerHTML=buildRec(d.rec_ce,true);
+  if(d.rec_pe)document.getElementById("rec-pe-box").innerHTML=buildRec(d.rec_pe,false);
+
+  document.getElementById("srd-s").textContent=fN(sr.strike);
+  document.getElementById("srd-dist").textContent=`LTP se ${Math.abs(Math.round(d.ltp-sr.strike))} pts neeche · PE OI #1`;
+  document.getElementById("srd-oi").textContent=fLa(sr.pe_oi)+"L";
+  const s2=document.getElementById("srd-doi");s2.textContent=fL(sr.pe_doi);s2.style.color=sr.pe_doi>=0?"var(--grn4)":"var(--red4)";
+  document.getElementById("srd-vol").textContent=fLa(sr.pe_vol)+"L";
+  document.getElementById("srd-exb").innerHTML=`<b>Logic:</b> Yahan se call lena safe hai kyunki <b>${fLa(sr.pe_oi)}L put writers</b> ka loss hoga agar NIFTY ${fN(sr.strike)} se neeche gaya. SL <b>${fN(sr.strike)}</b> ke neeche rakho.`;
+  document.getElementById("rrd-s").textContent=fN(rr.strike);
+  document.getElementById("rrd-dist").textContent=`LTP se ${Math.abs(Math.round(rr.strike-d.ltp))} pts upar · CE OI #1`;
+  document.getElementById("rrd-oi").textContent=fLa(rr.ce_oi)+"L";
+  const r2=document.getElementById("rrd-doi");r2.textContent=fL(rr.ce_doi);r2.style.color=rr.ce_doi>=0?"var(--red4)":"var(--grn4)";
+  document.getElementById("rrd-vol").textContent=fLa(rr.ce_vol)+"L";
+  document.getElementById("rrd-exb").innerHTML=`<b>Logic:</b> T1 <b>${fN(rr.strike)}</b> ke paas rakho. ${rr.ce_doi<0?`<b class="g">CE ΔOI negative — writers nikal rahe hain! Breakout possible.</b>`:`CE ΔOI <b class="r">${fL(rr.ce_doi)}</b> — ceiling add ho rahi hai. Breakout trade avoid karo abhi.`}`;
+
+  const all=[d.support,d.resistance,d.ltp];
+  const mn=Math.min(...all)-400,mx=Math.max(...all)+400,rng=mx-mn;
+  const toP=v=>((v-mn)/rng*86+7).toFixed(1)+"%";
+  document.getElementById("lv-sup-m").style.left=toP(d.support);document.getElementById("lv-sl").textContent=fN(d.support);
+  document.getElementById("lv-res-m").style.left=toP(d.resistance);document.getElementById("lv-rl").textContent=fN(d.resistance);
+  document.getElementById("lv-ltp-m").style.left=toP(d.ltp);document.getElementById("lv-ll").textContent=fN(d.ltp);
+  const z=document.getElementById("lv-zone");z.style.left=toP(d.support);z.style.width=(parseFloat(toP(d.ltp))-parseFloat(toP(d.support))).toFixed(1)+"%";
+  const sDist=Math.abs(Math.round(d.ltp-d.support)),rDist=Math.abs(Math.round(d.resistance-d.ltp));
+  const rr2=(rDist/Math.max(sDist,1)).toFixed(1);
+  document.getElementById("lv-ctx").innerHTML=`NIFTY <b class="mono">${fN(d.ltp)}</b> — support <b class="g mono">${fN(d.support)}</b> se <b>${sDist} pts neeche</b>, resistance <b class="r mono">${fN(d.resistance)}</b> <b>${rDist} pts upar</b>. R:R ≈ <b>1:${rr2}</b> — ${parseFloat(rr2)>=1.5?"<b class='g'>Call buyers ke liye favourable zone. Floor paas, ceiling door.</b>":"<b class='a'>Ceiling kareeb hai. Entry se pehle breakout confirm karo.</b>"}`;
+
+  const gw=document.getElementById("gsk-wrap");gw.innerHTML="";
+  const cands=(d.chain||[]).filter(r=>r.ce_d>=0.22&&r.ce_d<=0.68&&r.ce_ltp>0);
+  cands.forEach(r=>{
+    const isAtm=r.atm,isRec=d.rec_ce&&r.strike===d.rec_ce.strike;
+    const q=r.ce_iv<14&&r.ce_d>=0.35&&r.ce_d<=0.55?"GOOD":r.ce_iv>20||r.ce_d<0.25?"POOR":"FAIR";
+    const qcls=q==="GOOD"?"q-good":q==="FAIR"?"q-fair":"q-poor";
+    const ivCls=r.ce_iv<16?"gp-iv-lo":"gp-iv-hi";
+    const dOk=r.ce_d>=0.35&&r.ce_d<=0.55,ivOk=r.ce_iv<16,tOk=Math.abs(r.ce_th)<10;
+    let verd="",vc="var(--t2)";
+    if(q==="GOOD"){verd="✅ Lo yeh strike — delta achha, IV sasta, decay manageable.";vc="var(--grn4)";}
+    else if(r.ce_d<0.30){verd=`⚠️ Delta ${r.ce_d} — too low. NIFTY 100 pts bhi chale toh sirf ₹${(r.ce_d*100).toFixed(0)} milenge.`;vc="var(--amb4)";}
+    else if(r.ce_iv>20){verd=`❌ IV ${r.ce_iv}% — mehngi premium. Overpay kar rahe ho.`;vc="var(--red4)";}
+    else if(!tOk){verd=`⚠️ Theta ₹${Math.abs(r.ce_th)}/day — heavy decay. Strong conviction chahiye.`;vc="var(--amb4)";}
+    else{verd="ℹ️ Theek hai — recommended strike se compare karo.";vc="var(--t2)";}
+    gw.innerHTML+=`<div class="gsk" style="${isRec?"border:2px solid var(--grn4);":""}${isAtm?"border-top:3px solid var(--amb4);":""}">
+      <div class="gsk-head">
+        <div><div class="gsk-name">${isAtm?"⭐ ATM":"OTM"}${isRec?" · RECOMMENDED":""}</div><div class="gsk-strike">${fN(r.strike)} CE</div></div>
+        <span class="gsk-q ${qcls}">${q}</span>
+      </div>
+      <div class="gsk-pills"><span class="gp gp-d">Δ ${r.ce_d}</span><span class="gp gp-t">θ ${r.ce_th}</span><span class="gp ${ivCls}">IV ${r.ce_iv}%</span><span class="gp gp-ltp">₹${r.ce_ltp}</span></div>
+      <div style="font-size:11px;font-weight:700;color:${vc};line-height:1.6;">${verd}</div>
+      <div style="font-size:10px;color:var(--t3);margin-top:5px;line-height:1.6;">${dOk?'<span class="g">✓ Delta ok</span>':'<span class="a">△ Delta suboptimal</span>'} &nbsp;${ivOk?'<span class="g">✓ IV low</span>':'<span class="r">✗ IV high</span>'} &nbsp;${tOk?'<span class="g">✓ Theta ok</span>':'<span class="a">△ Heavy decay</span>'}</div>
+    </div>`;
+  });
+  const ag=(d.chain||[]).find(r=>r.atm)||(d.chain||[])[Math.floor(((d.chain||[]).length)/2)];
+  if(ag){
+    document.getElementById("greek-verdict").innerHTML=
+      `<b>Delta ${ag.ce_d}</b> — har <b>10 pts NIFTY move</b> pe option <b class="b">₹${(ag.ce_d*10).toFixed(1)}</b> chalega. ${ag.ce_d>=0.4&&ag.ce_d<=0.55?"<span class='g'>✓ Ideal buyers range.</span>":"<span class='a'>△ 0.40–0.55 better hoti.</span>"}<br>
+      <b>Theta ${ag.ce_th}/day</b> — ek din hold karo, <b class="r">₹${Math.abs(ag.ce_th)}</b> sirf time se jayenge. ${Math.abs(ag.ce_th)<9?"<span class='g'>✓ Manageable.</span>":"<span class='r'>✗ Heavy — intraday only.</span>"}<br>
+      <b>IV ${ag.ce_iv}%</b> — ${ag.ce_iv<14?"<span class='g'>✓ LOW IV — options saste hain. Buyers ke liye best time.</span>":ag.ce_iv<20?"<span class='a'>△ Moderate — fair deal.</span>":"<span class='r'>✗ HIGH IV — options mehnge hain. Careful.</span>"}<br>
+      <b>Combined:</b> ${ag.ce_iv<16&&Math.abs(ag.ce_th)<10?"<span class='g'>Aaj call buying ke liye conditions <b>achhi hain</b>. Low IV + manageable theta = buyers ko edge milta hai.</span>":"<span class='a'>Conditions mixed. Sirf strong signal par hi enter karo.</span>"}`;
+  }
+
+  const sel=document.getElementById("calc-strike");sel.innerHTML="";
+  (d.chain||[]).forEach(r=>{const o=document.createElement("option");o.value=r.strike;o.textContent=fN(r.strike)+(r.atm?" ★ ATM":"");sel.appendChild(o);});
+
+  const tb=document.getElementById("srt-body");tb.innerHTML="";
+  (d.chain||[]).forEach(r=>{
+    const isRec=d.rec_ce&&r.strike===d.rec_ce.strike;
+    const q=r.ce_iv<14&&r.ce_d>=0.35&&r.ce_d<=0.55?"✅ Best pick":r.ce_d<0.25||r.ce_iv>20?"⚠️ Avoid":"ℹ️ Theek hai";
+    const bg=isRec?"background:#f0fdf4;":r.atm?"background:#fffbeb;":"";
+    tb.innerHTML+=`<tr style="${bg}border-bottom:1px solid var(--b1);">
+      <td style="padding:6px 8px;font-family:'JetBrains Mono',monospace;font-weight:700;">${fN(r.strike)}${r.atm?" ★":""}</td>
+      <td style="padding:6px 8px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700;color:#2563eb;">₹${r.ce_ltp}</td>
+      <td style="padding:6px 8px;text-align:right;font-family:'JetBrains Mono',monospace;color:#2563eb;">${r.ce_d}</td>
+      <td style="padding:6px 8px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700;color:#dc2626;">₹${r.pe_ltp}</td>
+      <td style="padding:6px 8px;text-align:right;font-family:'JetBrains Mono',monospace;color:#dc2626;">${r.pe_d}</td>
+      <td style="padding:6px 8px;text-align:right;font-family:'JetBrains Mono',monospace;color:#d97706;">${r.ce_th}</td>
+      <td style="padding:6px 8px;text-align:right;font-family:'JetBrains Mono',monospace;color:#7c3aed;">${r.ce_iv}%</td>
+      <td style="padding:6px 8px;font-size:11px;color:${isRec?"var(--grn4)":"var(--t3)"};">${isRec?"⭐ RECOMMENDED":q}</td>
+    </tr>`;
+  });
+
+  const bdir=document.getElementById("btm-dir");bdir.textContent=dir.toUpperCase();bdir.className=`btm-dir mono ${dir==="Bullish"?"g":dir==="Bearish"?"r":"a"}`;
+  document.getElementById("btm-v").innerHTML=(d.bottom||{}).verdict||"—";
+  document.getElementById("btm-s").textContent=(d.bottom||{}).preferred||"—";
+}
+
+function calcRun(){
+  if(!window._D)return;
+  const type=document.getElementById("calc-type").value;
+  const strike=parseFloat(document.getElementById("calc-strike").value);
+  const target=parseFloat(document.getElementById("calc-target").value);
+  const ph=document.getElementById("calc-ph"),rr=document.getElementById("calc-rows"),ce=document.getElementById("calc-explain");
+  if(!strike||isNaN(target)||target<=0){ph.style.display="block";rr.style.display="none";ce.style.display="none";return;}
+  const row=(window._D.chain||[]).find(r=>r.strike===strike);if(!row)return;
+  const ltp=type==="ce"?row.ce_ltp:row.pe_ltp,delta=type==="ce"?row.ce_d:row.pe_d;
+  const move=target-window._D.ltp,exp=+(ltp+move*delta).toFixed(1),gain=+(exp-ltp).toFixed(1),pct=+((gain/ltp)*100).toFixed(1);
+  ph.style.display="none";rr.style.display="block";
+  document.getElementById("cr-strike").textContent=`${fN(strike)} ${type.toUpperCase()}`;
+  document.getElementById("cr-ltp").textContent=`₹${ltp}`;
+  document.getElementById("cr-d").textContent=`${delta}  →  NIFTY 10 pts = option ₹${(delta*10).toFixed(1)}`;
+  const mv=document.getElementById("cr-move");mv.textContent=`${move>=0?"+":""}${move.toFixed(0)} pts`;mv.style.color=move>=0?"var(--grn4)":"var(--red4)";
+  const expEl=document.getElementById("cr-exp");expEl.textContent=`₹${exp}`;expEl.style.color=exp>=ltp?"var(--grn4)":"var(--red4)";
+  const pnl=document.getElementById("cr-pnl");pnl.textContent=`${gain>=0?"+":""}₹${gain} (${pct>=0?"+":""}${pct}%)`;pnl.className=`crv ${gain>=0?"crv-g":"crv-r"}`;
+  ce.style.display="block";
+  ce.innerHTML=`Agar NIFTY <b>${fN(window._D.ltp)}</b> se <b>${fN(target)}</b> pohunche (<b>${move>=0?"+":""}${move.toFixed(0)} pts</b>), toh <b>${fN(strike)} ${type.toUpperCase()}</b> ka LTP <b>₹${ltp}</b> se <b>₹${exp}</b> hone ki expectation hai. <span style="color:var(--t3);">Actual price gamma aur IV change se thoda alag ho sakta hai.</span>`;
+}
+
+function tog(h){const b=h.nextElementSibling,a=h.querySelector(".acc-arr"),o=b.classList.contains("op");b.classList.toggle("op",!o);if(a)a.classList.toggle("op",!o);}
+function stab(id,btn){document.querySelectorAll(".tab-pane").forEach(p=>p.classList.remove("on"));document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("on"));document.getElementById("tab-"+id).classList.add("on");btn.classList.add("on");}
+
+async function loadData(){
+  const ov=document.getElementById("loading"),err=document.getElementById("h-err");
+  ov.style.display="flex";err.textContent="";
+  try{
+    const r=await fetch("/api/data");
+    const j=await r.json();
+    if(j.ok){render(j.data);}
+    else{err.textContent="Error: "+j.error;console.error(j.trace);}
+  }catch(e){err.textContent="Backend nahi mila — cockpit_backend.py chala rahe ho?";}
+  ov.style.display="none";
+}
+loadData();
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+log_files/
+*.log
+
+# Trading Generated Files
+all_instrument*.csv
+token_*.txt
+option_chain*.csv
+*_option_chain.csv
+
+# CSV exports
+*.csv
+
+# Flask
+instance/
+.flaskenv
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment Variables
+.env
+.env.*
+
+# Temporary Files
+*.tmp
+*.bak

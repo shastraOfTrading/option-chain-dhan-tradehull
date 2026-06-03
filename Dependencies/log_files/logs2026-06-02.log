@@ -1,0 +1,300 @@
+INFO:2026-06-02 10:49:46,171:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:49:46,172:Thread-2 (process_request_thread):System Started
+INFO:2026-06-02 10:49:46,286:Thread-4 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:49:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ERROR:2026-06-02 10:49:47,183:Thread-2 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:49:47,183:Thread-2 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:49:47,335:Thread-2 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:49:47] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:49:48,914:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:49:48,914:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-02 10:49:49,717:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:49:49,717:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:49:49,752:Thread-5 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:49:49] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:50:57,119:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:50:57,120:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-02 10:50:58,158:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:50:58,158:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:50:58,185:Thread-3 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:50:58] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:50:59,981:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:50:59,989:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:00,674:Thread-4 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:00,675:Thread-4 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:00,691:Thread-4 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:00] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:51:02,499:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:51:02,499:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:03,311:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:03,311:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:03,331:Thread-5 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:03] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:51:24,462:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:51:24,462:Thread-6 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:25,169:Thread-6 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:25,169:Thread-6 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:25,176:Thread-6 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:25] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:51:45,123:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:51:45,123:Thread-7 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:46,207:Thread-7 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:46,207:Thread-7 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:46,225:Thread-7 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:46] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:51:46,975:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:51:46,975:Thread-8 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:48,186:Thread-8 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:48,186:Thread-8 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:48,221:Thread-8 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:48] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:51:48,405:Thread-9 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:48] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 10:51:48,454:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:51:48,454:Thread-10 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:49,509:Thread-10 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:49,509:Thread-10 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:49,525:Thread-10 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:49] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:51:56,448:Thread-11 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:56] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 10:51:56,512:Thread-12 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:51:56,512:Thread-12 (process_request_thread):System Started
+ERROR:2026-06-02 10:51:57,578:Thread-12 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:51:57,578:Thread-12 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:51:57,595:Thread-12 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:51:57] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:52:39,586:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:52:39,592:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-02 10:52:40,312:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:52:40,312:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:52:40,343:Thread-3 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:52:40] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:52:41,662:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:52:41,662:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-02 10:52:42,311:Thread-4 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:52:42,311:Thread-4 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:52:42,327:Thread-4 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:52:42] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:52:43,145:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:52:43,145:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-02 10:52:43,812:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:52:43,827:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:52:43,828:Thread-5 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:52:43] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:52:45,976:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:52:45,976:Thread-6 (process_request_thread):System Started
+ERROR:2026-06-02 10:52:47,018:Thread-6 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:52:47,018:Thread-6 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:52:47,048:Thread-6 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:52:47] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:54:24,190:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:54:24,191:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-02 10:54:25,947:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:54:25,947:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:54:25,986:Thread-3 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:54:25] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:54:27,432:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:54:27,433:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-02 10:54:28,102:Thread-4 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:54:28,102:Thread-4 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:54:28,125:Thread-4 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:54:28] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:54:29,034:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:54:29,034:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-02 10:54:29,733:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:54:29,733:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:54:29,749:Thread-5 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:54:29] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:54:31,896:Thread-6 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:54:31] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 10:54:31,962:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:54:31,962:Thread-7 (process_request_thread):System Started
+ERROR:2026-06-02 10:54:32,800:Thread-7 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:54:32,800:Thread-7 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:54:32,816:Thread-7 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:54:32] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:54:36,042:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:54:36,042:Thread-8 (process_request_thread):System Started
+ERROR:2026-06-02 10:54:36,852:Thread-8 (process_request_thread):Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+ERROR:2026-06-02 10:54:36,852:Thread-8 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}
+INFO:2026-06-02 10:54:36,868:Thread-8 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:54:36] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-02 10:57:29,520:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:57:29,520:Thread-2 (process_request_thread):System Started
+INFO:2026-06-02 10:57:38,502:Thread-3 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:57:38] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 10:57:38,541:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 10:57:38,542:Thread-4 (process_request_thread):System Started
+INFO:2026-06-02 10:57:41,267:Thread-2 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:57:41] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 10:57:44,103:Thread-4 (process_request_thread):127.0.0.1 - - [02/Jun/2026 10:57:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 11:12:30,467:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 11:12:30,468:Thread-5 (process_request_thread):System Started
+INFO:2026-06-02 11:12:35,424:Thread-5 (process_request_thread):127.0.0.1 - - [02/Jun/2026 11:12:35] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 11:12:39,718:Thread-6 (process_request_thread):127.0.0.1 - - [02/Jun/2026 11:12:39] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 11:12:39,777:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 11:12:39,777:Thread-7 (process_request_thread):System Started
+INFO:2026-06-02 11:12:44,424:Thread-7 (process_request_thread):127.0.0.1 - - [02/Jun/2026 11:12:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 11:59:26,055:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 11:59:26,058:Thread-8 (process_request_thread):System Started
+INFO:2026-06-02 11:59:31,657:Thread-8 (process_request_thread):127.0.0.1 - - [02/Jun/2026 11:59:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:26:35,657:Thread-9 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:26:35] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:26:35,759:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:26:35,759:Thread-10 (process_request_thread):System Started
+INFO:2026-06-02 12:26:42,215:Thread-10 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:26:42] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:42:02,082:Thread-11 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:42:02] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:42:02,188:Thread-12 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:42:02,188:Thread-12 (process_request_thread):System Started
+INFO:2026-06-02 12:42:07,572:Thread-12 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:42:07] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:47:56,168:Thread-13 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:47:56] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:47:56,270:Thread-14 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:47:56,271:Thread-14 (process_request_thread):System Started
+INFO:2026-06-02 12:48:02,603:Thread-14 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:48:02] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:50:10,126:Thread-15 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:50:10] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:50:10,199:Thread-16 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:50:10,200:Thread-16 (process_request_thread):System Started
+INFO:2026-06-02 12:50:15,496:Thread-16 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:50:15] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:52:34,875:Thread-17 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:52:34] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:52:34,964:Thread-18 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:52:34,965:Thread-18 (process_request_thread):System Started
+INFO:2026-06-02 12:52:40,326:Thread-18 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:52:40] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:54:24,498:Thread-19 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:54:24] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:54:24,578:Thread-20 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:54:24,579:Thread-20 (process_request_thread):System Started
+INFO:2026-06-02 12:54:30,361:Thread-20 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:56:45,176:Thread-21 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:56:45] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:56:45,274:Thread-22 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:56:45,275:Thread-22 (process_request_thread):System Started
+INFO:2026-06-02 12:56:50,917:Thread-22 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:56:50] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 12:59:59,607:Thread-23 (process_request_thread):127.0.0.1 - - [02/Jun/2026 12:59:59] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 12:59:59,677:Thread-24 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 12:59:59,677:Thread-24 (process_request_thread):System Started
+INFO:2026-06-02 13:00:05,220:Thread-24 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:00:05] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:00:58,987:Thread-26 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:00:58] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:00:59,081:Thread-25 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:00:59,081:Thread-25 (process_request_thread):System Started
+INFO:2026-06-02 13:01:04,823:Thread-25 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:01:04] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:03:44,178:Thread-27 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:03:44] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:03:44,262:Thread-28 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:03:44,263:Thread-28 (process_request_thread):System Started
+INFO:2026-06-02 13:03:49,512:Thread-28 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:03:49] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:06:49,540:Thread-29 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:06:49,541:Thread-29 (process_request_thread):System Started
+INFO:2026-06-02 13:06:55,054:Thread-29 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:06:55] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:08:42,980:Thread-30 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:08:42] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:08:43,054:Thread-31 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:08:43,054:Thread-31 (process_request_thread):System Started
+INFO:2026-06-02 13:08:48,258:Thread-31 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:08:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:09:53,435:Thread-32 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:09:53] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:09:53,525:Thread-33 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:09:53,526:Thread-33 (process_request_thread):System Started
+INFO:2026-06-02 13:09:58,697:Thread-33 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:09:58] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:10:40,251:Thread-34 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:10:40] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:10:40,310:Thread-35 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:10:40,310:Thread-35 (process_request_thread):System Started
+INFO:2026-06-02 13:10:45,131:Thread-35 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:10:45] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:12:17,094:Thread-36 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:12:17] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:12:17,168:Thread-37 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:12:17,169:Thread-37 (process_request_thread):System Started
+INFO:2026-06-02 13:12:22,543:Thread-37 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:12:22] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:15:37,766:Thread-38 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:15:37,766:Thread-38 (process_request_thread):System Started
+INFO:2026-06-02 13:15:44,588:Thread-38 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:15:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:17:25,766:Thread-39 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:17:25,766:Thread-39 (process_request_thread):System Started
+INFO:2026-06-02 13:17:31,482:Thread-39 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:17:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:19:28,804:Thread-40 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:19:28] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:19:28,892:Thread-41 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:19:28,892:Thread-41 (process_request_thread):System Started
+INFO:2026-06-02 13:19:34,106:Thread-41 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:19:34] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:22:26,704:Thread-42 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:22:26] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:22:26,765:Thread-43 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:22:26,780:Thread-43 (process_request_thread):System Started
+INFO:2026-06-02 13:22:31,734:Thread-43 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:22:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:24:11,849:Thread-44 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:24:11,849:Thread-44 (process_request_thread):System Started
+INFO:2026-06-02 13:24:17,101:Thread-44 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:24:17] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:26:25,934:Thread-45 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:26:25,935:Thread-45 (process_request_thread):System Started
+INFO:2026-06-02 13:26:31,580:Thread-45 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:26:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:28:30,151:Thread-46 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:28:30,152:Thread-46 (process_request_thread):System Started
+INFO:2026-06-02 13:28:35,990:Thread-46 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:28:35] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:28:44,921:Thread-47 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:28:44] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 13:28:45,013:Thread-48 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:28:45,014:Thread-48 (process_request_thread):System Started
+INFO:2026-06-02 13:28:50,727:Thread-48 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:28:50] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:30:34,221:Thread-49 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:30:34,222:Thread-49 (process_request_thread):System Started
+INFO:2026-06-02 13:30:39,730:Thread-49 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:30:39] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:46:43,735:Thread-50 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:46:43,735:Thread-50 (process_request_thread):System Started
+INFO:2026-06-02 13:46:49,234:Thread-50 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:46:49] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:49:42,855:Thread-51 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:49:42,855:Thread-51 (process_request_thread):System Started
+INFO:2026-06-02 13:49:48,098:Thread-51 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:49:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:55:54,166:Thread-52 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:55:54,167:Thread-52 (process_request_thread):System Started
+INFO:2026-06-02 13:55:59,305:Thread-52 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:55:59] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 13:58:02,961:Thread-53 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 13:58:02,961:Thread-53 (process_request_thread):System Started
+INFO:2026-06-02 13:58:08,874:Thread-53 (process_request_thread):127.0.0.1 - - [02/Jun/2026 13:58:08] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:05:48,483:Thread-54 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:05:48,483:Thread-54 (process_request_thread):System Started
+INFO:2026-06-02 14:05:53,708:Thread-54 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:05:53] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:05:56,616:Thread-55 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:05:56] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-02 14:05:56,701:Thread-56 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:05:56,702:Thread-56 (process_request_thread):System Started
+INFO:2026-06-02 14:06:02,510:Thread-56 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:06:02] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:09:03,751:Thread-57 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:09:03,751:Thread-57 (process_request_thread):System Started
+INFO:2026-06-02 14:09:09,293:Thread-57 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:09:09] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:09:51,210:Thread-58 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:09:51] "GET / HTTP/1.1" 200 -
+INFO:2026-06-02 14:09:51,308:Thread-59 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:09:51,309:Thread-59 (process_request_thread):System Started
+INFO:2026-06-02 14:09:56,625:Thread-59 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:09:56] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:10:56,711:Thread-60 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:10:56,711:Thread-60 (process_request_thread):System Started
+INFO:2026-06-02 14:11:01,621:Thread-60 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:11:01] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:12:01,711:Thread-61 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:12:01,711:Thread-61 (process_request_thread):System Started
+INFO:2026-06-02 14:12:07,008:Thread-61 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:12:07] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:14:25,726:Thread-62 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:14:25,726:Thread-62 (process_request_thread):System Started
+INFO:2026-06-02 14:14:31,313:Thread-62 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:14:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:21:22,721:Thread-63 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:21:22,721:Thread-63 (process_request_thread):System Started
+INFO:2026-06-02 14:21:27,779:Thread-63 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:21:27] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:21:51,951:Thread-64 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:21:51,951:Thread-64 (process_request_thread):System Started
+INFO:2026-06-02 14:21:56,794:Thread-64 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:21:56] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:22:57,714:Thread-65 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:22:57,714:Thread-65 (process_request_thread):System Started
+INFO:2026-06-02 14:23:02,554:Thread-65 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:23:02] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:26:39,528:Thread-66 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:26:39,528:Thread-66 (process_request_thread):System Started
+INFO:2026-06-02 14:26:44,748:Thread-66 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:26:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:27:46,705:Thread-67 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:27:46,706:Thread-67 (process_request_thread):System Started
+INFO:2026-06-02 14:27:52,087:Thread-67 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:27:52] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:31:34,716:Thread-68 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:31:34,716:Thread-68 (process_request_thread):System Started
+INFO:2026-06-02 14:31:39,266:Thread-68 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:31:39] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:36:11,166:Thread-69 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:36:11,166:Thread-69 (process_request_thread):System Started
+INFO:2026-06-02 14:36:16,879:Thread-69 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:36:16] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:36:31,244:Thread-70 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:36:31,244:Thread-70 (process_request_thread):System Started
+INFO:2026-06-02 14:36:36,901:Thread-70 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:36:36] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:38:31,932:Thread-71 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:38:31,932:Thread-71 (process_request_thread):System Started
+INFO:2026-06-02 14:38:37,323:Thread-71 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:38:37] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:39:37,700:Thread-72 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:39:37,701:Thread-72 (process_request_thread):System Started
+INFO:2026-06-02 14:39:43,166:Thread-72 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:39:43] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:43:11,082:Thread-73 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:43:11,082:Thread-73 (process_request_thread):System Started
+INFO:2026-06-02 14:43:16,190:Thread-73 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:43:16] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:44:16,698:Thread-74 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:44:16,698:Thread-74 (process_request_thread):System Started
+INFO:2026-06-02 14:44:21,245:Thread-74 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:44:21] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:44:26,507:Thread-75 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:44:26,507:Thread-75 (process_request_thread):System Started
+INFO:2026-06-02 14:44:31,818:Thread-75 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:44:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:45:32,704:Thread-76 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:45:32,704:Thread-76 (process_request_thread):System Started
+INFO:2026-06-02 14:45:37,503:Thread-76 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:45:37] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:49:34,704:Thread-77 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:49:34,704:Thread-77 (process_request_thread):System Started
+INFO:2026-06-02 14:49:40,746:Thread-77 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:49:40] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:53:28,530:Thread-78 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:53:28,530:Thread-78 (process_request_thread):System Started
+INFO:2026-06-02 14:53:33,377:Thread-78 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:53:33] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 14:54:33,703:Thread-79 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 14:54:33,703:Thread-79 (process_request_thread):System Started
+INFO:2026-06-02 14:54:38,112:Thread-79 (process_request_thread):127.0.0.1 - - [02/Jun/2026 14:54:38] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 15:12:15,705:Thread-80 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 15:12:15,705:Thread-80 (process_request_thread):System Started
+INFO:2026-06-02 15:12:21,156:Thread-80 (process_request_thread):127.0.0.1 - - [02/Jun/2026 15:12:21] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 15:15:59,164:Thread-81 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 15:15:59,164:Thread-81 (process_request_thread):System Started
+INFO:2026-06-02 15:16:04,250:Thread-81 (process_request_thread):127.0.0.1 - - [02/Jun/2026 15:16:04] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-02 15:17:11,697:Thread-82 (process_request_thread):Dhan.py System Started
+INFO:2026-06-02 15:17:11,698:Thread-82 (process_request_thread):System Started
+INFO:2026-06-02 15:17:16,575:Thread-82 (process_request_thread):127.0.0.1 - - [02/Jun/2026 15:17:16] "GET /api/data HTTP/1.1" 200 -

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NIFTY Option Cockpit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & tokens ─────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0b0c0f;
+  --bg2:#111318;
+  --bg3:#181b22;
+  --bg4:#1e2230;
+  --line:#252b3b;
+  --line2:#303a52;
+  --t1:#eef0f6;
+  --t2:#8b92ac;
+  --t3:#4a516a;
+  --green:#2dd67a;
+  --green-d:#12522e;
+  --green-bg:#081a10;
+  --red:#f05353;
+  --red-d:#7a1f1f;
+  --red-bg:#1a0808;
+  --amber:#f0b043;
+  --amber-bg:#1a1105;
+  --blue:#4c9fff;
+  --blue-bg:#05111f;
+  --orange:#f07843;
+  --orange-bg:#1a0e05;
+  --r:8px;
+  --rs:5px;
+  font-size:13px;
+  font-family:'IBM Plex Mono',monospace;
+  color:var(--t1);
+}
+
+/* ── Layout skeleton ────────────────────────────────────── */
+body{
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* Header */
+#header{
+  flex-shrink:0;
+  height:52px;
+  background:var(--bg2);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  gap:12px;
+}
+.hd-block{display:flex;align-items:baseline;gap:7px;}
+.hd-label{font-size:10px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;}
+.hd-val{font-size:18px;font-weight:700;letter-spacing:-.5px;}
+.hd-sep{width:1px;height:28px;background:var(--line2);flex-shrink:0;}
+.hd-dist{display:flex;flex-direction:column;gap:1px;}
+.hd-dist-row{display:flex;align-items:center;gap:5px;font-size:11px;}
+.badge-sup{color:var(--green);font-weight:600;}
+.badge-res{color:var(--red);font-weight:600;}
+.badge-pt{color:var(--t3);font-size:10px;}
+.refresh-btn{padding:4px 12px;background:var(--bg4);border:1px solid var(--line2);border-radius:var(--rs);color:var(--t2);font-size:11px;cursor:pointer;font-family:inherit;}
+.refresh-btn:hover{background:var(--line2);color:var(--t1);}
+#ts{font-size:10px;color:var(--t3);}
+
+/* Body = left + right */
+#body{
+  flex:1;
+  display:flex;
+  overflow:hidden;
+  min-height:0;
+}
+
+/* Left panel */
+#left{
+  width:310px;
+  flex-shrink:0;
+  border-right:1px solid var(--line);
+  overflow-y:auto;
+  padding:12px 10px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  background:var(--bg2);
+}
+#left::-webkit-scrollbar{width:4px;}
+#left::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px;}
+
+/* Right panel */
+#right{
+  flex:1;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+#chain-wrap{
+  flex:1;
+  overflow:auto;
+  padding:0;
+}
+#chain-wrap::-webkit-scrollbar{height:6px;width:6px;}
+#chain-wrap::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px;}
+
+/* Bottom bar */
+#bottom{
+  flex-shrink:0;
+  background:var(--bg2);
+  border-top:1px solid var(--line2);
+  padding:10px 16px;
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  min-height:64px;
+  max-height:90px;
+}
+
+/* ── Cards (left panel) ──────────────────────────────────── */
+.card{
+  background:var(--bg3);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:10px 12px;
+}
+.card-title{
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--t3);
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.strike-big{font-size:22px;font-weight:700;letter-spacing:-.5px;}
+.data-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--line);}
+.data-row:last-of-type{border-bottom:none;}
+.dr-label{font-size:11px;color:var(--t2);display:flex;align-items:center;gap:4px;}
+.dr-val{font-size:12px;font-weight:600;}
+.stars{font-size:13px;letter-spacing:1px;}
+.star-on{color:var(--amber);}
+.star-off{color:var(--line2);}
+.explain{
+  font-size:11px;
+  color:var(--t2);
+  margin-top:7px;
+  padding:7px 9px;
+  background:var(--bg4);
+  border-radius:var(--rs);
+  border-left:2px solid var(--line2);
+  line-height:1.55;
+}
+.explain.bull{border-left-color:var(--green);}
+.explain.bear{border-left-color:var(--red);}
+
+/* Top 3 list */
+.rank-row{display:flex;align-items:center;justify-content:space-between;padding:4px 6px;border-radius:var(--rs);margin-bottom:2px;}
+.rr-num{font-size:10px;color:var(--t3);min-width:14px;}
+.rr-strike{font-size:13px;font-weight:600;}
+.rr-doi{font-size:12px;font-weight:600;}
+
+/* Market positioning */
+.mkt-dir{font-size:14px;font-weight:700;margin-bottom:5px;}
+.mkt-reason{font-size:11px;color:var(--t2);line-height:1.6;}
+.pcr-bar{height:5px;background:var(--line);border-radius:3px;margin:8px 0 4px;overflow:hidden;position:relative;}
+.pcr-fill{height:5px;border-radius:3px;transition:width .5s;}
+.pcr-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--t3);}
+
+/* Strike recommendation */
+.rec-card{border-radius:var(--rs);padding:10px 12px;margin-bottom:6px;}
+.rec-call{background:var(--green-bg);border:1px solid var(--green-d);}
+.rec-put {background:var(--red-bg); border:1px solid var(--red-d); }
+.rec-type{font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
+.rec-call .rec-type{color:var(--green);}
+.rec-put  .rec-type{color:var(--red);}
+.rec-strike{font-size:18px;font-weight:700;}
+.rec-meta{font-size:11px;color:var(--t2);margin-top:3px;line-height:1.5;}
+.quality-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.07em;margin-top:5px;}
+.q-good{background:#0a2a14;color:var(--green);border:1px solid var(--green-d);}
+.q-fair{background:var(--amber-bg);color:var(--amber);border:1px solid #5a3a0a;}
+.q-poor{background:var(--red-bg);color:var(--red);border:1px solid var(--red-d);}
+.rec-reason{font-size:11px;color:var(--t2);margin-top:6px;line-height:1.5;}
+
+/* LTP Calculator */
+.calc-wrap{display:flex;flex-direction:column;gap:7px;}
+.calc-row{display:flex;gap:6px;}
+.calc-sel{flex:1;background:var(--bg4);border:1px solid var(--line2);border-radius:var(--rs);color:var(--t1);padding:5px 8px;font-size:11px;font-family:inherit;}
+.calc-input{width:100%;background:var(--bg4);border:1px solid var(--line2);border-radius:var(--rs);color:var(--t1);padding:5px 8px;font-size:12px;font-family:inherit;}
+.calc-input:focus,.calc-sel:focus{outline:none;border-color:var(--line2);background:var(--bg4);}
+.calc-result{background:var(--bg4);border:1px solid var(--line2);border-radius:var(--rs);padding:8px 10px;display:none;}
+.cr-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;}
+.cr-label{font-size:10px;color:var(--t3);}
+.cr-val{font-size:13px;font-weight:700;}
+.cr-val.gain{color:var(--green);}
+.cr-val.loss{color:var(--red);}
+
+/* OI Heatmap */
+.hm-table{width:100%;border-collapse:collapse;}
+.hm-tr{display:flex;align-items:center;gap:6px;padding:3px 4px;border-radius:3px;margin-bottom:2px;}
+.hm-strike{font-size:12px;font-weight:600;min-width:48px;}
+.hm-bar-wrap{flex:1;height:12px;background:var(--line);border-radius:2px;overflow:hidden;}
+.hm-bar{height:12px;border-radius:2px;transition:width .4s;}
+.hm-bar-res{background:rgba(240,83,83,.6);}
+.hm-bar-sup{background:rgba(45,214,122,.6);}
+.hm-oi{font-size:10px;color:var(--t3);min-width:36px;text-align:right;}
+.hm-doi{font-size:10px;min-width:42px;text-align:right;font-weight:600;}
+.hm-sep{height:1px;background:var(--line2);margin:5px 0;}
+.hm-label{font-size:9px;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;padding:2px 4px;}
+
+/* ── Tooltip ─────────────────────────────────────────────── */
+.tip{position:relative;display:inline-flex;align-items:center;}
+.tip-icon{
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--bg4);
+  border:1px solid var(--line2);
+  color:var(--t3);
+  font-size:9px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:help;
+  font-style:normal;
+  margin-left:4px;
+  flex-shrink:0;
+  line-height:1;
+}
+.tip:hover .tip-box{display:block;}
+.tip-box{
+  display:none;
+  position:absolute;
+  z-index:999;
+  bottom:calc(100% + 6px);
+  left:0;
+  min-width:210px;
+  max-width:250px;
+  background:#1c2232;
+  border:1px solid var(--line2);
+  border-radius:var(--rs);
+  padding:9px 11px;
+  font-size:11px;
+  color:var(--t2);
+  line-height:1.6;
+  pointer-events:none;
+  font-family:'IBM Plex Sans',sans-serif;
+  font-weight:400;
+}
+.tip-box .tip-title{font-weight:600;color:var(--t1);font-size:12px;margin-bottom:4px;display:block;}
+.tip-box .tip-eg{margin-top:6px;padding:5px 7px;background:var(--bg);border-radius:3px;font-size:10px;color:var(--t3);line-height:1.5;}
+
+/* ── Option Chain Table ──────────────────────────────────── */
+.chain-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+  min-width:900px;
+}
+.chain-table thead{
+  position:sticky;top:0;z-index:10;
+  background:var(--bg3);
+}
+.chain-table th{
+  font-size:9px;
+  font-weight:500;
+  color:var(--t3);
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  padding:7px 9px;
+  border-bottom:1px solid var(--line2);
+  white-space:nowrap;
+}
+.chain-table th.ctr{text-align:center;background:var(--bg4);}
+.chain-table td{
+  padding:5px 9px;
+  border-bottom:1px solid var(--line);
+  color:var(--t1);
+  white-space:nowrap;
+  text-align:right;
+}
+.chain-table td.ctr{text-align:center;background:var(--bg4);font-weight:700;font-size:13px;}
+.chain-table tr:hover td{background:rgba(255,255,255,.025);}
+
+/* Row color classes */
+.row-strong-ce-write td.ce-side{background:rgba(160,30,30,.18);}
+.row-strong-ce-write td.ce-doi{color:#f87171;font-weight:700;}
+.row-strong-pe-write td.pe-side{background:rgba(20,120,60,.18);}
+.row-strong-pe-write td.pe-doi{color:#4ade80;font-weight:700;}
+.row-call-unwind td.ce-doi{color:var(--orange);font-weight:700;}
+.row-put-unwind  td.pe-doi{color:var(--blue);  font-weight:700;}
+.row-atm td{background:rgba(240,176,67,.06) !important;}
+.row-atm td.ctr{background:rgba(240,176,67,.15) !important;color:var(--amber);}
+
+/* Chain color legend */
+.legend{display:flex;gap:10px;padding:5px 12px;background:var(--bg2);border-bottom:1px solid var(--line);flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--t3);}
+.leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+
+/* ── Bottom bar ──────────────────────────────────────────── */
+.bottom-dir{
+  font-size:16px;
+  font-weight:800;
+  flex-shrink:0;
+  padding-right:16px;
+  border-right:1px solid var(--line2);
+}
+.bottom-reasons{
+  flex:1;
+  font-size:11px;
+  color:var(--t2);
+  line-height:1.7;
+  min-width:0;
+}
+.bottom-reasons span{color:var(--t1);font-weight:500;}
+.bottom-preferred{
+  flex-shrink:0;
+  text-align:right;
+  border-left:1px solid var(--line2);
+  padding-left:16px;
+}
+.bp-label{font-size:9px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
+.bp-strike{font-size:18px;font-weight:700;color:var(--green);}
+.bp-avoid{font-size:10px;color:var(--t3);margin-top:3px;}
+
+/* Loading / error */
+#overlay{
+  position:fixed;inset:0;
+  background:rgba(11,12,15,.88);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:9999;gap:14px;
+}
+.spinner{width:28px;height:28px;border:2px solid var(--line2);border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+#err{
+  display:none;
+  margin:10px 16px;
+  padding:10px 14px;
+  background:var(--red-bg);
+  border:1px solid var(--red-d);
+  border-radius:var(--r);
+  color:var(--red);
+  font-size:11px;
+}
+
+/* Utility */
+.green{color:var(--green);}
+.red  {color:var(--red);}
+.amber{color:var(--amber);}
+.blue {color:var(--blue);}
+.orange{color:var(--orange);}
+.dim  {color:var(--t3);}
+</style>
+</head>
+<body>
+
+<!-- Loading overlay -->
+<div id="overlay">
+  <div class="spinner"></div>
+  <div style="font-size:12px;color:var(--t2);">Fetching live option chain…</div>
+</div>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<div id="header">
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div class="hd-block">
+      <div class="hd-label">NIFTY LTP</div>
+      <div class="hd-val" id="h-ltp">—</div>
+    </div>
+    <div class="hd-sep"></div>
+    <div class="hd-block">
+      <div class="hd-label">ATM</div>
+      <div class="hd-val" id="h-atm" style="color:var(--amber);">—</div>
+    </div>
+    <div class="hd-sep"></div>
+    <div class="hd-dist">
+      <div class="hd-dist-row">
+        <span class="badge-sup">▲ Support</span>
+        <span id="h-sup">—</span>
+        <span class="badge-pt" id="h-sup-pt"></span>
+      </div>
+      <div class="hd-dist-row">
+        <span class="badge-res">▼ Resistance</span>
+        <span id="h-res">—</span>
+        <span class="badge-pt" id="h-res-pt"></span>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span id="ts"></span>
+    <button class="refresh-btn" onclick="loadData()">⟳ Refresh</button>
+  </div>
+</div>
+
+<div id="err"></div>
+
+<!-- ── BODY ───────────────────────────────────────────────── -->
+<div id="body">
+
+  <!-- LEFT PANEL -->
+  <div id="left">
+
+    <!-- 1. Strongest Support -->
+    <div class="card" id="c-support">
+      <div class="card-title">
+        <span class="tip" style="position:relative;">
+          Strongest Support
+          <i class="tip-icon">i</i>
+          <div class="tip-box">
+            <span class="tip-title">What is Support?</span>
+            The strike with the highest Put OI below ATM. Put writers (sellers) here earn premium only if NIFTY stays ABOVE this level — so they defend it. The more put OI, the stronger the floor.
+            <div class="tip-eg">📌 If 23500 has 12L PE OI and someone adds 2.4L today, they are betting big that NIFTY won't fall below 23500.</div>
+          </div>
+        </span>
+      </div>
+      <div class="strike-big green" id="s-sup-strike">—</div>
+      <div style="margin:7px 0;">
+        <div class="data-row">
+          <span class="dr-label">
+            <span class="tip" style="position:relative;">PE OI <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE Open Interest</span>Total active put contracts. Higher = more writers defending this level. Think of it as the size of the wall protecting the market.</div></span>
+          </span>
+          <span class="dr-val green" id="s-sup-oi">—</span>
+        </div>
+        <div class="data-row">
+          <span class="dr-label">
+            <span class="tip" style="position:relative;">PE ΔOI <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Change in PE OI today</span>New put contracts added today. Positive = writers ADDING positions = support getting stronger. Negative = unwinding = support weakening.</div></span>
+          </span>
+          <span class="dr-val" id="s-sup-doi">—</span>
+        </div>
+        <div class="data-row">
+          <span class="dr-label">
+            <span class="tip" style="position:relative;">Volume <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE Volume</span>Contracts traded today. High volume + high ΔOI = real fresh positions being built. High volume + low ΔOI = churning/hedging, not fresh conviction.</div></span>
+          </span>
+          <span class="dr-val" id="s-sup-vol">—</span>
+        </div>
+      </div>
+      <div id="s-sup-stars" class="stars"></div>
+      <div class="explain bull" id="s-sup-explain"></div>
+    </div>
+
+    <!-- 2. Strongest Resistance -->
+    <div class="card" id="c-resistance">
+      <div class="card-title">
+        <span class="tip" style="position:relative;">
+          Strongest Resistance
+          <i class="tip-icon">i</i>
+          <div class="tip-box">
+            <span class="tip-title">What is Resistance?</span>
+            The strike with the highest Call OI above ATM. Call writers earn premium only if NIFTY stays BELOW this level — so they resist any rally. Large CE OI = heavy ceiling.
+            <div class="tip-eg">📌 If 23700 has 13L CE OI, those writers profit only if NIFTY doesn't cross 23700. A huge wall of sellers sits there.</div>
+          </div>
+        </span>
+      </div>
+      <div class="strike-big red" id="s-res-strike">—</div>
+      <div style="margin:7px 0;">
+        <div class="data-row">
+          <span class="dr-label"><span class="tip" style="position:relative;">CE OI <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">CE Open Interest</span>Total active call contracts. Higher = more sellers betting NIFTY won't cross this level. A large number here = strong ceiling.</div></span></span>
+          <span class="dr-val red" id="s-res-oi">—</span>
+        </div>
+        <div class="data-row">
+          <span class="dr-label"><span class="tip" style="position:relative;">CE ΔOI <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Change in CE OI today</span>New call contracts added today at this strike. Positive = resistance building. Negative = resistance weakening (ceiling lifting).</div></span></span>
+          <span class="dr-val" id="s-res-doi">—</span>
+        </div>
+        <div class="data-row">
+          <span class="dr-label"><span class="tip" style="position:relative;">Volume <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">CE Volume</span>High volume with rising ΔOI = aggressive fresh call writing = strong ceiling being built today.</div></span></span>
+          <span class="dr-val" id="s-res-vol">—</span>
+        </div>
+      </div>
+      <div id="s-res-stars" class="stars"></div>
+      <div class="explain bear" id="s-res-explain"></div>
+    </div>
+
+    <!-- 3+4. Top 3 Writing -->
+    <div class="card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <div class="card-title">
+            <span class="tip" style="position:relative;">Top 3 PE Writing <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Highest Put OI Addition</span>Strikes where put writers added the most contracts today. Multiple strikes with high put writing = broad support zone. As a call buyer, these are your friends.</div></span>
+          </div>
+          <div id="top3-pe"></div>
+        </div>
+        <div>
+          <div class="card-title">
+            <span class="tip" style="position:relative;">Top 3 CE Writing <i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Highest Call OI Addition</span>Strikes where call writers added the most contracts today. Multiple strikes with high call writing = broad resistance zone. As a call buyer, these are your enemies.</div></span>
+          </div>
+          <div id="top3-ce"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Market Positioning -->
+    <div class="card">
+      <div class="card-title">
+        <span class="tip" style="position:relative;">
+          Market Positioning
+          <i class="tip-icon">i</i>
+          <div class="tip-box">
+            <span class="tip-title">Who is stronger today?</span>
+            Compares total put OI additions vs call OI additions across ALL strikes. When put writers add more than call writers, the market structure is bullish — professionals are defending the downside.
+            <div class="tip-eg">📌 This is NOT a prediction. It shows WHERE institutional money is being deployed via OI changes.</div>
+          </div>
+        </span>
+      </div>
+      <div class="mkt-dir" id="mkt-dir">—</div>
+      <div class="pcr-bar"><div class="pcr-fill" id="pcr-fill"></div></div>
+      <div class="pcr-labels">
+        <span id="pcr-pe-label">PE</span>
+        <span id="pcr-ce-label">CE</span>
+      </div>
+      <div class="mkt-reason" id="mkt-reason"></div>
+    </div>
+
+    <!-- 6. Strike Recommendation -->
+    <div class="card">
+      <div class="card-title">
+        <span class="tip" style="position:relative;">
+          Buyer Recommendations
+          <i class="tip-icon">i</i>
+          <div class="tip-box">
+            <span class="tip-title">How strikes are selected</span>
+            Filtered by CE Delta 0.35–0.55 (best directional ratio), then ranked by lowest IV (cheaper premium) and lowest Theta (slowest decay). No invented signal — purely from option chain numbers.
+            <div class="tip-eg">📌 Delta 0.40 means: for every 10 pts NIFTY moves, option gains ~₹4.</div>
+          </div>
+        </span>
+      </div>
+      <div id="rec-ce-card"></div>
+      <div id="rec-pe-card" style="margin-top:8px;"></div>
+    </div>
+
+    <!-- 7. LTP Calculator -->
+    <div class="card">
+      <div class="card-title">
+        <span class="tip" style="position:relative;">
+          Option LTP Calculator
+          <i class="tip-icon">i</i>
+          <div class="tip-box">
+            <span class="tip-title">How this works</span>
+            Formula: Expected LTP = Current LTP + (NIFTY Move × Delta).
+            <br><br>Delta = how much the option price changes per 1 point move in NIFTY. This is a linear approximation — actual gain may differ due to Gamma and IV changes.
+            <div class="tip-eg">📌 Example: LTP=145, Delta=0.40, NIFTY +100 pts → Expected LTP = 145 + (100 × 0.40) = ₹185</div>
+          </div>
+        </span>
+      </div>
+      <div class="calc-wrap">
+        <div class="calc-row">
+          <select id="calc-type" class="calc-sel" onchange="calcUpdate()">
+            <option value="ce">Call (CE)</option>
+            <option value="pe">Put (PE)</option>
+          </select>
+          <select id="calc-strike" class="calc-sel" onchange="calcUpdate()"></select>
+        </div>
+        <input type="number" id="calc-target" class="calc-input" placeholder="Enter target NIFTY price…" oninput="calcUpdate()"/>
+        <div id="calc-result" class="calc-result">
+          <div class="cr-row"><span class="cr-label">Current LTP</span><span class="cr-val" id="cr-ltp">—</span></div>
+          <div class="cr-row"><span class="cr-label">Delta</span><span class="cr-val" id="cr-delta">—</span></div>
+          <div class="cr-row"><span class="cr-label">Expected LTP</span><span class="cr-val" id="cr-exp">—</span></div>
+          <div class="cr-row"><span class="cr-label">Expected gain/loss</span><span class="cr-val" id="cr-gain">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. OI Heatmap -->
+    <div class="card">
+      <div class="card-title">
+        <span class="tip" style="position:relative;">
+          OI Heatmap
+          <i class="tip-icon">i</i>
+          <div class="tip-box">
+            <span class="tip-title">Compact OI Ranking</span>
+            Top 5 resistances (highest CE OI above ATM) and top 5 supports (highest PE OI below ATM). Bar width = relative OI size. ΔOI shows if position is growing or shrinking today.
+          </div>
+        </span>
+      </div>
+      <div id="hm-container"></div>
+    </div>
+
+  </div><!-- /left -->
+
+  <!-- RIGHT PANEL -->
+  <div id="right">
+    <!-- Legend -->
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:rgba(240,83,83,.6);"></div>Strong CE Writing — resistance building</div>
+      <div class="leg-item"><div class="leg-dot" style="background:rgba(45,214,122,.6);"></div>Strong PE Writing — support building</div>
+      <div class="leg-item"><div class="leg-dot" style="background:rgba(240,120,67,.6);"></div>CE Unwinding — ceiling lifting</div>
+      <div class="leg-item"><div class="leg-dot" style="background:rgba(76,159,255,.6);"></div>PE Unwinding — floor weakening</div>
+      <div class="leg-item"><div class="leg-dot" style="background:rgba(240,176,67,.4);"></div>ATM Strike</div>
+    </div>
+    <!-- Chain -->
+    <div id="chain-wrap">
+      <table class="chain-table">
+        <thead>
+          <tr>
+            <!-- CE side -->
+            <th class="tip" style="position:relative;cursor:help;">CE OI<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Call Open Interest</span>Total active call contracts. Large number = more sellers at this strike = stronger resistance.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE ΔOI<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">CE OI Change today</span>+ = new call writers added = resistance building. − = call writers leaving = ceiling lifting (good for call buyers).</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE Vol<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">CE Volume</span>Contracts traded today. High vol + rising OI = fresh aggressive positions.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE IV<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Implied Volatility (CE)</span>Market's expectation of volatility priced into the option. High IV = expensive options. As a buyer, prefer LOW IV strikes.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE Δ<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Delta</span>How much option LTP changes per 1 pt NIFTY move. ATM ≈ 0.5. Deep OTM &lt; 0.2. Target 0.35–0.50 for best risk/reward as a buyer.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE θ<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Theta (Daily Decay)</span>₹ you lose per day just by holding. Your enemy as a buyer. Accelerates near expiry. Lower = better for option buyers.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE V<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Vega</span>How much option LTP changes per 1% change in IV. High vega = option gains if volatility rises (good for buyers when IV expands).</div></th>
+            <th class="tip" style="position:relative;cursor:help;">CE LTP<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Last Traded Price</span>Current market price of this call option. This is what you pay to buy.</div></th>
+            <!-- Center -->
+            <th class="ctr tip" style="position:relative;cursor:help;">Strike<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Strike Price</span>The price at which you have the right to buy (CE) or sell (PE) NIFTY. ATM = closest to current market price (highlighted in amber).</div></th>
+            <!-- PE side -->
+            <th class="tip" style="position:relative;cursor:help;">PE LTP<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Put Last Traded Price</span>Current market price of this put option.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE V<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE Vega</span>Same as CE Vega but for puts. Rising IV helps put buyers too.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE θ<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE Theta</span>Daily decay on put option. Your cost for holding overnight.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE Δ<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Put Delta</span>Negative for puts. −0.5 at ATM. Target −0.35 to −0.50 for directional put buying.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE IV<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE Implied Volatility</span>Lower = cheaper put premium. Look for puts with IV skew — OTM puts often have higher IV (volatility skew).</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE Vol<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE Volume</span>High put volume + high PE ΔOI = fresh put writing = support being built.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE ΔOI<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">PE OI Change today</span>+ = new put writers adding positions = support building. − = put writers exiting = support weakening.</div></th>
+            <th class="tip" style="position:relative;cursor:help;">PE OI<i class="tip-icon">i</i><div class="tip-box"><span class="tip-title">Put Open Interest</span>Total active put contracts. Large number = strong support wall at this level.</div></th>
+          </tr>
+        </thead>
+        <tbody id="chain-body"></tbody>
+      </table>
+    </div>
+  </div><!-- /right -->
+
+</div><!-- /body -->
+
+<!-- ── BOTTOM BAR ─────────────────────────────────────────── -->
+<div id="bottom">
+  <div class="bottom-dir" id="bot-dir" style="color:var(--amber);">—</div>
+  <div class="bottom-reasons" id="bot-reason"></div>
+  <div class="bottom-preferred">
+    <div class="bp-label">Preferred Trade</div>
+    <div class="bp-strike" id="bot-strike">—</div>
+    <div class="bp-avoid" id="bot-avoid"></div>
+  </div>
+</div>
+
+<script>
+/* ── Formatting helpers ───────────────────────────────────── */
+const API = "/api/data";
+let D = null;
+
+const fmtI = n => Math.round(n||0).toLocaleString('en-IN');
+const fmtL = n => {
+  const v = (n||0)/100000;
+  return (v>=0?"+":"")+v.toFixed(2)+"L";
+};
+const fmtLabs = n => {
+  const v = Math.abs(n||0)/100000;
+  return v.toFixed(2)+"L";
+};
+const fmtOI = n => {
+  const v = Math.abs(n||0);
+  return v>=100000 ? (v/100000).toFixed(1)+"L" : v>=1000 ? (v/1000).toFixed(0)+"K" : String(v);
+};
+const fmtDOI = n => {
+  const v = n||0;
+  const abs = Math.abs(v)/100000;
+  return (v>=0?"+":"-")+abs.toFixed(2)+"L";
+};
+const stars = n => {
+  let s = "";
+  for(let i=1;i<=5;i++) s+=`<span class="${i<=n?'star-on':'star-off'}">★</span>`;
+  return s;
+};
+
+/* ── Render ────────────────────────────────────────────────── */
+function render(d) {
+  D = d;
+
+  /* Header */
+  document.getElementById("h-ltp").textContent = fmtI(d.ltp);
+  document.getElementById("h-atm").textContent = fmtI(d.atm);
+  const supEl = document.getElementById("h-sup");
+  supEl.textContent = fmtI(d.support);
+  supEl.style.color = "var(--green)";
+  document.getElementById("h-sup-pt").textContent = `(−${Math.abs(d.dist_support)} pts)`;
+  const resEl = document.getElementById("h-res");
+  resEl.textContent = fmtI(d.resistance);
+  resEl.style.color = "var(--red)";
+  document.getElementById("h-res-pt").textContent = `(+${d.dist_resistance} pts)`;
+  document.getElementById("ts").textContent = new Date().toLocaleTimeString('en-IN');
+
+  /* Support card */
+  const sr = d.sup_row;
+  document.getElementById("s-sup-strike").textContent = fmtI(sr.strike);
+  document.getElementById("s-sup-oi").textContent  = fmtLabs(sr.pe_oi)+"L";
+  const sdoi = document.getElementById("s-sup-doi");
+  sdoi.textContent = fmtDOI(sr.pe_doi);
+  sdoi.className = "dr-val " + (sr.pe_doi>0?"green":"red");
+  document.getElementById("s-sup-vol").textContent = fmtLabs(sr.pe_vol)+"L";
+  document.getElementById("s-sup-stars").innerHTML = stars(sr.stars);
+  document.getElementById("s-sup-explain").textContent = sr.explanation;
+
+  /* Resistance card */
+  const rr = d.res_row;
+  document.getElementById("s-res-strike").textContent = fmtI(rr.strike);
+  document.getElementById("s-res-oi").textContent  = fmtLabs(rr.ce_oi)+"L";
+  const rdoi = document.getElementById("s-res-doi");
+  rdoi.textContent = fmtDOI(rr.ce_doi);
+  rdoi.className = "dr-val " + (rr.ce_doi>0?"red":"green");
+  document.getElementById("s-res-vol").textContent = fmtLabs(rr.ce_vol)+"L";
+  document.getElementById("s-res-stars").innerHTML = stars(rr.stars);
+  document.getElementById("s-res-explain").textContent = rr.explanation;
+
+  /* Top 3 */
+  const peCont = document.getElementById("top3-pe");
+  const ceCont = document.getElementById("top3-ce");
+  peCont.innerHTML = ceCont.innerHTML = "";
+  d.top3_pe.forEach((r,i)=>{
+    const clr = r.pe_doi>0?"green":"red";
+    peCont.innerHTML += `<div class="rank-row" style="background:var(--bg4)">
+      <span class="rr-num dim">${i+1}</span>
+      <span class="rr-strike">${r.strike}</span>
+      <span class="rr-doi ${clr}">${fmtDOI(r.pe_doi)}</span>
+    </div>`;
+  });
+  d.top3_ce.forEach((r,i)=>{
+    const clr = r.ce_doi>0?"red":"green";
+    ceCont.innerHTML += `<div class="rank-row" style="background:var(--bg4)">
+      <span class="rr-num dim">${i+1}</span>
+      <span class="rr-strike">${r.strike}</span>
+      <span class="rr-doi ${clr}">${fmtDOI(r.ce_doi)}</span>
+    </div>`;
+  });
+
+  /* Market positioning */
+  const dir = d.mkt_direction;
+  const dirEl = document.getElementById("mkt-dir");
+  dirEl.textContent = dir;
+  dirEl.style.color = dir==="Bullish"?"var(--green)":dir==="Bearish"?"var(--red)":"var(--amber)";
+  document.getElementById("mkt-reason").textContent = d.mkt_reason;
+  /* PCR bar */
+  const totalDOI = d.total_pe_doi + d.total_ce_doi;
+  const pePct = totalDOI>0 ? Math.round((d.total_pe_doi/totalDOI)*100) : 50;
+  const fill = document.getElementById("pcr-fill");
+  fill.style.width = pePct+"%";
+  fill.style.background = dir==="Bullish"?"var(--green)":dir==="Bearish"?"var(--red)":"var(--amber)";
+  document.getElementById("pcr-pe-label").textContent = `PE +${fmtLabs(d.total_pe_doi)}L`;
+  document.getElementById("pcr-ce-label").textContent = `CE +${fmtLabs(d.total_ce_doi)}L`;
+
+  /* Strike recommendations */
+  function qualityBadge(q){
+    if(!q) return "";
+    const cls = q.label==="GOOD"?"q-good":q.label==="FAIR"?"q-fair":"q-poor";
+    const items = [...q.goods.map(x=>`<span class="green">✓</span> ${x}`),...q.issues.map(x=>`<span class="red">✗</span> ${x}`)];
+    return `<span class="quality-badge ${cls}">Buyer Quality: ${q.label}</span>
+      <div style="font-size:10px;margin-top:5px;line-height:1.6;color:var(--t2);">${items.join("<br/>")}</div>`;
+  }
+  const ceCnt = document.getElementById("rec-ce-card");
+  if(d.rec_ce){
+    const c = d.rec_ce;
+    ceCnt.innerHTML = `<div class="rec-card rec-call">
+      <div class="rec-type">Recommended Call Buy</div>
+      <div class="rec-strike">${fmtI(c.strike)} CE</div>
+      <div class="rec-meta">
+        LTP ₹${c.ce_ltp} &nbsp;·&nbsp; Δ ${c.ce_d} &nbsp;·&nbsp; θ ${c.ce_th}/day &nbsp;·&nbsp; V ${c.ce_vg} &nbsp;·&nbsp; IV ${c.ce_iv}%
+      </div>
+      ${qualityBadge(c.quality)}
+      <div class="rec-reason">${c.reason}</div>
+    </div>`;
+  }
+  const peCnt = document.getElementById("rec-pe-card");
+  if(d.rec_pe){
+    const p = d.rec_pe;
+    peCnt.innerHTML = `<div class="rec-card rec-put">
+      <div class="rec-type">Recommended Put Buy (if bearish)</div>
+      <div class="rec-strike">${fmtI(p.strike)} PE</div>
+      <div class="rec-meta">
+        LTP ₹${p.pe_ltp} &nbsp;·&nbsp; Δ ${p.pe_d} &nbsp;·&nbsp; θ ${p.pe_th}/day &nbsp;·&nbsp; V ${p.pe_vg} &nbsp;·&nbsp; IV ${p.pe_iv}%
+      </div>
+      ${qualityBadge(p.quality)}
+      <div class="rec-reason">${p.reason}</div>
+    </div>`;
+  }
+
+  /* Calculator selects */
+  const sel = document.getElementById("calc-strike");
+  sel.innerHTML = "";
+  d.chain.forEach(r=>{
+    const opt = document.createElement("option");
+    opt.value = r.strike;
+    opt.textContent = fmtI(r.strike);
+    sel.appendChild(opt);
+  });
+  calcUpdate();
+
+  /* Heatmap */
+  const atm = d.atm;
+  const abv = d.chain.filter(r=>r.strike>atm).sort((a,b)=>b.ce_oi-a.ce_oi).slice(0,5);
+  const blw = d.chain.filter(r=>r.strike<atm).sort((a,b)=>b.pe_oi-a.pe_oi).slice(0,5);
+  const maxCE = Math.max(...abv.map(r=>r.ce_oi),1);
+  const maxPE = Math.max(...blw.map(r=>r.pe_oi),1);
+  let hm = `<div class="hm-label">Resistance (CE OI)</div>`;
+  abv.sort((a,b)=>b.strike-a.strike).forEach(r=>{
+    const pct = Math.round(r.ce_oi/maxCE*100);
+    const clr = r.ce_doi>0?"red":"orange";
+    hm += `<div class="hm-tr">
+      <div class="hm-strike red">${fmtI(r.strike)}</div>
+      <div class="hm-bar-wrap"><div class="hm-bar hm-bar-res" style="width:${pct}%"></div></div>
+      <div class="hm-oi dim">${fmtOI(r.ce_oi)}</div>
+      <div class="hm-doi ${clr}">${fmtDOI(r.ce_doi)}</div>
+    </div>`;
+  });
+  hm += `<div class="hm-sep"></div><div class="hm-label">Support (PE OI)</div>`;
+  blw.sort((a,b)=>b.strike-a.strike).forEach(r=>{
+    const pct = Math.round(r.pe_oi/maxPE*100);
+    const clr = r.pe_doi>0?"green":"blue";
+    hm += `<div class="hm-tr">
+      <div class="hm-strike green">${fmtI(r.strike)}</div>
+      <div class="hm-bar-wrap"><div class="hm-bar hm-bar-sup" style="width:${pct}%"></div></div>
+      <div class="hm-oi dim">${fmtOI(r.pe_oi)}</div>
+      <div class="hm-doi ${clr}">${fmtDOI(r.pe_doi)}</div>
+    </div>`;
+  });
+  document.getElementById("hm-container").innerHTML = hm;
+
+  /* Option chain table */
+  const tbody = document.getElementById("chain-body");
+  tbody.innerHTML = "";
+  d.chain.forEach(r=>{
+    const rowCls = r.is_atm?"row-atm":
+      r.color==="strong_call_write"?"row-strong-ce-write":
+      r.color==="strong_put_write" ?"row-strong-pe-write":
+      r.color==="call_unwind"      ?"row-call-unwind":
+      r.color==="put_unwind"       ?"row-put-unwind":"";
+    const ceDelta = r.ce_d >= 0.35 && r.ce_d <= 0.55 ? `<span class="green">${r.ce_d}</span>` : r.ce_d;
+    const peDelta = r.pe_d <= -0.35 && r.pe_d >= -0.55 ? `<span class="red">${r.pe_d}</span>` : r.pe_d;
+    tbody.innerHTML += `<tr class="${rowCls}">
+      <td class="ce-side">${fmtOI(r.ce_oi)}</td>
+      <td class="ce-side ce-doi" style="${r.ce_doi>0?"color:var(--red)":"color:var(--orange)"}">${fmtDOI(r.ce_doi)}</td>
+      <td class="ce-side">${fmtOI(r.ce_vol)}</td>
+      <td class="ce-side">${r.ce_iv}%</td>
+      <td class="ce-side">${ceDelta}</td>
+      <td class="ce-side red">${r.ce_th}</td>
+      <td class="ce-side">${r.ce_vg}</td>
+      <td class="ce-side" style="font-weight:600;color:var(--t1);">${r.ce_ltp}</td>
+      <td class="ctr">${fmtI(r.strike)}${r.is_atm?" ★":""}</td>
+      <td style="font-weight:600;color:var(--t1);">${r.pe_ltp}</td>
+      <td>${r.pe_vg}</td>
+      <td class="red">${r.pe_th}</td>
+      <td>${peDelta}</td>
+      <td>${r.pe_iv}%</td>
+      <td>${fmtOI(r.pe_vol)}</td>
+      <td class="pe-doi" style="${r.pe_doi>0?"color:var(--green)":"color:var(--blue)"}">${fmtDOI(r.pe_doi)}</td>
+      <td>${fmtOI(r.pe_oi)}</td>
+    </tr>`;
+  });
+
+  /* Bottom bar */
+  const bot = d.bottom;
+  const botDir = document.getElementById("bot-dir");
+  botDir.textContent = bot.direction;
+  botDir.style.color = bot.direction==="Bullish"?"var(--green)":bot.direction==="Bearish"?"var(--red)":"var(--amber)";
+  const rHtml = bot.reasons.slice(0,4).map(r=>`<span>${r}</span>`).join(" &nbsp;·&nbsp; ");
+  document.getElementById("bot-reason").innerHTML = rHtml + `<div style="margin-top:3px;font-size:10px;color:var(--t3);">${bot.mkt_reason}</div>`;
+  document.getElementById("bot-strike").textContent = bot.preferred;
+  document.getElementById("bot-avoid").textContent = "Avoid: Far OTM options · Buy near expiry";
+}
+
+/* ── LTP Calculator ──────────────────────────────────────── */
+function calcUpdate(){
+  if(!D) return;
+  const type   = document.getElementById("calc-type").value;
+  const strike = parseFloat(document.getElementById("calc-strike").value);
+  const target = parseFloat(document.getElementById("calc-target").value);
+  const res    = document.getElementById("calc-result");
+  if(!strike || isNaN(target) || target <= 0){ res.style.display="none"; return; }
+
+  const row = D.chain.find(r=>r.strike===strike);
+  if(!row){ res.style.display="none"; return; }
+
+  const ltp   = type==="ce" ? row.ce_ltp   : row.pe_ltp;
+  const delta = type==="ce" ? row.ce_d     : row.pe_d;
+  const move  = target - D.ltp;
+  const expLTP= ltp + move * delta;
+  const gain  = expLTP - ltp;
+  const pct   = ltp>0 ? (gain/ltp*100) : 0;
+
+  res.style.display="block";
+  document.getElementById("cr-ltp").textContent = `₹${ltp}`;
+  document.getElementById("cr-delta").textContent = delta;
+  const expEl = document.getElementById("cr-exp");
+  expEl.textContent = `₹${expLTP.toFixed(1)}`;
+  expEl.style.color = expLTP>=ltp?"var(--green)":"var(--red)";
+  const gainEl = document.getElementById("cr-gain");
+  gainEl.textContent = `${gain>=0?"+":""}₹${gain.toFixed(1)} (${gain>=0?"+":""}${pct.toFixed(1)}%)`;
+  gainEl.className = "cr-val " + (gain>=0?"gain":"loss");
+}
+
+/* ── Fetch data ──────────────────────────────────────────── */
+async function loadData(){
+  const ov  = document.getElementById("overlay");
+  const err = document.getElementById("err");
+  ov.style.display  = "flex";
+  err.style.display = "none";
+  try{
+    const r = await fetch(API);
+    const j = await r.json();
+    if(j.ok){ render(j.data); }
+    else{
+      err.style.display = "block";
+      err.textContent   = "Backend error: " + j.error;
+    }
+  }catch(e){
+    err.style.display = "block";
+    err.textContent   = "Cannot reach backend. Run: python nifty_cockpit_backend.py";
+  }
+  ov.style.display = "none";
+}
+
+loadData();
+</script>
+</body>
+</html>

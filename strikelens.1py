@@ -1,0 +1,89 @@
+from flask import Flask, jsonify, render_template, request
+from Dhan_Tradehull import Tradehull
+
+app = Flask(__name__)
+
+CLIENT_ID    = "1103610460"
+ACCESS_TOKEN = (
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzgwNDY0MDE1LCJpYXQiOjE3ODAzNzc2MTUsInRva2VuQ29uc3VtZXJUeXBlIjoiU0VMRiIsIndlYmhvb2tVcmwiOiIiLCJkaGFuQ2xpZW50SWQiOiIxMTAzNjEwNDYwIn0.4_C_Zr16cq2PXr09gOe5ByfP1XTvEsmoXtGr58qy8cg17kBmci7ikVm_KSiiPqXu2WuksgDSVMkTgQIJeRk5xA"
+)
+def sf(v):
+    try: return float(v)
+    except: return 0.0
+
+def estimate_ltp(current_ltp, delta, gamma, theta, move, days=0):
+    return round(current_ltp + (delta*move) + (0.5*gamma*move*move) - (abs(theta)*days),2)
+
+@app.route("/api/data")
+def data():
+    tsl = Tradehull(CLIENT_ID, ACCESS_TOKEN)
+    atm, oc = tsl.get_option_chain(
+        Underlying="NIFTY",
+        exchange="INDEX",
+        expiry=1,
+        num_strikes=10
+    )
+
+    avg_ce_vol = oc["CE Volume"].mean()
+    avg_pe_vol = oc["PE Volume"].mean()
+
+    below = oc[oc["Strike Price"] < atm].copy()
+    above = oc[oc["Strike Price"] > atm].copy()
+
+    below["score"] = below["PE OI"]*0.5 + below["PE Chg in OI"].clip(lower=0)*0.3 + below["PE Volume"]*0.2
+    above["score"] = above["CE OI"]*0.5 + above["CE Chg in OI"].clip(lower=0)*0.3 + above["CE Volume"]*0.2
+
+    support = below.sort_values("score", ascending=False).iloc[0]
+    resistance = above.sort_values("score", ascending=False).iloc[0]
+    highest_pe_oi = oc["PE OI"].max()
+    highest_ce_oi = oc["CE OI"].max()
+
+    highest_pe_vol = oc["PE Volume"].max()
+    highest_ce_vol = oc["CE Volume"].max()
+    rows=[]
+    for _,r in oc.iterrows():
+        rows.append({
+            "strike": sf(r["Strike Price"]),
+            "ce_oi": sf(r["CE OI"]),
+            "ce_doi": sf(r["CE Chg in OI"]),
+            "ce_vol": sf(r["CE Volume"]),
+            "ce_ltp": sf(r["CE LTP"]),
+            "pe_oi": sf(r["PE OI"]),
+            "pe_doi": sf(r["PE Chg in OI"]),
+            "pe_vol": sf(r["PE Volume"]),
+            "pe_ltp": sf(r["PE LTP"]),
+            "atm": sf(r["Strike Price"])==sf(atm),
+            "support": sf(r["Strike Price"])==sf(support["Strike Price"]),
+            "resistance": sf(r["Strike Price"])==sf(resistance["Strike Price"]),
+            "max_pe_oi": sf(r["PE OI"]) == highest_pe_oi,
+            "max_ce_oi": sf(r["CE OI"]) == highest_ce_oi,
+
+            "max_pe_vol": sf(r["PE Volume"]) == highest_pe_vol,
+            "max_ce_vol": sf(r["CE Volume"]) == highest_ce_vol,
+        })
+
+    return jsonify({
+        "atm": atm,
+        "support": {
+            "strike": sf(support["Strike Price"]),
+            "oi": sf(support["PE OI"]),
+            "doi": sf(support["PE Chg in OI"]),
+            "vol": sf(support["PE Volume"]),
+            "reason": "Strongest active put writing nearest below spot"
+        },
+        "resistance": {
+            "strike": sf(resistance["Strike Price"]),
+            "oi": sf(resistance["CE OI"]),
+            "doi": sf(resistance["CE Chg in OI"]),
+            "vol": sf(resistance["CE Volume"]),
+            "reason": "Strongest active call writing nearest above spot"
+        },
+        "chain": rows
+    })
+
+@app.route("/")
+def home():
+    return render_template("strikelens_dashboard.html")
+
+if __name__ == "__main__":
+    app.run(port=8080,debug=True)

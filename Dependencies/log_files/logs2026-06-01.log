@@ -1,0 +1,166 @@
+INFO:2026-06-01 00:00:01,771:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:00:01,772:Thread-3 (process_request_thread):System Started
+INFO:2026-06-01 00:00:01,986:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:00:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ERROR:2026-06-01 00:00:02,823:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-01 00:00:02,823:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-01 00:00:02,845:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:00:02] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-01 00:00:11,642:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:00:11,642:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-01 00:00:12,625:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-01 00:00:12,625:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-01 00:00:12,625:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:00:12] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-01 00:00:53,596:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:00:53,597:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-01 00:00:54,684:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-01 00:00:54,684:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-01 00:00:54,696:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:00:54] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-01 00:01:14,163:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:01:14,163:Thread-3 (process_request_thread):System Started
+ERROR:2026-06-01 00:01:14,979:Thread-3 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-01 00:01:14,980:Thread-3 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-01 00:01:15,010:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:01:15] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-01 00:01:16,965:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:01:16,965:Thread-4 (process_request_thread):System Started
+ERROR:2026-06-01 00:01:17,599:Thread-4 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-01 00:01:17,599:Thread-4 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-01 00:01:17,615:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:01:17] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-01 00:01:21,202:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:01:21,205:Thread-5 (process_request_thread):System Started
+ERROR:2026-06-01 00:01:21,917:Thread-5 (process_request_thread):Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+ERROR:2026-06-01 00:01:21,917:Thread-5 (process_request_thread):Exception in renew_token: Failed to renew token: {'errorType': 'Order_Error', 'errorCode': 'DH-906', 'errorMessage': 'Invalid Token'}
+INFO:2026-06-01 00:01:21,935:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:01:21] "[35m[1mGET /api/data HTTP/1.1[0m" 500 -
+INFO:2026-06-01 00:01:48,819:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-01 00:01:54,620:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:01:54,620:Thread-3 (process_request_thread):System Started
+INFO:2026-06-01 00:02:04,765:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:02:04] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 00:03:02,642:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:03:02,642:Thread-3 (process_request_thread):System Started
+INFO:2026-06-01 00:03:07,016:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:03:07] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 00:03:12,143:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:03:12] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-01 00:03:12,451:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 00:03:12,454:Thread-5 (process_request_thread):System Started
+INFO:2026-06-01 00:03:16,690:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 00:03:16] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:29:47,535:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:29:47,535:Thread-3 (process_request_thread):System Started
+INFO:2026-06-01 09:29:47,574:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:29:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:2026-06-01 09:29:54,063:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:29:54] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:36:04,118:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:36:04,118:Thread-5 (process_request_thread):System Started
+INFO:2026-06-01 09:36:09,583:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:36:09] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:43:19,876:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:43:19,876:Thread-6 (process_request_thread):System Started
+INFO:2026-06-01 09:43:24,937:Thread-6 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:43:24] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:44:26,367:Thread-3 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:44:26,368:Thread-3 (process_request_thread):System Started
+INFO:2026-06-01 09:44:26,563:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:44:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:2026-06-01 09:44:31,528:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:44:31] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:44:40,014:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:44:40,014:Thread-5 (process_request_thread):System Started
+INFO:2026-06-01 09:44:44,833:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:44:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:49:35,204:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:49:35,206:Thread-2 (process_request_thread):System Started
+INFO:2026-06-01 09:49:40,032:Thread-2 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:49:40] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:49:42,852:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:49:42] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-01 09:49:42,926:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:49:42,927:Thread-4 (process_request_thread):System Started
+INFO:2026-06-01 09:49:48,184:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:49:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:52:46,096:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:52:46] "GET / HTTP/1.1" 200 -
+INFO:2026-06-01 09:52:46,181:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:52:46,182:Thread-6 (process_request_thread):System Started
+INFO:2026-06-01 09:52:51,795:Thread-6 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:52:51] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 09:55:52,735:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 09:55:52,735:Thread-7 (process_request_thread):System Started
+INFO:2026-06-01 09:55:58,090:Thread-7 (process_request_thread):127.0.0.1 - - [01/Jun/2026 09:55:58] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 10:16:59,610:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 10:16:59,610:Thread-8 (process_request_thread):System Started
+INFO:2026-06-01 10:17:04,971:Thread-8 (process_request_thread):127.0.0.1 - - [01/Jun/2026 10:17:04] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 10:21:02,704:Thread-9 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 10:21:02,704:Thread-9 (process_request_thread):System Started
+INFO:2026-06-01 10:21:07,348:Thread-9 (process_request_thread):127.0.0.1 - - [01/Jun/2026 10:21:07] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 10:25:56,694:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 10:25:56,694:Thread-10 (process_request_thread):System Started
+INFO:2026-06-01 10:26:01,829:Thread-10 (process_request_thread):127.0.0.1 - - [01/Jun/2026 10:26:01] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 10:52:57,529:Thread-11 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 10:52:57,529:Thread-11 (process_request_thread):System Started
+INFO:2026-06-01 10:53:02,864:Thread-11 (process_request_thread):127.0.0.1 - - [01/Jun/2026 10:53:02] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 10:58:41,027:Thread-12 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 10:58:41,028:Thread-12 (process_request_thread):System Started
+INFO:2026-06-01 10:58:46,285:Thread-12 (process_request_thread):127.0.0.1 - - [01/Jun/2026 10:58:46] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:03:40,679:Thread-13 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:03:40,679:Thread-13 (process_request_thread):System Started
+INFO:2026-06-01 11:03:45,669:Thread-13 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:03:45] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:04:19,072:Thread-14 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:04:19,072:Thread-14 (process_request_thread):System Started
+INFO:2026-06-01 11:04:24,051:Thread-14 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:04:24] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:04:30,905:Thread-15 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:04:30,905:Thread-15 (process_request_thread):System Started
+INFO:2026-06-01 11:04:35,791:Thread-15 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:04:35] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:08:21,807:Thread-16 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:08:21,807:Thread-16 (process_request_thread):System Started
+INFO:2026-06-01 11:08:26,872:Thread-16 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:08:26] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:09:42,457:Thread-17 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:09:42,457:Thread-17 (process_request_thread):System Started
+INFO:2026-06-01 11:09:47,696:Thread-17 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:09:47] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:15:16,471:Thread-18 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:15:16,471:Thread-18 (process_request_thread):System Started
+INFO:2026-06-01 11:15:21,522:Thread-18 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:15:21] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:18:39,336:Thread-19 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:18:39,336:Thread-19 (process_request_thread):System Started
+INFO:2026-06-01 11:18:44,555:Thread-19 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:18:44] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:21:35,877:Thread-20 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:21:35,877:Thread-20 (process_request_thread):System Started
+INFO:2026-06-01 11:21:40,916:Thread-20 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:21:40] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:35:04,672:Thread-21 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:35:04,673:Thread-21 (process_request_thread):System Started
+INFO:2026-06-01 11:35:10,252:Thread-21 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:35:10] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:39:21,845:MainThread: * Detected change in 'C:\\Trading\\dhanhq\\tradehull\\1. Option Chain\\strikelens.py', reloading
+INFO:2026-06-01 11:41:57,774:Thread-2 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:41:57,774:Thread-2 (process_request_thread):System Started
+INFO:2026-06-01 11:42:03,117:Thread-2 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:42:03] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:52:05,166:Thread-3 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:52:05] "GET / HTTP/1.1" 200 -
+INFO:2026-06-01 11:52:05,258:Thread-4 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:52:05,259:Thread-4 (process_request_thread):System Started
+INFO:2026-06-01 11:52:10,916:Thread-4 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:52:10] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 11:55:11,674:Thread-5 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 11:55:11,674:Thread-5 (process_request_thread):System Started
+INFO:2026-06-01 11:55:17,338:Thread-5 (process_request_thread):127.0.0.1 - - [01/Jun/2026 11:55:17] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 12:01:23,379:Thread-6 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 12:01:23,380:Thread-6 (process_request_thread):System Started
+INFO:2026-06-01 12:01:38,469:Thread-6 (process_request_thread):127.0.0.1 - - [01/Jun/2026 12:01:38] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 12:08:57,428:Thread-7 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 12:08:57,428:Thread-7 (process_request_thread):System Started
+INFO:2026-06-01 12:09:02,923:Thread-7 (process_request_thread):127.0.0.1 - - [01/Jun/2026 12:09:02] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 12:24:05,459:Thread-8 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 12:24:05,459:Thread-8 (process_request_thread):System Started
+INFO:2026-06-01 12:24:10,775:Thread-8 (process_request_thread):127.0.0.1 - - [01/Jun/2026 12:24:10] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 12:27:11,676:Thread-9 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 12:27:11,677:Thread-9 (process_request_thread):System Started
+INFO:2026-06-01 12:27:18,228:Thread-9 (process_request_thread):127.0.0.1 - - [01/Jun/2026 12:27:18] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 12:28:42,998:Thread-10 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 12:28:42,998:Thread-10 (process_request_thread):System Started
+INFO:2026-06-01 12:28:48,265:Thread-10 (process_request_thread):127.0.0.1 - - [01/Jun/2026 12:28:48] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 12:33:01,667:Thread-11 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 12:33:01,668:Thread-11 (process_request_thread):System Started
+INFO:2026-06-01 12:33:07,489:Thread-11 (process_request_thread):127.0.0.1 - - [01/Jun/2026 12:33:07] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 13:26:33,735:Thread-12 (process_request_thread):127.0.0.1 - - [01/Jun/2026 13:26:33] "[36mGET / HTTP/1.1[0m" 304 -
+INFO:2026-06-01 13:26:33,792:Thread-13 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 13:26:33,792:Thread-13 (process_request_thread):System Started
+INFO:2026-06-01 13:26:39,882:Thread-13 (process_request_thread):127.0.0.1 - - [01/Jun/2026 13:26:39] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 13:39:21,931:Thread-14 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 13:39:21,931:Thread-14 (process_request_thread):System Started
+INFO:2026-06-01 13:39:27,380:Thread-14 (process_request_thread):127.0.0.1 - - [01/Jun/2026 13:39:27] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 13:44:45,664:Thread-15 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 13:44:45,664:Thread-15 (process_request_thread):System Started
+INFO:2026-06-01 13:44:52,412:Thread-15 (process_request_thread):127.0.0.1 - - [01/Jun/2026 13:44:52] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 13:52:31,148:Thread-16 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 13:52:31,148:Thread-16 (process_request_thread):System Started
+INFO:2026-06-01 13:52:39,708:Thread-16 (process_request_thread):127.0.0.1 - - [01/Jun/2026 13:52:39] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 14:10:05,045:Thread-17 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 14:10:05,045:Thread-17 (process_request_thread):System Started
+INFO:2026-06-01 14:10:11,105:Thread-17 (process_request_thread):127.0.0.1 - - [01/Jun/2026 14:10:11] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 14:44:33,945:Thread-18 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 14:44:33,946:Thread-18 (process_request_thread):System Started
+INFO:2026-06-01 14:44:39,797:Thread-18 (process_request_thread):127.0.0.1 - - [01/Jun/2026 14:44:39] "GET /api/data HTTP/1.1" 200 -
+INFO:2026-06-01 15:03:50,342:Thread-19 (process_request_thread):Dhan.py System Started
+INFO:2026-06-01 15:03:50,342:Thread-19 (process_request_thread):System Started
+INFO:2026-06-01 15:03:56,212:Thread-19 (process_request_thread):127.0.0.1 - - [01/Jun/2026 15:03:56] "GET /api/data HTTP/1.1" 200 -
