@@ -27,7 +27,7 @@ header{flex:0 0 auto;background:#fff;border-bottom:1px solid #e5e7eb;padding:10p
 .main{flex:1 1 auto;overflow-y:auto;padding:14px 24px 20px;display:flex;flex-direction:column;gap:14px}
 
 /* ── Cards ── */
-.top-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;flex:0 0 auto}
+.top-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:0 0 auto}
 .card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px}
 .card-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#9ca3af;margin-bottom:6px}
 .card-title{font-size:22px;font-weight:600;font-family:'IBM Plex Mono',monospace;margin-bottom:4px}
@@ -438,7 +438,6 @@ function renderDashboard(data){
   main.innerHTML=`
     <div class="top-grid">
       <div class="card ${trendBorderCls}">${trendHtml}</div>
-      <div class="card" id="atm-positioning"></div>
       <div class="card card-support">
         <div class="card-label">Strongest support</div>
         <div class="card-title" style="color:#15803d">${data.support.strike}</div>
@@ -495,53 +494,7 @@ function renderDashboard(data){
         </table>
       </div>
     </div>`;
-if(data.atm_positioning){
-
-    const p =
-        data.atm_positioning;
-
-    document.getElementById(
-        'atm-positioning'
-    ).innerHTML = `
-
-        <div class="card-label">
-            ATM Positioning
-        </div>
-
-        <div class="card-title">
-            ${p.label}
-        </div>
-
-        <div class="card-stats">
-
-            <div class="stat">
-                <div class="stat-label">
-                    PE Score
-                </div>
-
-                <div class="stat-value">
-                    ${fmt(p.pe_score)}
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="stat-label">
-                    CE Score
-                </div>
-
-                <div class="stat-value">
-                    ${fmt(p.ce_score)}
-                </div>
-            </div>
-
-        </div>
-
-        <div class="card-reason">
-            ${p.reason}
-        </div>
-
-    `;
-}
+    
   const diff =
     (data.spot - data.atm).toFixed(2);
 

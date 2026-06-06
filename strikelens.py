@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 CLIENT_ID    = "1103610460"
 ACCESS_TOKEN = (
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzgwNTU0ODc0LCJpYXQiOjE3ODA0Njg0NzQsInRva2VuQ29uc3VtZXJUeXBlIjoiU0VMRiIsIndlYmhvb2tVcmwiOiIiLCJkaGFuQ2xpZW50SWQiOiIxMTAzNjEwNDYwIn0.hpXXP7vq0q3GoljLL9DxUNfkmG76MNaApVgGRBC85U_nmiZLv7B0nTjS3xSD2hZvaOgJMg6l0RKZr0gTDr6VcA"
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzgwODYyNTk1LCJpYXQiOjE3ODA3NzYxOTUsInRva2VuQ29uc3VtZXJUeXBlIjoiU0VMRiIsIndlYmhvb2tVcmwiOiIiLCJkaGFuQ2xpZW50SWQiOiIxMTAzNjEwNDYwIn0.ZYd66AG8Ay_WspmVQIei0Pj9RR21CM1WWN8djNuU3H0cyTezQGdCJbVEGVi7Q8qlhE5aNUgJHlwsTzaNp5I0xg"
 )
 
 def sf(v):
@@ -78,70 +78,7 @@ def compute_trend(chain, atm):
         )
 
     return {"label": trend, "explanation": explanation}
-def compute_atm_positioning(chain, atm):
 
-    strikes = sorted(
-        [r["strike"] for r in chain]
-    )
-
-    atm_index = strikes.index(atm)
-    selected_strikes = strikes[
-        max(0, atm_index - 1):
-        min(len(strikes), atm_index + 2)
-    ]
-
-    atm_zone = [
-        r for r in chain
-        if r["strike"] in selected_strikes
-    ]
-
-    pe_score = 0
-    ce_score = 0
-
-    for r in atm_zone:                                                                          
-
-        pe_score += (
-            max(r["pe_doi"],0) * 0.7 +
-            r["pe_vol"] * 0.3
-        )
-
-        ce_score += (
-            max(r["ce_doi"],0) * 0.7 +
-            r["ce_vol"] * 0.3
-        )               
-
-    if pe_score > ce_score * 1.15:
-
-        label = "Bullish"
-
-        reason = (
-            "ATM and ATM-1 show stronger Put activity. "
-            "Put writers are defending current levels."
-        )
-
-    elif ce_score > pe_score * 1.15:
-
-        label = "Bearish"
-
-        reason = (
-             "ATM and ATM-1 show stronger Call activity. "
-            "Call writers are capping upside."
-        )
-
-    else:
-
-        label = "Neutral"
-
-        reason = (
-            "PE and CE activity around ATM is balanced."
-        )
-
-    return {
-        "label": label,
-        "reason": reason,
-        "pe_score": round(pe_score),
-        "ce_score": round(ce_score)
-    }
 
 def build_reason(label, strike, oi, doi, vol):
     """Human-readable reasoning for support / resistance selection."""
@@ -179,7 +116,7 @@ def data():
         Underlying=symbol,
         exchange="INDEX",
         expiry=0,
-        num_strikes=10
+        num_strikes=5
     )
 
     #print("RESULT =", result)
@@ -317,10 +254,7 @@ def data():
 
         print("SPOT ERROR:", e)
 
-    atm_positioning = compute_atm_positioning(
-        rows,
-        sf(atm)
-    )
+    
     # ── Support / resistance reasoning ───────────────────────────────────────
     sup_reason = build_reason(
         "support",
@@ -341,7 +275,6 @@ def data():
         "spot": spot,
         "atm": sf(atm),
         "trend": trend,                        # NEW — used by Trend card
-        "atm_positioning": atm_positioning,
         "support": {
             "strike": sf(support["Strike Price"]),
             "oi":     sf(support["PE OI"]),
